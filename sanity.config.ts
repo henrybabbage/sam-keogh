@@ -23,7 +23,7 @@ const title = process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'Sam Keogh'
 const singletonActions = new Set(['publish', 'discardChanges', 'restore'])
 
 // Define the singleton document types
-const singletonTypes = new Set(['home'])
+const singletonTypes = new Set(['home', 'settings', 'theme', 'bio'])
 
 export default defineConfig({
   basePath: '/studio',
