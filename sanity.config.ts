@@ -4,6 +4,7 @@
 
 import { visionTool } from '@sanity/vision'
 import { defineConfig } from 'sanity'
+import { simplerColorInput } from 'sanity-plugin-simpler-color-input'
 import { deskTool } from 'sanity/desk'
 import { pageStructure, singletonPlugin } from './sanity/plugins/settings'
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
@@ -11,6 +12,8 @@ import { apiVersion, dataset, projectId } from './sanity/env'
 import { schema } from './sanity/schema'
 import bio from './sanity/schemas/singletons/bio'
 import home from './sanity/schemas/singletons/home'
+import settings from './sanity/schemas/singletons/settings'
+import theme from './sanity/schemas/singletons/theme'
 
 export const PREVIEWABLE_DOCUMENT_TYPES: string[] = []
 
@@ -34,13 +37,14 @@ export default defineConfig({
   },
   plugins: [
     deskTool({
-        structure: pageStructure([home, bio]),
+        structure: pageStructure([home, bio, theme, settings]),
     }),
     // Configures the global "new document" button, and document actions, to suit the Settings document singleton
-    singletonPlugin(['home', 'bio', 'artist', 'category']),
+    singletonPlugin(['home', 'bio', 'artist', 'category', 'settings', 'theme']),
     // Vision is a tool that lets you query your content with GROQ in the studio
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({defaultApiVersion: apiVersion}),
+    simplerColorInput(),
   ],
   document: {
     // For singleton types, filter out actions that are not explicitly included
