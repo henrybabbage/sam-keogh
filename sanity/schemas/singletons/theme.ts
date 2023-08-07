@@ -1,5 +1,5 @@
-import {defineField, defineType} from 'sanity'
-import {ColorWheelIcon} from '@sanity/icons'
+import { ColorWheelIcon } from '@sanity/icons'
+import { defineField, defineType } from 'sanity'
 
 export default defineType({
     name: 'theme',
@@ -7,6 +7,12 @@ export default defineType({
     type: 'document',
     icon: ColorWheelIcon,
     fields: [
+        defineField({
+            name: 'theme',
+            title: 'Theme',
+            type: 'string',
+            hidden: true,
+        }),
         defineField({
             name: 'backgroundColor',
             title: 'Background color',
