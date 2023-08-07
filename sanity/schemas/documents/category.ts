@@ -11,11 +11,7 @@ export default defineType({
       name: 'title',
       title: 'Title',
       type: 'string',
-    }),
-    defineField({
-      name: 'description',
-      title: 'Description',
-      type: 'text',
-    }),
-  ],
+      description: 'Video, installation, etc'
+    })
+  ]
 })

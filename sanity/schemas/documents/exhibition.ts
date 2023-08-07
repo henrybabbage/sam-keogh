@@ -1,74 +1,131 @@
-import {defineField, defineType} from 'sanity'
-import {StackCompactIcon} from '@sanity/icons'
+import { StackCompactIcon } from '@sanity/icons'
+import { defineField, defineType } from 'sanity'
 
 export default defineType({
   name: 'exhibition',
-  title: 'Exhibition',
+  title: 'Exhibitions',
   type: 'document',
   icon: StackCompactIcon,
   fields: [
     defineField({
-      name: 'title',
-      title: 'Title',
-      type: 'string',
+        name: 'title',
+        title: 'Title',
+        type: 'string',
     }),
     defineField({
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
-      options: {
-        source: 'title',
-        maxLength: 96,
-      },
+        name: 'subtitle',
+        title: 'Subtitle',
+        type: 'string',
+        description: 'Optional',
     }),
     defineField({
-      name: 'artist',
-      title: 'Artist',
-      type: 'reference',
-      to: {type: 'artist'},
+        name: 'slug',
+        title: 'Slug',
+        type: 'slug',
+        options: {
+            source: 'title',
+            maxLength: 96,
+        },
     }),
     defineField({
-      name: 'mainImage',
-      title: 'Main image',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
-      fields: [
-        {
-          name: 'alt',
-          type: 'string',
-          title: 'Alternative Text',
-        }
-      ]
+        title: 'External URL',
+        name: 'url',
+        type: 'url',
+        description: 'Optionally specify an external page link for an exhibition (opens in new tab)',
+        validation: (rule) =>
+            rule.uri({
+                scheme: ['http', 'https'],
+                allowRelative: true,
+        }),
     }),
     defineField({
-      name: 'categories',
-      title: 'Categories',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'category'}}],
+        name: 'mainImage',
+        title: 'Main image',
+        type: 'image',
+        description: 'Image for the exhibition preview',
+        options: {
+            hotspot: true,
+        },
+        fields: [
+            {
+            name: 'alt',
+            title: 'Alternative Text',
+            type: 'string',
+            }
+        ]
     }),
     defineField({
-      name: 'publishedAt',
-      title: 'Published at',
-      type: 'datetime',
+        name: 'imageGallery',
+        title: 'Image gallery',
+        type: 'imageGallery',
+        description: 'Documentation',
     }),
     defineField({
-      name: 'body',
-      title: 'Body',
-      type: 'blockContent',
+        name: 'pressRelease',
+        title: 'Press release',
+        type: 'blockContent',
     }),
+    defineField({
+        name: 'type',
+        title: 'Type',
+        type: 'string',
+        description: 'Solo or Group',
+        options: {
+            list: [
+                { title: 'Solo', value: 'solo' },
+                { title: 'Group', value: 'group' },
+            ],
+            layout: 'dropdown',
+        },
+        initialValue: 'solo',
+    }),
+    defineField({
+        name: 'artist',
+        title: 'Artist(s)',
+        type: 'reference',
+        to: {type: 'artist'},
+        description: 'Participating artist(s)',
+        hidden: ({ document }) => document?.type !== 'group',
+    }),
+    defineField({
+        name: 'startDate',
+        title: 'Start date',
+        type: 'datetime',
+        options: {
+            dateFormat: 'MMMM Do YYYY',
+        },
+    }),
+    defineField({
+        name: 'endDate',
+			title: 'End date',
+			type: 'datetime',
+			options: {
+				dateFormat: 'MMMM Do YYYY',
+			},
+			validation: (Rule) => Rule.warning().min(Rule.valueOfField('startDate')),
+    }),
+    defineField({
+        name: 'venue',
+        title: 'Venue',
+        type: 'reference',
+        description: 'Location of the exhibition',
+        to: [{ type: 'venue' }],
+    }),
+    defineField({
+        name: 'photographerCredit',
+        title: 'Photographer credit',
+        type: 'string',
+    })
   ],
-
   preview: {
     select: {
-      title: 'title',
-      artist: 'artist.name',
-      media: 'mainImage',
+        title: 'title',
+        artist: 'artist.name',
+        media: 'mainImage',
     },
     prepare(selection) {
-      const {artist} = selection
-      return {...selection, subtitle: artist && `by ${artist}`}
+        const {artist} = selection
+        return {...selection, subtitle: artist && `by ${artist}`}
     },
   },
 })

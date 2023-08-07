@@ -2,12 +2,18 @@
  * This plugin contains all the logic for setting up the singletons
  */
 
-import { apiVersion, previewSecretId } from '../lib/sanity.api'
 import { type DocumentDefinition } from 'sanity'
 import { type StructureResolver } from 'sanity/desk'
+import { apiVersion, previewSecretId } from '../lib/sanity.api'
 
 import { PREVIEWABLE_DOCUMENT_TYPES } from '../../sanity.config'
 import { PreviewPane } from './previewPane/PreviewPane'
+
+import artist from '../schemas/documents/artist'
+import category from '../schemas/documents/category'
+import venue from '../schemas/documents/venue'
+import bio from '../schemas/singletons/bio'
+import home from '../schemas/singletons/home'
 
 export const singletonPlugin = (types: string[]) => {
   return {
@@ -86,7 +92,7 @@ export const pageStructure = (
       .items([
         ...singletonItems,
         S.divider(),
-        ...defaultListItems,
+        ...S.documentTypeListItems().filter(listItem => ![home, bio, venue, artist, category].find((schema) => schema.name === listItem.getId()))
     ])
   }
 }

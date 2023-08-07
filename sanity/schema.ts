@@ -5,7 +5,10 @@ import category from './schemas/documents/category'
 import exhibition from './schemas/documents/exhibition'
 import artist from './schemas/documents/artist'
 import home from './schemas/singletons/home'
+import venue from './schemas/documents/venue'
+import imageGallery from './schemas/objects/imageGallery'
+import bio from './schemas/singletons/bio'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [exhibition, artist, category, blockContent, home],
+  types: [exhibition, artist, category, blockContent, home, venue, imageGallery, bio],
 }

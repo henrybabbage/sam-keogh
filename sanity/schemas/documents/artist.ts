@@ -3,7 +3,7 @@ import { UserIcon } from '@sanity/icons'
 
 export default defineType({
   name: 'artist',
-  title: 'Artist',
+  title: 'Artist(s)',
   type: 'document',
   icon: UserIcon,
   fields: [
@@ -35,19 +35,6 @@ export default defineType({
           title: 'Alternative Text',
         }
       ]
-    }),
-    defineField({
-      name: 'bio',
-      title: 'Bio',
-      type: 'array',
-      of: [
-        {
-          title: 'Block',
-          type: 'block',
-          styles: [{title: 'Normal', value: 'normal'}],
-          lists: [],
-        },
-      ],
     }),
   ],
   preview: {
