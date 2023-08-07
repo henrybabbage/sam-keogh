@@ -38,5 +38,8 @@ export default defineType({
                 }
             ]
         })
-    ]
+    ],
+    options: {
+		layout: 'grid',
+	},
 })
