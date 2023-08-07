@@ -8,8 +8,8 @@ export default defineType({
     icon: ColorWheelIcon,
     fields: [
         defineField({
-            name: 'theme',
-            title: 'Theme',
+            name: 'title',
+            title: 'Title',
             type: 'string',
             hidden: true,
         }),
@@ -26,5 +26,10 @@ export default defineType({
                 ]
             }
         })
-    ]
+    ],
+    preview: {
+        select: {
+            title: 'title',
+        }
+    }
 })

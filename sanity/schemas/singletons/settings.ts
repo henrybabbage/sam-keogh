@@ -8,8 +8,8 @@ export default defineType({
     icon: CogIcon,
     fields: [
         defineField({
-            name: 'settings',
-            title: 'Settings',
+            name: 'title',
+            title: 'Title',
             type: 'string',
             hidden: true,
         }),
@@ -18,5 +18,10 @@ export default defineType({
             title: 'Canonical URL',
             type: 'string',
         })
-    ]
+    ],
+    preview: {
+        select: {
+            title: 'title',
+        }
+    }
 })
