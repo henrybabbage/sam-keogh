@@ -23,9 +23,9 @@ const singletonTypes = new Set(['home'])
 
 export default defineConfig({
   basePath: '/studio',
-  projectId,
-  dataset,
-  title,
+  projectId: projectId,
+  dataset: dataset,
+  title: title,
   // Add and edit the content schema in the './sanity/schema' folder
   schema: {
     types: schema.types,
