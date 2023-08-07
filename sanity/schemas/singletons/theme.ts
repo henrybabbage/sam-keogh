@@ -25,7 +25,37 @@ export default defineType({
                   { label: 'Custom...', value: 'custom' },
                 ]
             }
-        })
+        }),
+        defineField({
+            name: 'typefaceSerif',
+            title: 'Typeface serif',
+            type: 'string',
+            description: 'Select a serif typeface',
+            options: {
+                list: [
+                    { title: 'Simula', value: 'simula' },
+                    { title: 'Mondwest', value: 'mondwest' },
+                    { title: 'Adobe Garamond Pro', value: 'garamond' },
+                ],
+                layout: 'dropdown',
+            },
+            initialValue: 'simula',
+        }),
+        defineField({
+            name: 'typefaceSansSerif',
+            title: 'Typeface sans serif',
+            type: 'string',
+            description: 'Select a sans serif typeface',
+            options: {
+                list: [
+                    { title: 'Azeret', value: 'azeret' },
+                    { title: 'Neuebit', value: 'neuebit' },
+                    { title: 'ROM', value: 'rom' },
+                ],
+                layout: 'dropdown',
+            },
+            initialValue: 'azeret',
+        }),
     ],
     preview: {
         select: {
