@@ -10,7 +10,8 @@ import imageGallery from './schemas/objects/imageGallery'
 import bio from './schemas/singletons/bio'
 import settings from './schemas/singletons/settings'
 import theme from './schemas/singletons/theme'
+import contact from './schemas/singletons/contact'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [exhibition, artist, category, blockContent, home, venue, imageGallery, bio, settings, theme],
+  types: [exhibition, artist, category, blockContent, home, venue, imageGallery, bio, settings, theme, contact],
 }
