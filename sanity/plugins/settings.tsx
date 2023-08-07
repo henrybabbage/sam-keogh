@@ -14,6 +14,8 @@ import category from '../schemas/documents/category'
 import venue from '../schemas/documents/venue'
 import bio from '../schemas/singletons/bio'
 import home from '../schemas/singletons/home'
+import theme from '../schemas/singletons/theme'
+import settings from '../schemas/singletons/settings'
 
 export const singletonPlugin = (types: string[]) => {
   return {
@@ -92,7 +94,7 @@ export const pageStructure = (
       .items([
         ...singletonItems,
         S.divider(),
-        ...S.documentTypeListItems().filter(listItem => ![home, bio, venue, artist, category].find((schema) => schema.name === listItem.getId()))
+        ...S.documentTypeListItems().filter(listItem => ![home, bio, venue, artist, category, theme, settings].find((schema) => schema.name === listItem.getId()))
     ])
   }
 }
