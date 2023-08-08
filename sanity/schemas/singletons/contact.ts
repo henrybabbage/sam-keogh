@@ -23,5 +23,10 @@ export default defineType({
             title: 'Gallery email',
             type: 'string',
         }),
+        defineField({
+            name: 'instagram',
+            title: 'Instagram',
+            type: 'string',
+        })
     ]
 })
