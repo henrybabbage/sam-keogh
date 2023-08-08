@@ -1,6 +1,6 @@
-import { decodeAssetUrl } from '@/sanity/utils/decodeAssetUrl'
 import { CogIcon } from '@sanity/icons'
 import { defineField, defineType } from 'sanity'
+import { decodeAssetUrl } from '../../utils/decodeAssetUrl'
 
 export default defineType({
     name: 'settings',
