@@ -11,6 +11,7 @@ export default defineType({
             name: 'name',
             title: 'Name',
             type: 'string',
+            hidden: true
         }),
         defineField({
             name: 'hero',
@@ -18,20 +19,21 @@ export default defineType({
             description: 'Landing page image',
             type: 'image',
             options: {
-              hotspot: true,
+                storeOriginalFilename: true,
+                hotspot: true
             },
             fields: [
-              {
-                name: 'alt',
-                type: 'string',
-                title: 'Alternative Text',
-              }
+                {
+                    name: 'alt',
+                    title: 'Alternative text',
+                    type: 'string',
+                }
             ]
-        }),
+        })
     ],
     preview: {
         select: {
-          title: 'name',
-        },
-    },
+            title: 'name'
+        }
+    }
 })

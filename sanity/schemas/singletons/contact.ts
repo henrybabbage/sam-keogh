@@ -19,14 +19,14 @@ export default defineType({
             type: 'string',
         }),
         defineField({
-            name: 'galleryEmail',
-            title: 'Gallery email',
-            type: 'string',
-        }),
-        defineField({
             name: 'instagram',
             title: 'Instagram',
-            type: 'string',
-        })
-    ]
+            type: 'link',
+        }),
+        defineField({
+            name: 'gallery',
+            title: 'Gallery',
+            type: 'link',
+        }),
+    ],
 })

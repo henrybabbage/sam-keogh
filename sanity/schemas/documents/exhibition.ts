@@ -39,22 +39,6 @@ export default defineType({
         }),
     }),
     defineField({
-        name: 'mainImage',
-        title: 'Main image',
-        type: 'image',
-        description: 'Image for the exhibition preview',
-        options: {
-            hotspot: true,
-        },
-        fields: [
-            {
-            name: 'alt',
-            title: 'Alternative Text',
-            type: 'string',
-            }
-        ]
-    }),
-    defineField({
         name: 'imageGallery',
         title: 'Image gallery',
         type: 'imageGallery',
@@ -121,7 +105,7 @@ export default defineType({
     select: {
         title: 'title',
         artist: 'artist.name',
-        media: 'mainImage',
+        media: 'imageGallery.[0]',
     },
     prepare(selection) {
         const {artist} = selection

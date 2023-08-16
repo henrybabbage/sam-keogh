@@ -10,7 +10,7 @@ import { pageStructure, singletonPlugin } from './sanity/plugins/settings'
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
 import { apiVersion, dataset, projectId } from './sanity/env'
 import { schema } from './sanity/schema'
-import bio from './sanity/schemas/singletons/bio'
+import bio from './sanity/schemas/singletons/CV'
 import contact from './sanity/schemas/singletons/contact'
 import home from './sanity/schemas/singletons/home'
 import settings from './sanity/schemas/singletons/settings'

@@ -1,15 +1,21 @@
-import {defineField, defineType} from 'sanity'
-import {UserIcon} from '@sanity/icons'
+import { UserIcon } from '@sanity/icons'
+import { defineField, defineType } from 'sanity'
 
 export default defineType({
-    name: 'bio',
-    title: 'Bio',
+    name: 'cv',
+    title: 'CV',
     type: 'document',
     icon: UserIcon,
     fields: [
         defineField({
-            name: 'bio',
-            title: 'Bio',
+            name: 'name',
+            title: 'Name',
+            type: 'string',
+            hidden: true,
+        }),
+        defineField({
+            name: 'cv',
+            title: 'CV',
             type: 'array',
             of: [
                 {
