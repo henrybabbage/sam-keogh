@@ -1,11 +1,12 @@
-import { css } from '@/styled-system/css'
+import { css } from "@/styled-system/css";
+import { flex } from "@/styled-system/patterns";
 
 export default function Nav() {
     return (
-        <div className={css({ display: 'flex', justifyContent: 'space-between', width: '100vw' })}>
-            <h2 className={css({ width: 'fit-content' })}>Exhibitions</h2>
-            <h2 className={css({ width: 'fit-content' })}>Biography</h2>
-            <h2 className={css({ width: 'fit-content' })}>Contact</h2>
+        <div className={flex({ justify: 'space-between' })}>
+            <h2 className={css({ width: 'fit-content', color: 'black' })}>Exhibitions</h2>
+            <h2 className={css({ width: 'fit-content', color: 'black' })}>Biography</h2>
+            <h2 className={css({ width: 'fit-content', color: 'black' })}>Contact</h2>
         </div>
     )
 }

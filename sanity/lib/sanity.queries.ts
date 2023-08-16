@@ -7,17 +7,14 @@ export const homePageQuery = groq`
         _type,
         hero{
             alt,
-            asset->{
-                _id,
-                url,
-                originalFilename,
-                metadata{
-                    lqip,
-                    dimensions{
-                        width,
-                        height,
-                    }
-                }
+            "id": asset._ref,
+            "preview": asset->metadata.lqip,
+            hotspot { x, y },
+            crop {
+                bottom,
+                left,
+                right,
+                top,
             }
         }
     }

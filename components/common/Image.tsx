@@ -7,6 +7,6 @@ const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET
 const baseUrl = `https://cdn.sanity.io/images/${projectId}/${dataset}/`
 
 export const Image = (props: Omit<React.ComponentProps<typeof SanityImage>, 'baseUrl' | 'dataset' | 'projectId'>) => {
-    const { asset, alt, mode, sizes, width, height } = props
-    return <SanityImage baseUrl={baseUrl} id={asset._id} alt={alt} preview={asset.metadata.lqip} mode={mode} sizes={sizes} width={width} height={height} />
+    const { asset, mode, sizes, width, height } = props
+    return <SanityImage baseUrl={baseUrl} id={asset.id} alt={asset.alt} preview={asset.preview} mode={mode} sizes={sizes} width={width} height={height} />
 }
