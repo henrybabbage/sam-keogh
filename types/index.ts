@@ -9,6 +9,7 @@ export interface SanityImageProps {
     _ref: string
     _type: string
     asset: {
+        _ref: string
         url: string
         metadata: {
             lqip: string
