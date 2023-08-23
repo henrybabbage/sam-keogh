@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 'use client'
 
-import { Image } from '@/components/common/Image'
+import { DynamicImage } from '@/components/common/DynamicImage'
 import { css } from '@/styled-system/css'
 import { HomePagePayload } from '@/types'
 
@@ -15,7 +15,7 @@ export default function HomePage({ data }: HomePageProps) {
     return (
         <main className={css({ maxHeight: '100vh', height: '100vh', width: '100%', overflow: 'hidden' })}>
             <div className={css({ height: '60vh' })}>
-                <Image asset={hero} mode="cover" sizes="100vw" />
+                <DynamicImage asset={hero} mode="cover" sizes="100vw" />
             </div>
         </main>
     )

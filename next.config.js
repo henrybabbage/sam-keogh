@@ -1,12 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        remotePatterns: [
-          { hostname: 'cdn.sanity.io' },
-        ],
+        remotePatterns: [{ protocol: 'https', hostname: 'cdn.sanity.io' }]
     },
     experimental: {
-        logging: 'verbose',
+        logging: 'verbose'
     },
     env: {
         NEXT_PUBLIC_SANITY_DATASET: process.env.NEXT_PUBLIC_SANITY_DATASET,
