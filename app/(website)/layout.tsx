@@ -1,9 +1,7 @@
 import Nav from '@/components/common/Nav'
-import clsx from 'clsx'
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import './index.css'
-import { css } from '@/styled-system/css'
 
 const simula = localFont({
     src: '../../fonts/Simula-Book.otf',
@@ -21,7 +19,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en">
-            <body className={(clsx(simula.className), css({ bg: '#FFF1E5' }))}>
+            <body className={simula.className}>
                 {children}
                 <Nav />
             </body>
