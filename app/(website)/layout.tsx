@@ -1,9 +1,17 @@
 import Nav from '@/components/common/Nav'
+import clsx from 'clsx'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import localFont from 'next/font/local'
 import './index.css'
+import { css } from '@/styled-system/css'
 
-const inter = Inter({ subsets: ['latin'] })
+const simula = localFont({
+    src: '../../fonts/Simula-Book.otf',
+    weight: '400',
+    style: 'normal',
+    display: 'swap',
+    variable: '--font-simula'
+})
 
 export const metadata: Metadata = {
     title: 'Sam Keogh',
@@ -13,7 +21,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en">
-            <body className={inter.className}>
+            <body className={(clsx(simula.className), css({ bg: '#FFF1E5' }))}>
                 {children}
                 <Nav />
             </body>

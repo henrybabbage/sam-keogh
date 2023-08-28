@@ -19,3 +19,10 @@ export const homePageQuery = groq`
         }
     }
 `
+export const themeQuery = groq`
+    *[_type == "theme"][0]{
+        typefaceSerif,
+        typefaceSansSerif,
+        backgroundColor,
+    }
+`

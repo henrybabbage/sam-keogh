@@ -1,6 +1,10 @@
 @layer reset, base, tokens, recipes, utilities;
 
 @layer base {
+    :root {
+        font-family: var(--font-simula);
+    }
+
     img {
         display: block;
         max-width: 100%;
