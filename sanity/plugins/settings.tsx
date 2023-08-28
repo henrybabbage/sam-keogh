@@ -77,7 +77,7 @@ export const pageStructure = (typeDefArray: DocumentDefinition[]): StructureReso
         })
 
         // The default root list items (except custom ones)
-        const defaultListItems = S.documentTypeListItems().filter((listItem) => !typeDefArray.find((singleton) => singleton.name === listItem.getId()))
+        // const defaultListItems = S.documentTypeListItems().filter((listItem) => !typeDefArray.find((singleton) => singleton.name === listItem.getId()))
 
         return S.list()
             .title('Content')

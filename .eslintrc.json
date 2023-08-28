@@ -6,7 +6,6 @@
         "prettier"
     ],
     "plugins": [
-        "react-hooks",
         "@typescript-eslint"
     ],
     "rules": {
