@@ -41,7 +41,8 @@ export default defineType({
                 defineField({
                     name: 'alt',
                     title: 'Alternative text',
-                    type: 'string'
+                    type: 'string',
+                    initialValue: 'Artwork by Sam Keogh'
                 }),
                 defineField({
                     title: 'Caption',

@@ -1,5 +1,5 @@
-import { defineField, defineType } from 'sanity'
-import {BlockContentIcon} from '@sanity/icons'
+import { BlockContentIcon } from '@sanity/icons'
+import { defineArrayMember, defineType } from 'sanity'
 
 export default defineType({
     name: 'caption',
@@ -7,31 +7,31 @@ export default defineType({
     type: 'array',
     icon: BlockContentIcon,
     of: [
-        defineField({
-            title: "Block",
-            type: "block",
-            styles: [{ title: "Normal", value: "normal" }],
+        defineArrayMember({
+            title: 'Block',
+            type: 'block',
+            styles: [{ title: 'Normal', value: 'normal' }],
             lists: [],
             marks: {
                 decorators: [
-                    { title: "Strong", value: "strong" },
-                    { title: "Emphasis", value: "em" },
+                    { title: 'Strong', value: 'strong' },
+                    { title: 'Emphasis', value: 'em' }
                 ],
                 annotations: [
                     {
-                        title: "URL",
-                        name: "link",
-                        type: "object",
+                        title: 'URL',
+                        name: 'link',
+                        type: 'object',
                         fields: [
                             {
-                                title: "URL",
-                                name: "href",
-                                type: "url",
+                                title: 'URL',
+                                name: 'href',
+                                type: 'url',
                                 validation: (rule) =>
-                                rule.uri({
-                                    allowRelative: true,
-                                    scheme: ["https", "http", "mailto", "tel"],
-                                }),
+                                    rule.uri({
+                                        allowRelative: true,
+                                        scheme: ['https', 'http', 'mailto', 'tel']
+                                })
                             }
                         ]
                     }

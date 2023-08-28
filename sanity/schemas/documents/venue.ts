@@ -8,8 +8,8 @@ export default defineType({
   icon: PinIcon,
   fields: [
     defineField({
-      name: 'title',
-      title: 'Title',
+      name: 'name',
+      title: 'Name',
       type: 'string',
       description: 'Venue name'
     }),
