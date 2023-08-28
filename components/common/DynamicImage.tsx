@@ -13,11 +13,15 @@ export const DynamicImage = (props: Omit<React.ComponentProps<typeof SanityImage
             baseUrl={baseUrl}
             id={asset?.id}
             alt={asset?.alt}
-            preview={asset?.preview}
+            // preview={asset?.preview}
             mode={mode}
             sizes={sizes}
             width={width}
             height={height}
+            hotspot={asset.hotspot}
+            crop={asset.crop}
+            queryParams={{ q: 75 }}
+            loading="lazy"
         />
     )
 }

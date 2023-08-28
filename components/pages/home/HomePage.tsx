@@ -13,10 +13,32 @@ export default function HomePage({ data }: HomePageProps) {
     // Default to an empty object to allow previews on non-existent documents
     const { hero = {} } = data ?? {}
     return (
-        <main className={css({ maxHeight: '100vh', height: '100vh', width: '100%', overflow: 'hidden' })}>
-            <div className={css({ height: '60vh' })}>
-                <DynamicImage asset={hero} mode="cover" sizes="100vw" />
-            </div>
+        <main className={css({ maxHeight: '100vh', height: '100vh', p: '12px' })}>
+            <section
+                className={css({
+                    position: 'relative',
+                    maxWidth: '100vw',
+                    maxHeight: '80vh',
+                    overflow: 'hidden'
+                })}
+            >
+                <DynamicImage
+                    asset={hero}
+                    mode="cover"
+                    sizes="100vw"
+                    style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        objectPosition: 'center',
+                        userSelect: 'none',
+                        zIndex: 1
+                    }}
+                />
+            </section>
         </main>
     )
 }
