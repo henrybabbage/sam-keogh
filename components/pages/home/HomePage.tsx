@@ -5,7 +5,7 @@ import { DynamicImage } from '@/components/common/DynamicImage'
 import { css } from '@/styled-system/css'
 import { HomePagePayload } from '@/types'
 
-export interface HomePageProps {
+export type HomePageProps = {
     data: HomePagePayload | null
 }
 
