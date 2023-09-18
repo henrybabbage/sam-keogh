@@ -1,3 +1,4 @@
+import ExhibitionPage from '@/components/pages/exhibition/ExhibitionPage'
 import { getExhibitionBySlug, getExhibitionsPaths } from '@/sanity/lib/sanity.fetch'
 import { notFound } from 'next/navigation'
 
@@ -20,5 +21,5 @@ export default async function ExhibitionSlugRoute({ params }: Props) {
         notFound()
     }
 
-    return <div>SlugRoute</div>
+    return <ExhibitionPage data={data} />
 }

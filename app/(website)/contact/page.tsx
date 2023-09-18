@@ -1,3 +1,4 @@
+import ContactPage from "@/components/pages/contact/ContactPage"
 import { client } from "@/sanity/lib/sanity.client"
 import { contactPageQuery } from "@/sanity/lib/sanity.queries"
 import { ContactPagePayload } from "@/types"
@@ -9,5 +10,5 @@ export default async function Contact() {
     if (!data) {
         notFound()
     }
-    return <div>Contact</div>
+    return <ContactPage data={data} />
 }
