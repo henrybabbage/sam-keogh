@@ -1,23 +1,24 @@
-// import { notFound } from 'next/navigation'
-// import { getPageBySlug, getPagesPaths } from '@/sanity/lib/sanity.fetch'
+import { getExhibitionBySlug, getExhibitionsPaths } from '@/sanity/lib/sanity.fetch'
+import { notFound } from 'next/navigation'
 
 // export const runtime = 'edge'
 
-// type Props = {
-//     params: { slug: string }
-// }
+type Props = {
+    params: { slug: string }
+}
 
-// export async function generateStaticParams() {
-//     const slugs = await getPagesPaths()
-//     return slugs.map((slug) => ({ slug }))
-// }
+export async function generateStaticParams() {
+    const slugs = await getExhibitionsPaths()
+    return slugs.map((slug) => ({ slug }))
+}
 
-// export default async function PageSlugRoute({ params }: Props) {
-//     const data = await getPageBySlug(params.slug)
+export default async function PageSlugRoute({ params }: Props) {
+    const data = await getExhibitionBySlug(params.slug)
+    console.log({ data })
 
-//     if (!data) {
-//         notFound()
-//     }
+    if (!data) {
+        notFound()
+    }
 
-//     return <div>SlugRoute</div>
-// }
+    return <div>SlugRoute</div>
+}

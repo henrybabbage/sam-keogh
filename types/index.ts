@@ -47,6 +47,10 @@ export type ExhibitionsPagePayload = {
     exhibitions: ExhibtionProps[]
 }
 
+export type ExhibitionPagePayload = {
+    exhibition: ExhibtionProps
+}
+
 export type CvPagePayload = {
     cv: PortableTextBlock[]
 }

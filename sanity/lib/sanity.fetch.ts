@@ -1,9 +1,9 @@
 import 'server-only'
 
-import { HomePagePayload } from '@/types'
+import { ExhibitionPagePayload, HomePagePayload } from '@/types'
 import type { QueryParams } from '@sanity/client'
 import { draftMode } from 'next/headers'
-import { homePageQuery } from './sanity.queries'
+import { exhibitionBySlugQuery, exhibitionPaths, homePageQuery, pagePaths } from './sanity.queries'
 import { revalidateSecret } from './sanity.api'
 import { client } from './sanity.client'
 
@@ -50,26 +50,18 @@ export function getHomePage() {
     })
 }
 
-// export function getPagesPaths() {
-//     return client.fetch<string[]>(pagePaths, {}, { token, perspective: 'published' })
-// }
+export function getPagesPaths() {
+    return client.fetch<string[]>(pagePaths, {}, { token, perspective: 'published' })
+}
 
-// export function getProjectsPaths() {
-//     return client.fetch<string[]>(projectPaths, {}, { token, perspective: 'published' })
-// }
+export function getExhibitionsPaths() {
+    return client.fetch<string[]>(exhibitionPaths, {}, { token, perspective: 'published' })
+}
 
-// export function getPageBySlug(slug: string) {
-//     return sanityFetch<PagePayload | null>({
-//         query: pagesBySlugQuery,
-//         params: { slug },
-//         tags: [`page:${slug}`]
-//     })
-// }
-
-// export function getProjectBySlug(slug: string) {
-//     return sanityFetch<ProjectPayload | null>({
-//         query: projectBySlugQuery,
-//         params: { slug },
-//         tags: [`project:${slug}`]
-//     })
-// }
+export function getExhibitionBySlug(slug: string) {
+    return sanityFetch<ExhibitionPagePayload | null>({
+        query: exhibitionBySlugQuery,
+        params: { slug },
+        tags: [`project:${slug}`]
+    })
+}
