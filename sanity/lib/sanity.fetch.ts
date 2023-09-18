@@ -49,3 +49,27 @@ export function getHomePage() {
         tags: ['home', 'project']
     })
 }
+
+// export function getPagesPaths() {
+//     return client.fetch<string[]>(pagePaths, {}, { token, perspective: 'published' })
+// }
+
+// export function getProjectsPaths() {
+//     return client.fetch<string[]>(projectPaths, {}, { token, perspective: 'published' })
+// }
+
+// export function getPageBySlug(slug: string) {
+//     return sanityFetch<PagePayload | null>({
+//         query: pagesBySlugQuery,
+//         params: { slug },
+//         tags: [`page:${slug}`]
+//     })
+// }
+
+// export function getProjectBySlug(slug: string) {
+//     return sanityFetch<ProjectPayload | null>({
+//         query: projectBySlugQuery,
+//         params: { slug },
+//         tags: [`project:${slug}`]
+//     })
+// }
