@@ -27,11 +27,11 @@ export const themeQuery = groq`
     }
 `
 
-export const exhibitionPaths = groq`
+export const exhibitionsPaths = groq`
   *[_type == "exhibition" && slug.current != null].slug.current
 `
 
-export const pagePaths = groq`
+export const pagesPaths = groq`
   *[_type == "page" && slug.current != null].slug.current
 `
 
@@ -62,7 +62,7 @@ export const exhibitionBySlugQuery = groq`
   }
 `
 
-export const pagesBySlugQuery = groq`
+export const pageBySlugQuery = groq`
   *[_type == "page" && slug.current == $slug][0] {
     _id,
     "slug": slug.current,

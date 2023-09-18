@@ -3,9 +3,9 @@ import 'server-only'
 import { ExhibitionPagePayload, HomePagePayload } from '@/types'
 import type { QueryParams } from '@sanity/client'
 import { draftMode } from 'next/headers'
-import { exhibitionBySlugQuery, exhibitionPaths, homePageQuery, pagePaths } from './sanity.queries'
 import { revalidateSecret } from './sanity.api'
 import { client } from './sanity.client'
+import { exhibitionBySlugQuery, exhibitionsPaths, homePageQuery, pagesPaths } from './sanity.queries'
 
 export const token = process.env.SANITY_API_READ_TOKEN
 
@@ -51,11 +51,11 @@ export function getHomePage() {
 }
 
 export function getPagesPaths() {
-    return client.fetch<string[]>(pagePaths, {}, { token, perspective: 'published' })
+    return client.fetch<string[]>(pagesPaths, {}, { token, perspective: 'published' })
 }
 
 export function getExhibitionsPaths() {
-    return client.fetch<string[]>(exhibitionPaths, {}, { token, perspective: 'published' })
+    return client.fetch<string[]>(exhibitionsPaths, {}, { token, perspective: 'published' })
 }
 
 export function getExhibitionBySlug(slug: string) {
