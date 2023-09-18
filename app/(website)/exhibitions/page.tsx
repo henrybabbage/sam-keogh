@@ -9,9 +9,5 @@ export default async function Exhibitions() {
     if (!data) {
         notFound()
     }
-    return (
-        <div>
-            <ExhibitionsPage data={data} />
-        </div>
-    )
+    return <ExhibitionsPage data={data} />
 }

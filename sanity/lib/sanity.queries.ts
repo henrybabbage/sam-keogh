@@ -45,6 +45,21 @@ export const exhibitionsPageQuery = groq`
     photographerCredit,
   }
 `
+export const cvPageQuery = groq`
+  *[_type == "cv"][0] {
+    _id,
+    cv
+  }
+`
+
+export const contactPageQuery = groq`
+  *[_type == "contact"][0] {
+    _id,
+    email,
+    gallery,
+    instagram,
+  }
+`
 
 export const themeQuery = groq`
     *[_type == "theme"][0]{
