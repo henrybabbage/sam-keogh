@@ -1,10 +1,12 @@
 import { createClient } from 'next-sanity'
 
-import { apiVersion, dataset, projectId, useCdn } from '../env'
+import { apiVersion, dataset, projectId, revalidateSecret,  } from '../env'
 
 export const client = createClient({
-  apiVersion,
-  dataset,
-  projectId,
-  useCdn,
+    apiVersion,
+    dataset,
+    projectId,
+    // If webhook revalidation is setup we want the freshest content, if not then it's best to use the speedy CDN
+    useCdn: revalidateSecret ? false : true,
+    perspective: 'published'
 })

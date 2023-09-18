@@ -25,6 +25,9 @@ export const apiVersion =
 // The secret protects against unauthorized access to your draft content and have a lifetime of 60 minutes, to protect against bruteforcing.
 export const previewSecretId: `${string}.${string}` = 'preview.secret'
 
+// See the app/api/revalidate/route.ts for how this is used
+export const revalidateSecret = process.env.SANITY_REVALIDATE_SECRET
+
 function assertValue<T>(v: T | undefined, errorMessage: string): T {
   if (v === undefined) {
     throw new Error(errorMessage)
