@@ -18,7 +18,7 @@ export type FigureProps = {
     image: Image
 }
 
-export type ExhibtionProps = {
+export type ExhibitionProps = {
     title: string
     subtitle: string
     link?: 'internal' | 'external'
@@ -44,11 +44,11 @@ export type HomePagePayload = {
 }
 
 export type ExhibitionsPagePayload = {
-    exhibitions: ExhibtionProps[]
+    exhibitions: ExhibitionProps[]
 }
 
 export type ExhibitionPagePayload = {
-    exhibition: ExhibtionProps
+    exhibition: ExhibitionProps
 }
 
 export type CvPagePayload = {

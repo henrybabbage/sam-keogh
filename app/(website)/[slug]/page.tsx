@@ -12,7 +12,7 @@ export async function generateStaticParams() {
     return slugs.map((slug) => ({ slug }))
 }
 
-export default async function PageSlugRoute({ params }: Props) {
+export default async function ExhibitionSlugRoute({ params }: Props) {
     const data = await getExhibitionBySlug(params.slug)
     console.log({ data })
 

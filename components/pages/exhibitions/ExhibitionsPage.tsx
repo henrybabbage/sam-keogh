@@ -1,4 +1,4 @@
-import { ExhibitionsPagePayload } from '@/types'
+import type { ExhibitionsPagePayload } from '@/types'
 
 export type ExhibitionsPageProps = {
     data: ExhibitionsPagePayload | null

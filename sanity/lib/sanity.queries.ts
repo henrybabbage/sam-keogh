@@ -19,6 +19,33 @@ export const homePageQuery = groq`
         }
     }
 `
+
+export const exhibitionsPageQuery = groq`
+  *[_type == "exhibition"] {
+    _id,
+    "slug": slug.current,
+    title,
+    subtitle,
+    link,
+    url,
+    imageGallery[]{
+        ...,
+        asset->{
+          ...
+        }
+    },
+    pressRelease,
+    type,
+    startDate,
+    endDate,
+    year,
+    venue->{
+        ...
+    },
+    photographerCredit,
+  }
+`
+
 export const themeQuery = groq`
     *[_type == "theme"][0]{
         typefaceSerif,
@@ -42,7 +69,6 @@ export const exhibitionBySlugQuery = groq`
     title,
     subtitle,
     link,
-    slug,
     url,
     imageGallery[]{
         ...,

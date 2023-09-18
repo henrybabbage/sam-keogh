@@ -1,3 +1,3 @@
-export default async function page() {
+export default async function CV() {
     return <div></div>
 }
