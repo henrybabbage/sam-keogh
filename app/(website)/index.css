@@ -2,7 +2,7 @@
 
 @layer base {
     :root {
-        font-family: var(--font-simula);
+        /* font-family: var(--font-simula); */
     }
 
     img {

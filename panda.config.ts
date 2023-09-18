@@ -12,7 +12,14 @@ export default defineConfig({
 
     // Useful for theme customization
     theme: {
-        extend: {}
+        extend: {
+            tokens: {
+                fonts: {
+                    simula: { value: 'var(--font-simula), serif' },
+                    azeretMono: { value: 'var(--font-azeret-mono), Menlo, monospace' }
+                }
+            }
+        }
     },
 
     globalCss: {
