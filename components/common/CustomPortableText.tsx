@@ -1,3 +1,4 @@
+import { css } from '@/styled-system/css'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
 import type { PortableTextBlock } from '@portabletext/types'
 import type { Image } from 'sanity'
@@ -13,7 +14,18 @@ export function CustomPortableText({ paragraphClasses, value }: { paragraphClass
         marks: {
             link: ({ children, value }) => {
                 return (
-                    <a className="underline transition hover:opacity-50" href={value?.href} rel="noreferrer noopener">
+                    <a
+                        className={css({
+                            textDecorationLine: 'underline',
+                            transitionProperty:
+                                'color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter',
+                            transitionTimingFunction: 'transition',
+                            transitionDuration: 'transition',
+                            _hover: { opacity: '0.5' }
+                        })}
+                        href={value?.href}
+                        rel="noreferrer noopener"
+                    >
                         {children}
                     </a>
                 )
@@ -22,9 +34,11 @@ export function CustomPortableText({ paragraphClasses, value }: { paragraphClass
         types: {
             image: ({ value }: { value: Image & { alt?: string; caption?: string } }) => {
                 return (
-                    <div className="my-6 space-y-2">
-                        <ImageBox image={value} alt={value.alt} classesWrapper="relative aspect-[16/9]" />
-                        {value?.caption && <div className="font-sans text-sm text-gray-600">{value.caption}</div>}
+                    <div className={css({ mt: '2', mb: '2' })}>
+                        <ImageBox image={value} alt={value.alt} classesWrapper={css({ pos: 'relative', aspectRatio: '16/9' })} />
+                        {value?.caption && (
+                            <div className={css({ fontFamily: 'azeretMono', fontSize: 'sm', lineHeight: 'sm', color: 'black' })}>{value.caption}</div>
+                        )}
                     </div>
                 )
             }

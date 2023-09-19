@@ -6,7 +6,6 @@ import { notFound } from "next/navigation"
 
 export default async function CV() {
     const data = await client.fetch<CvPagePayload | null>(cvPageQuery)
-    console.log({ data })
     if (!data) {
         notFound()
     }

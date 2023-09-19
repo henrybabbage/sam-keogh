@@ -10,7 +10,18 @@ export default function CvPage({ data }: CvPageProps) {
     const { cv } = data ?? {}
     return (
         <main className={css({ height: '100%', width: '100vw', maxWidth: '100vw', p: '12px', bg: '#FFF1E5' })}>
-            {cv && <CustomPortableText paragraphClasses="font-serif max-w-3xl text-gray-600 text-xl" value={cv} />}
+            {cv && (
+                <CustomPortableText
+                    paragraphClasses={css({
+                        fontFamily: 'azeretMono',
+                        maxW: '3xl',
+                        color: 'black',
+                        fontSize: 'md',
+                        lineHeight: 'xl'
+                    })}
+                    value={cv}
+                />
+            )}
         </main>
     )
 }
