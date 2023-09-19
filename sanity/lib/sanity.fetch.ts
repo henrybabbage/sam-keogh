@@ -1,11 +1,11 @@
 import 'server-only'
 
-import { ExhibitionPagePayload, HomePagePayload } from '@/types'
+import { ExhibitionProps, HomePagePayload } from '@/types'
 import type { QueryParams } from '@sanity/client'
 import { draftMode } from 'next/headers'
 import { revalidateSecret } from './sanity.api'
 import { client } from './sanity.client'
-import { exhibitionBySlugQuery, exhibitionsPaths, homePageQuery, pagesPaths } from './sanity.queries'
+import { exhibitionBySlugQuery, exhibitionsPageQuery, exhibitionsPaths, homePageQuery, pagesPaths } from './sanity.queries'
 
 export const token = process.env.SANITY_API_READ_TOKEN
 
@@ -46,7 +46,14 @@ export async function sanityFetch<QueryResponse>({
 export function getHomePage() {
     return sanityFetch<HomePagePayload | null>({
         query: homePageQuery,
-        tags: ['home', 'project']
+        tags: ['home', 'exhibition']
+    })
+}
+
+export function getAllExhibitions() {
+    return sanityFetch<ExhibitionProps[] | null>({
+        query: exhibitionsPageQuery,
+        tags: ['exhibition']
     })
 }
 
@@ -59,9 +66,9 @@ export function getExhibitionsPaths() {
 }
 
 export function getExhibitionBySlug(slug: string) {
-    return sanityFetch<ExhibitionPagePayload | null>({
+    return sanityFetch<ExhibitionProps | null>({
         query: exhibitionBySlugQuery,
         params: { slug },
-        tags: [`project:${slug}`]
+        tags: [`exhibition:${slug}`]
     })
 }
