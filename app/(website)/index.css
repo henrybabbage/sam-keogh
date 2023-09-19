@@ -3,6 +3,7 @@
 @layer base {
     :root {
         /* font-family: var(--font-simula); */
+        overscroll-behavior-y: none;
     }
 
     img {
