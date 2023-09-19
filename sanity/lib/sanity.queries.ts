@@ -21,7 +21,7 @@ export const homePageQuery = groq`
 `
 
 export const exhibitionsPageQuery = groq`
-  *[_type == "exhibition"] {
+  *[_type == "exhibition"]| order(endDate desc) {
     _id,
     _type,
     "slug": slug.current,
