@@ -30,7 +30,7 @@ export default function ExhibitionsPage({ data }: ExhibitionsPagePayload) {
 
     return (
         <main className={css({ minHeight: '100vh', height: '100vh', width: '100vw', maxWidth: '100vw', p: '12px', bg: '#FFF1E5' })}>
-            <div className={css({ display: 'grid', gridTemplateRows: 12, gridTemplateColumns: 12, gap: '0', h: '100%' })}>
+            <div className={css({ display: 'grid', gridTemplateRows: 12, gridTemplateColumns: 12, gap: '4', h: '100%' })}>
                 <div className={gridItem({ colStart: 1, colEnd: 5, rowStart: 1, rowEnd: 3, alignSelf: 'center' })}>
                     <h1 className={css({ fontFamily: 'azeretMono' })}>Exhibitions</h1>
                 </div>
