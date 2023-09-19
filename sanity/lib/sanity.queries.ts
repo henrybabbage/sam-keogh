@@ -23,6 +23,7 @@ export const homePageQuery = groq`
 export const exhibitionsPageQuery = groq`
   *[_type == "exhibition"] {
     _id,
+    _type,
     "slug": slug.current,
     title,
     subtitle,
