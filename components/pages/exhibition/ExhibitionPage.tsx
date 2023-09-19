@@ -9,14 +9,14 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
     const { title, startDate, endDate, imageGallery, venue } = data ?? {}
     // console.log('image:', imageGallery && imageGallery.map((image) => image))
     return (
-        <main className={css({ height: '100%', width: '100vw', maxWidth: '100vw', p: '12px', bg: '#FFF1E5' })}>
+        <main className={css({ height: '100vh', maxHeight: '100vh', width: '100vw', maxWidth: '100vw', p: '12px', bg: '#FFF1E5' })}>
             <header
                 className={cx(
                     flex({
                         flexDirection: 'row',
                         justifyContent: 'flex-end'
                     }),
-                    css({ height: '20vh', width: '100%', position: 'sticky', top: '12px', right: 0, zIndex: 10 })
+                    css({ height: '20vh', position: 'fixed', top: '12px', right: '12px', zIndex: 10 })
                 )}
             >
                 <Link href="/exhibitions" className={css({ fontFamily: 'azeretMono', fontStyle: 'normal' })}>
@@ -24,8 +24,8 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                 </Link>
             </header>
             <div className={grid({ columns: 12, gap: '0' })}>
-                <div className={cx(gridItem({ colStart: 1, colEnd: 4 }), css({ position: 'sticky', top: 0, left: 0, h: '100%' }))}>
-                    <div className={flex({ flexDirection: 'column', h: '100%' })}>
+                <div className={gridItem({ colStart: 1, colEnd: 4 })}>
+                    <div className={cx(flex({ flexDirection: 'column', h: '100%', gap: 4 }))}>
                         {title && <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'italic' })}>{title}</h3>}
                         {venue && (
                             <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal' })}>
@@ -47,6 +47,9 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                                 <span>{format(new Date(endDate), 'dd MMM yyyy')}</span>
                             </h3>
                         )}
+                        <button className={css({ textAlign: 'left', cursor: 'pointer', _hover: { textDecoration: 'underline', color: '#0026F5' } })}>
+                            <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', textTransform: 'uppercase' })}>Text</h3>
+                        </button>
                     </div>
                 </div>
                 <div
@@ -57,7 +60,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                     )}
                 >
                     {imageGallery && imageGallery.length > 0 && (
-                        <div>
+                        <>
                             {imageGallery.map((image, key) => (
                                 <div
                                     key={key}
@@ -76,9 +79,12 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                                             objectPosition: 'center'
                                         }}
                                     />
+                                    <figcaption className={css({ my: 4 })}>
+                                        <h3 className={css({ fontFamily: 'simula', fontStyle: 'normal' })}>{image?.caption}</h3>
+                                    </figcaption>
                                 </div>
                             ))}
-                        </div>
+                        </>
                     )}
                 </div>
             </div>
