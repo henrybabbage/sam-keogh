@@ -9,10 +9,10 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
         <main className={css({ minHeight: '100vh', height: '100vh', width: '100vw', maxWidth: '100vw', p: '12px', bg: '#FFF1E5' })}>
             <div className={grid({ columns: 12, gap: '0' })}>
                 <div className={gridItem({ colSpan: 4 })}>
-                    <div className={flex({ flexDirection: 'column', h: '100%' })}>Exhibition menu</div>
+                    <div className={flex({ flexDirection: 'column', h: '100%' })}>Exhibition details</div>
                 </div>
                 <div className={gridItem({ colSpan: 8 })}>
-                    <div className={aspectRatio()}>Exhibition preview images</div>
+                    <div className={aspectRatio()}>Exhibition documentation images</div>
                 </div>
             </div>
         </main>

@@ -19,7 +19,7 @@ export default function ExhibitionsPage({ data }: ExhibitionsPagePayload) {
                         <section>
                             <h1 className={css({ fontFamily: 'azeretMono' })}>Upcoming / Current</h1>
                             {exhibitions && exhibitions.length > 0 && (
-                                <div>
+                                <div className={flex({ flexDirection: 'column', gap: '6' })}>
                                     {exhibitions.map((exhibition: ExhibitionProps, key: number) => {
                                         const href = resolveHref(exhibition._type, exhibition.slug)
                                         if (!href) {
