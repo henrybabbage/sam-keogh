@@ -6,7 +6,7 @@ import { format } from 'date-fns'
 
 export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
     const { title, startDate, endDate, imageGallery } = data ?? {}
-    console.log('image:', imageGallery && imageGallery.map((image) => image))
+    // console.log('image:', imageGallery && imageGallery.map((image) => image))
     return (
         <main className={css({ minHeight: '100vh', height: '100vh', width: '100vw', maxWidth: '100vw', p: '12px', bg: '#FFF1E5' })}>
             <div className={grid({ columns: 12, gap: '0' })}>

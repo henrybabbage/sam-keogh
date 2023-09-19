@@ -4,7 +4,6 @@ import { notFound } from 'next/navigation'
 
 export default async function Exhibitions() {
     const data = await getAllExhibitions()
-    console.log('initial_data', data)
     if (!data) {
         notFound()
     }

@@ -15,7 +15,6 @@ export async function generateStaticParams() {
 
 export default async function ExhibitionSlugRoute({ params }: Props) {
     const data = await getExhibitionBySlug(params.slug)
-    console.log({ data })
 
     if (!data) {
         notFound()

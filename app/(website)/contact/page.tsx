@@ -6,7 +6,6 @@ import { notFound } from "next/navigation"
 
 export default async function Contact() {
     const data = await client.fetch<ContactPagePayload | null>(contactPageQuery)
-    console.log({ data })
     if (!data) {
         notFound()
     }
