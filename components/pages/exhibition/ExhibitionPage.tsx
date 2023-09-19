@@ -16,19 +16,22 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                         flexDirection: 'row',
                         justifyContent: 'flex-end'
                     }),
-                    css({ height: '20vh', position: 'fixed', top: '12px', right: '12px', zIndex: 10 })
+                    css({ height: 'fit-content', position: 'fixed', top: '12px', right: '12px', zIndex: 10 })
                 )}
             >
-                <Link href="/exhibitions" className={css({ fontFamily: 'azeretMono', fontStyle: 'normal' })}>
+                <Link
+                    href="/exhibitions"
+                    className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', _hover: { textDecoration: 'underline', color: '#0026F5' } })}
+                >
                     Back to exhibitions
                 </Link>
             </header>
-            <div className={grid({ columns: 12, gap: '0' })}>
-                <div className={gridItem({ colStart: 1, colEnd: 4 })}>
-                    <div className={cx(flex({ flexDirection: 'column', h: '100%', gap: 4 }))}>
-                        {title && <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'italic' })}>{title}</h3>}
+            <div className={css({ position: 'fixed', top: '20vh', w: '3/12' })}>
+                <div className={cx(flex({ flexDirection: 'column', h: '100%', gap: 6 }))}>
+                    <div>
+                        {title && <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'italic', fontSize: 'md' })}>{title}</h3>}
                         {venue && (
-                            <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal' })}>
+                            <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md' })}>
                                 <span>
                                     {venue?.name}
                                     {', '}
@@ -41,17 +44,19 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                             </h3>
                         )}
                         {startDate && endDate && (
-                            <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'italic' })}>
+                            <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'italic', fontSize: 'md' })}>
                                 <span>{format(new Date(startDate), 'dd MMM')}</span>
                                 <span>{' — '}</span>
                                 <span>{format(new Date(endDate), 'dd MMM yyyy')}</span>
                             </h3>
                         )}
-                        <button className={css({ textAlign: 'left', cursor: 'pointer', _hover: { textDecoration: 'underline', color: '#0026F5' } })}>
-                            <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', textTransform: 'uppercase' })}>Text</h3>
-                        </button>
                     </div>
+                    <button className={css({ textAlign: 'left', cursor: 'pointer', _hover: { textDecoration: 'underline', color: '#0026F5' } })}>
+                        <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Text</h3>
+                    </button>
                 </div>
+            </div>
+            <div className={grid({ columns: 12, gap: '0', pt: '20vh' })}>
                 <div
                     className={cx(
                         gridItem({ colStart: 4, colEnd: 13 }),
