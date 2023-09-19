@@ -1,3 +1,4 @@
+import CvPage from "@/components/pages/cv/CvPage"
 import { client } from "@/sanity/lib/sanity.client"
 import { cvPageQuery } from "@/sanity/lib/sanity.queries"
 import { CvPagePayload } from "@/types"
@@ -9,5 +10,5 @@ export default async function CV() {
     if (!data) {
         notFound()
     }
-    return <div>CV page</div>
+    return <CvPage data={data} />
 }
