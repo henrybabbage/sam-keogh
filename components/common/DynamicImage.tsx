@@ -18,8 +18,8 @@ export const DynamicImage = (props: Omit<React.ComponentProps<typeof SanityImage
             sizes={sizes}
             width={width}
             height={height}
-            hotspot={asset.hotspot}
-            crop={asset.crop}
+            hotspot={asset?.hotspot}
+            crop={asset?.crop}
             queryParams={{ q: 75 }}
             loading="lazy"
         />

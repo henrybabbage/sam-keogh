@@ -31,6 +31,8 @@ export const exhibitionsPageQuery = groq`
     url,
     imageGallery[]{
         ...,
+        "id": asset._ref,
+        "preview": asset->metadata.lqip,
         asset->{
           ...
         }
@@ -88,6 +90,8 @@ export const exhibitionBySlugQuery = groq`
     url,
     imageGallery[]{
         ...,
+        "id": asset._ref,
+        "preview": asset->metadata.lqip,
         asset->{
           ...
         }

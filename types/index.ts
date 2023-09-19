@@ -15,7 +15,7 @@ export type VenueProps = {
 export type FigureProps = {
     alt: string
     caption: string
-    image: Image
+    asset: Image
 }
 
 export type ExhibitionProps = {
