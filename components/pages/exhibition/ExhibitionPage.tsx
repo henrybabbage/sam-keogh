@@ -32,15 +32,9 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                         {title && <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'italic', fontSize: 'md' })}>{title}</h3>}
                         {venue && (
                             <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md' })}>
-                                <span>
-                                    {venue?.name}
-                                    {', '}
-                                </span>
-                                <span>
-                                    {venue?.city}
-                                    {', '}
-                                </span>
-                                <span>{venue?.country}</span>
+                                {venue.name && <span>{venue.city ? venue.name + ', ' : venue.name}</span>}
+                                {venue.city && <span>{venue.country ? venue.city + ', ' : venue.city}</span>}
+                                {venue.country && <span>{venue.country}</span>}
                             </h3>
                         )}
                         {startDate && endDate && (
@@ -53,6 +47,12 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                     </div>
                     <button className={css({ textAlign: 'left', cursor: 'pointer', _hover: { textDecoration: 'underline', color: '#0026F5' } })}>
                         <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Text</h3>
+                    </button>
+                    <button className={css({ textAlign: 'left', cursor: 'pointer', _hover: { textDecoration: 'underline', color: '#0026F5' } })}>
+                        <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Image</h3>
+                    </button>
+                    <button className={css({ textAlign: 'left', cursor: 'pointer', _hover: { textDecoration: 'underline', color: '#0026F5' } })}>
+                        <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Video</h3>
                     </button>
                 </div>
             </div>
