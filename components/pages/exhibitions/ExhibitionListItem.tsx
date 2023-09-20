@@ -11,11 +11,13 @@ export default function ExhibitionListItem(props: ListItemProps) {
     return (
         <div>
             <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'italic' })}>{exhibition?.title}</h3>
-            <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal' })}>
-                <span>{exhibition?.venue?.name}{', '}</span>
-                <span>{exhibition?.venue?.city}{', '}</span>
-                <span>{exhibition?.venue?.country}</span>
-            </h3>
+            {exhibition && exhibition.venue && (
+                <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md' })}>
+                    {exhibition.venue.name && <span>{exhibition.venue.city ? exhibition.venue.name + ', ' : exhibition.venue.name}</span>}
+                    {exhibition.venue.city && <span>{exhibition.venue.country ? exhibition.venue.city + ', ' : exhibition.venue.city}</span>}
+                    {exhibition.venue.country && <span>{exhibition.venue.country}</span>}
+                </h3>
+            )}
             <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'italic' })}>
                 <span>{format(new Date(exhibition?.startDate), 'dd MMM')}</span>
                 <span>{' — '}</span>
