@@ -27,7 +27,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                 </Link>
             </header>
             <div className={css({ position: 'fixed', top: '20vh', w: '3/12' })}>
-                <div className={cx(flex({ flexDirection: 'column', h: '100%', gap: 6 }))}>
+                <div className={cx(flex({ flexDirection: 'column', h: '100%', gap: 12 }))}>
                     <div>
                         {title && <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'italic', fontSize: 'md' })}>{title}</h3>}
                         {venue && (
@@ -45,15 +45,23 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                             </h3>
                         )}
                     </div>
-                    {pressRelease && <button className={css({ textAlign: 'left', cursor: 'pointer', _hover: { textDecoration: 'underline', color: '#0026F5' } })}>
-                        <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Text</h3>
-                    </button>}
-                    {imageGallery && <button className={css({ textAlign: 'left', cursor: 'pointer', _hover: { textDecoration: 'underline', color: '#0026F5' } })}>
-                        <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Image</h3>
-                    </button>}
-                    {vimeo && <button className={css({ textAlign: 'left', cursor: 'pointer', _hover: { textDecoration: 'underline', color: '#0026F5' } })}>
-                        <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Video</h3>
-                    </button>}
+                    <div className={flex({ flexDirection: 'column', gap: 6 })}>
+                        {pressRelease && (
+                            <button className={css({ textAlign: 'left', cursor: 'pointer', _hover: { textDecoration: 'underline', color: '#0026F5' } })}>
+                                <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Text</h3>
+                            </button>
+                        )}
+                        {imageGallery && (
+                            <button className={css({ textAlign: 'left', cursor: 'pointer', _hover: { textDecoration: 'underline', color: '#0026F5' } })}>
+                                <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Image</h3>
+                            </button>
+                        )}
+                        {vimeo && (
+                            <button className={css({ textAlign: 'left', cursor: 'pointer', _hover: { textDecoration: 'underline', color: '#0026F5' } })}>
+                                <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Video</h3>
+                            </button>
+                        )}
+                    </div>
                 </div>
             </div>
             <div className={grid({ columns: 12, gap: '0', pt: '20vh' })}>

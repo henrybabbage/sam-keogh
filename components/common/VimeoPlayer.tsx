@@ -13,8 +13,9 @@ export type VideoPlayerProps = {
 }
 
 export default function VimeoPlayer(props: VideoPlayerProps) {
-    const ref = useRef<APITypes>(null)
     const { videos, provider } = props
+
+    const ref = useRef<APITypes>(null)
 
     function getVimeoIdFromUrl(url: string | null) {
         const vimeoRegex = /vimeo\.com\/(\d+)/
