@@ -24,7 +24,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                     className={css({
                         fontFamily: 'azeretMono',
                         fontStyle: 'normal',
-                        _hover: { textDecoration: 'underline', textUnderlineOffset: '10px', textDecorationThickness: '2px', color: '#0026F5' }
+                        _hover: { textDecorationLine: 'underline', textUnderlineOffset: '8px', textDecorationThickness: '3px', color: '#0026F5' }
                     })}
                 >
                     Back to exhibitions

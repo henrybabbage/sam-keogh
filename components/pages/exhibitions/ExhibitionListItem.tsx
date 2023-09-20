@@ -1,6 +1,9 @@
+'use client'
+
 import { css } from '@/styled-system/css'
 import type { ExhibitionProps } from '@/types'
 import { format } from 'date-fns'
+import { motion } from 'framer-motion'
 
 export type ListItemProps = {
     exhibition: ExhibitionProps
@@ -9,7 +12,15 @@ export type ListItemProps = {
 export default function ExhibitionListItem(props: ListItemProps) {
     const { exhibition } = props
     return (
-        <li>
+        <motion.li
+            key={exhibition._id}
+            whileHover={{
+                translateX: '20px',
+                transition: {
+                    duration: 0.2
+                }
+            }}
+        >
             <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'italic' })}>{exhibition?.title}</h3>
             {exhibition.venue && (
                 <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md' })}>
@@ -25,6 +36,6 @@ export default function ExhibitionListItem(props: ListItemProps) {
                     <span>{format(new Date(exhibition?.endDate), 'dd MMM yyyy')}</span>
                 </h3>
             )}
-        </li>
+        </motion.li>
     )
 }
