@@ -23,6 +23,7 @@
     "date-fns": "^2.30.0",
     "eslint-config-next": "^13.4.16",
     "eslint-plugin-react-hooks": "^5.0.0-canary-7118f5dd7-20230705",
+    "framer-motion": "^10.16.4",
     "media-icons": "^0.10.0",
     "next": "^13.4.19",
     "next-sanity": "^5.4.4",

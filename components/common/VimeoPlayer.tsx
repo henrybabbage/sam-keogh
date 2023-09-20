@@ -61,7 +61,9 @@ export default function VimeoPlayer(props: VideoPlayerProps) {
                             }}
                             // options={videoOptions}
                         />
-                        <figcaption className={css({ my: 4 })}>{vimeo?.title}</figcaption>
+                        <figcaption className={css({ my: 4 })}>
+                            <h3 className={css({ fontFamily: 'simula', fontStyle: 'normal' })}>{vimeo?.title}</h3>
+                        </figcaption>
                     </>
                 ))}
         </div>
