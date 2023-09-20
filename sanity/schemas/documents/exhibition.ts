@@ -73,7 +73,7 @@ export default defineType({
             title: 'Vimeo',
             type: 'array',
             of: [{ type: 'link' }],
-            description: 'Provide Vimeo URLs (optional)'
+            description: 'Provide Vimeo URLs and captions (optional)'
         }),
         defineField({
             name: 'type',
