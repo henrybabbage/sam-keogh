@@ -21,7 +21,11 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
             >
                 <Link
                     href="/exhibitions"
-                    className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', _hover: { textDecoration: 'underline', color: '#0026F5' } })}
+                    className={css({
+                        fontFamily: 'azeretMono',
+                        fontStyle: 'normal',
+                        _hover: { textDecorationLine: 'underline', textUnderlineOffset: '8px', textDecorationThickness: '3px', color: '#0026F5' }
+                    })}
                 >
                     Back to exhibitions
                 </Link>

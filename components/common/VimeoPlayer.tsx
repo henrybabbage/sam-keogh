@@ -41,7 +41,7 @@ export default function VimeoPlayer(props: VideoPlayerProps) {
     const preparedVideos = getVideosWithVimeoIds(videos)
 
     return (
-        <div>
+        <div className={css({ width: '100%', height: '100%', position: 'relative' })}>
             {preparedVideos &&
                 provider &&
                 preparedVideos.map((vimeo) => (
@@ -61,7 +61,9 @@ export default function VimeoPlayer(props: VideoPlayerProps) {
                             }}
                             // options={videoOptions}
                         />
-                        <figcaption className={css({ my: 4 })}>{vimeo?.title}</figcaption>
+                        <figcaption className={css({ my: 4 })}>
+                            <h3 className={css({ fontFamily: 'simula', fontStyle: 'normal' })}>{vimeo?.title}</h3>
+                        </figcaption>
                     </>
                 ))}
         </div>
