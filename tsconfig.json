@@ -1,5 +1,8 @@
 {
     "compilerOptions": {
+        "types": [
+            "vidstack/globals"
+        ],
         "target": "ES2017",
         "lib": [
             "dom",

@@ -1,4 +1,5 @@
 import { DynamicImage } from '@/components/common/DynamicImage'
+import VimeoPlayer from '@/components/common/VimeoPlayer'
 import { css, cx } from '@/styled-system/css'
 import { flex, grid, gridItem, scrollable } from '@/styled-system/patterns'
 import type { ExhibitionPagePayload } from '@/types'
@@ -6,8 +7,7 @@ import { format } from 'date-fns'
 import Link from 'next/link'
 
 export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
-    const { title, startDate, endDate, imageGallery, venue } = data ?? {}
-    // console.log('image:', imageGallery && imageGallery.map((image) => image))
+    const { title, startDate, endDate, imageGallery, venue, vimeo, pressRelease } = data ?? {}
     return (
         <main className={css({ height: '100vh', maxHeight: '100vh', width: '100vw', maxWidth: '100vw', p: '12px', bg: '#FFF1E5' })}>
             <header
@@ -27,20 +27,14 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                 </Link>
             </header>
             <div className={css({ position: 'fixed', top: '20vh', w: '3/12' })}>
-                <div className={cx(flex({ flexDirection: 'column', h: '100%', gap: 6 }))}>
+                <div className={cx(flex({ flexDirection: 'column', h: '100%', gap: 12 }))}>
                     <div>
                         {title && <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'italic', fontSize: 'md' })}>{title}</h3>}
                         {venue && (
                             <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md' })}>
-                                <span>
-                                    {venue?.name}
-                                    {', '}
-                                </span>
-                                <span>
-                                    {venue?.city}
-                                    {', '}
-                                </span>
-                                <span>{venue?.country}</span>
+                                {venue.name && <span>{venue.city ? venue.name + ', ' : venue.name}</span>}
+                                {venue.city && <span>{venue.country ? venue.city + ', ' : venue.city}</span>}
+                                {venue.country && <span>{venue.country}</span>}
                             </h3>
                         )}
                         {startDate && endDate && (
@@ -51,9 +45,23 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                             </h3>
                         )}
                     </div>
-                    <button className={css({ textAlign: 'left', cursor: 'pointer', _hover: { textDecoration: 'underline', color: '#0026F5' } })}>
-                        <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Text</h3>
-                    </button>
+                    <div className={flex({ flexDirection: 'column', gap: 6 })}>
+                        {pressRelease && (
+                            <button className={css({ textAlign: 'left', cursor: 'pointer', _hover: { textDecoration: 'underline', color: '#0026F5' } })}>
+                                <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Text</h3>
+                            </button>
+                        )}
+                        {imageGallery && (
+                            <button className={css({ textAlign: 'left', cursor: 'pointer', _hover: { textDecoration: 'underline', color: '#0026F5' } })}>
+                                <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Image</h3>
+                            </button>
+                        )}
+                        {vimeo && (
+                            <button className={css({ textAlign: 'left', cursor: 'pointer', _hover: { textDecoration: 'underline', color: '#0026F5' } })}>
+                                <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Video</h3>
+                            </button>
+                        )}
+                    </div>
                 </div>
             </div>
             <div className={grid({ columns: 12, gap: '0', pt: '20vh' })}>
@@ -91,6 +99,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                             ))}
                         </>
                     )}
+                    {vimeo && <VimeoPlayer videos={vimeo} provider="vimeo" />}
                 </div>
             </div>
         </main>

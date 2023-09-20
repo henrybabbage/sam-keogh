@@ -37,6 +37,7 @@ export const exhibitionsPageQuery = groq`
           ...
         }
     },
+    vimeo,
     pressRelease,
     type,
     startDate,
@@ -96,6 +97,7 @@ export const exhibitionBySlugQuery = groq`
           ...
         }
     },
+    vimeo,
     pressRelease,
     type,
     startDate,
