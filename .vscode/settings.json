@@ -6,5 +6,8 @@
         "source.fixAll.eslint": true,
         "source.fixAll.format": true
     },
-    "prettier.configPath": ".prettierrc.js"
+    "prettier.configPath": ".prettierrc.js",
+    "html.customData": [
+        "./node_modules/vidstack/vscode.html-data.json"
+    ]
 }

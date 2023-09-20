@@ -1,4 +1,5 @@
 import { DynamicImage } from '@/components/common/DynamicImage'
+import VimeoPlayer from '@/components/common/VimeoPlayer'
 import { css, cx } from '@/styled-system/css'
 import { flex, grid, gridItem, scrollable } from '@/styled-system/patterns'
 import type { ExhibitionPagePayload } from '@/types'
@@ -6,8 +7,7 @@ import { format } from 'date-fns'
 import Link from 'next/link'
 
 export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
-    const { title, startDate, endDate, imageGallery, venue } = data ?? {}
-    // console.log('image:', imageGallery && imageGallery.map((image) => image))
+    const { title, startDate, endDate, imageGallery, venue, vimeo } = data ?? {}
     return (
         <main className={css({ height: '100vh', maxHeight: '100vh', width: '100vw', maxWidth: '100vw', p: '12px', bg: '#FFF1E5' })}>
             <header
@@ -91,6 +91,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                             ))}
                         </>
                     )}
+                    {vimeo && <VimeoPlayer videos={vimeo} provider="vimeo" />}
                 </div>
             </div>
         </main>

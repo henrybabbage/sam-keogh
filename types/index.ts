@@ -18,6 +18,16 @@ export type FigureProps = {
     asset: Image
 }
 
+export type VideoProps = {
+    title: string 
+    url: string 
+}
+
+export type LinkProps = {
+    title: string
+    url: string
+}
+
 export type ExhibitionProps = {
     _id: string
     _type: string
@@ -27,6 +37,7 @@ export type ExhibitionProps = {
     slug?: string
     url?: string
     imageGallery: FigureProps[]
+    vimeo: VideoProps[]
     pressRelease: PortableTextBlock[]
     type?: 'solo' | 'group'
     startDate: string
@@ -34,11 +45,6 @@ export type ExhibitionProps = {
     year: string
     venue: VenueProps
     photographerCredit: string
-}
-
-export type LinkProps = {
-    title: string
-    url: string
 }
 
 export type HomePagePayload = {
