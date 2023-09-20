@@ -4,6 +4,7 @@
     :root {
         /* font-family: var(--font-simula); */
         overscroll-behavior-y: none;
+        --plyr-color-main: #FFF1E5;
     }
 
     img {
