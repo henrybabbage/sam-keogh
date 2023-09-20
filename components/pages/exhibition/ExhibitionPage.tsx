@@ -7,7 +7,7 @@ import { format } from 'date-fns'
 import Link from 'next/link'
 
 export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
-    const { title, startDate, endDate, imageGallery, venue, vimeo } = data ?? {}
+    const { title, startDate, endDate, imageGallery, venue, vimeo, pressRelease } = data ?? {}
     return (
         <main className={css({ height: '100vh', maxHeight: '100vh', width: '100vw', maxWidth: '100vw', p: '12px', bg: '#FFF1E5' })}>
             <header
@@ -45,15 +45,15 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                             </h3>
                         )}
                     </div>
-                    <button className={css({ textAlign: 'left', cursor: 'pointer', _hover: { textDecoration: 'underline', color: '#0026F5' } })}>
+                    {pressRelease && <button className={css({ textAlign: 'left', cursor: 'pointer', _hover: { textDecoration: 'underline', color: '#0026F5' } })}>
                         <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Text</h3>
-                    </button>
-                    <button className={css({ textAlign: 'left', cursor: 'pointer', _hover: { textDecoration: 'underline', color: '#0026F5' } })}>
+                    </button>}
+                    {imageGallery && <button className={css({ textAlign: 'left', cursor: 'pointer', _hover: { textDecoration: 'underline', color: '#0026F5' } })}>
                         <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Image</h3>
-                    </button>
-                    <button className={css({ textAlign: 'left', cursor: 'pointer', _hover: { textDecoration: 'underline', color: '#0026F5' } })}>
+                    </button>}
+                    {vimeo && <button className={css({ textAlign: 'left', cursor: 'pointer', _hover: { textDecoration: 'underline', color: '#0026F5' } })}>
                         <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Video</h3>
-                    </button>
+                    </button>}
                 </div>
             </div>
             <div className={grid({ columns: 12, gap: '0', pt: '20vh' })}>
