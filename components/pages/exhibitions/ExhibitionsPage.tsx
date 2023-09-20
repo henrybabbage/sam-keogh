@@ -1,10 +1,11 @@
-import { css, cx } from '@/styled-system/css'
-import { aspectRatio, flex } from '@/styled-system/patterns'
+import { css } from '@/styled-system/css'
+import { flex } from '@/styled-system/patterns'
 
 import { resolveHref } from '@/sanity/lib/sanity.links'
 import type { ExhibitionProps, ExhibitionsPagePayload } from '@/types'
 import Link from 'next/link'
 import ExhibitionListItem from './ExhibitionListItem'
+import ExhibitionPreview from './ExhibitionPreview'
 
 export default function ExhibitionsPage({ data }: ExhibitionsPagePayload) {
     const exhibitions = data || []
@@ -77,7 +78,7 @@ export default function ExhibitionsPage({ data }: ExhibitionsPagePayload) {
                     </div>
                 </div>
                 <div className={flex({ flexDirection: 'column', gap: '4', grow: 1 })}>
-                    <div className={cx(aspectRatio(), css({ position: 'relative' }))}>Exhibition preview images</div>
+                    <ExhibitionPreview />
                 </div>
             </div>
         </main>

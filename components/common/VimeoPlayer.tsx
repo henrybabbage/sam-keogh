@@ -41,7 +41,7 @@ export default function VimeoPlayer(props: VideoPlayerProps) {
     const preparedVideos = getVideosWithVimeoIds(videos)
 
     return (
-        <div>
+        <div className={css({ width: '100%', height: '100%', position: 'relative' })}>
             {preparedVideos &&
                 provider &&
                 preparedVideos.map((vimeo) => (
