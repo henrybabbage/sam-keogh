@@ -41,14 +41,15 @@ export default defineType({
                 maxLength: 96
             },
             hidden: ({ document }) => document?.link !== 'internal',
-            validation: (rule) =>
-                rule.custom((set, context) => {
+            validation: (rule) => {
+                return rule.custom((set, context) => {
                     const slugIsSet = set !== undefined
                     if (!slugIsSet && context?.document?.link === 'internal') {
                         return 'Exhibitions must have a slug in order to be displayed on www.samkeogh.net'
                     }
                     return true
                 })
+            }
         }),
         defineField({
             title: 'External URL',
@@ -97,6 +98,7 @@ export default defineType({
             description: 'Participating artist(s)',
             hidden: ({ document }) => document?.type !== 'group'
         }),
+        // TODO: Add switch for eventDate type or exhibitionDates type
         defineField({
             name: 'startDate',
             title: 'Start date',
