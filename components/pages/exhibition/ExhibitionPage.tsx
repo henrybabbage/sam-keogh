@@ -1,3 +1,4 @@
+import { CustomPortableText } from '@/components/common/CustomPortableText'
 import { DynamicImage } from '@/components/common/DynamicImage'
 import VideosList from '@/components/common/VideosList'
 import { css, cx } from '@/styled-system/css'
@@ -119,6 +120,17 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                         </>
                     )}
                     {vimeo && <VideosList videos={vimeo} provider="vimeo" />}
+                    {pressRelease && (
+                        <CustomPortableText
+                            value={pressRelease}
+                            paragraphClasses={css({
+                                fontFamily: 'simula',
+                                color: 'black',
+                                fontSize: 'lg',
+                                lineHeight: 'xl'
+                            })}
+                        />
+                    )}
                 </div>
             </div>
         </main>
