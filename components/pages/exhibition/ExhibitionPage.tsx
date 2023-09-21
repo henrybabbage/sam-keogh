@@ -1,14 +1,33 @@
+'use client'
+
 import { CustomPortableText } from '@/components/common/CustomPortableText'
 import { DynamicImage } from '@/components/common/DynamicImage'
 import VideosList from '@/components/common/VideosList'
 import { css, cx } from '@/styled-system/css'
 import { flex } from '@/styled-system/patterns'
 import type { ExhibitionPagePayload } from '@/types'
+import { useScrollIntoView } from '@mantine/hooks'
 import { format } from 'date-fns'
 import Link from 'next/link'
 
 export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
     const { title, startDate, endDate, imageGallery, venue, vimeo, pressRelease } = data ?? {}
+
+    const { scrollIntoView: scrollIntoViewImages, targetRef: imagesRef } = useScrollIntoView<HTMLDivElement>({
+        duration: 800,
+        offset: 12,
+    })
+
+    const { scrollIntoView: scrollIntoViewVideos, targetRef: videosRef } = useScrollIntoView<HTMLDivElement>({
+        duration: 800,
+        offset: 12
+    })
+
+    const { scrollIntoView: scrollIntoViewText, targetRef: textRef } = useScrollIntoView<HTMLDivElement>({
+        duration: 800,
+        offset: 12
+    })
+
     return (
         <main className={flex({ width: '100%', maxWidth: '100vw', p: '12px', bg: '#FFF1E5' })}>
             <header
@@ -59,6 +78,11 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                 <div className={flex({ flexDirection: 'column', gap: 4, w: '100%' })}>
                     {imageGallery && (
                         <button
+                            onClick={() =>
+                                scrollIntoViewImages({
+                                    alignment: 'start'
+                                })
+                            }
                             className={css({
                                 textAlign: 'left',
                                 cursor: 'pointer',
@@ -68,19 +92,13 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                             <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Image</h3>
                         </button>
                     )}
-                    {pressRelease && (
-                        <button
-                            className={css({
-                                textAlign: 'left',
-                                cursor: 'pointer',
-                                _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '1.5px', color: '#0026F5' }
-                            })}
-                        >
-                            <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Text</h3>
-                        </button>
-                    )}
                     {vimeo && (
                         <button
+                            onClick={() =>
+                                scrollIntoViewVideos({
+                                    alignment: 'start'
+                                })
+                            }
                             className={css({
                                 textAlign: 'left',
                                 cursor: 'pointer',
@@ -88,6 +106,22 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                             })}
                         >
                             <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Video</h3>
+                        </button>
+                    )}
+                    {pressRelease && (
+                        <button
+                            onClick={() =>
+                                scrollIntoViewText({
+                                    alignment: 'start'
+                                })
+                            }
+                            className={css({
+                                textAlign: 'left',
+                                cursor: 'pointer',
+                                _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '1.5px', color: '#0026F5' }
+                            })}
+                        >
+                            <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Text</h3>
                         </button>
                     )}
                 </div>
@@ -104,7 +138,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
             >
                 <div className={flex({ flexDirection: 'column', gap: '0' })}>
                     {imageGallery && imageGallery.length > 0 && (
-                        <>
+                        <section ref={imagesRef}>
                             {imageGallery.map((image, key) => (
                                 <div
                                     key={key}
@@ -129,20 +163,26 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                                     </figcaption>
                                 </div>
                             ))}
-                        </>
+                        </section>
                     )}
-                    {vimeo && <VideosList videos={vimeo} provider="vimeo" />}
+                    {vimeo && (
+                        <section ref={videosRef}>
+                            <VideosList videos={vimeo} provider="vimeo" />
+                        </section>
+                    )}
                     {pressRelease && (
-                        <CustomPortableText
-                            value={pressRelease}
-                            paragraphClasses={css({
-                                fontFamily: 'simula',
-                                mb: 4,
-                                color: 'black',
-                                fontSize: 'lg',
-                                lineHeight: 'xl'
-                            })}
-                        />
+                        <section ref={textRef}>
+                            <CustomPortableText
+                                value={pressRelease}
+                                paragraphClasses={css({
+                                    fontFamily: 'simula',
+                                    mb: 4,
+                                    color: 'black',
+                                    fontSize: 'lg',
+                                    lineHeight: 'xl'
+                                })}
+                            />
+                        </section>
                     )}
                 </div>
             </div>

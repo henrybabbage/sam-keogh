@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mantine/hooks": "^7.0.0",
     "@portabletext/react": "^3.0.4",
     "@portabletext/types": "^2.0.6",
     "@sanity/client": "^6.4.9",
