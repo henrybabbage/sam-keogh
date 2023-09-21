@@ -4,8 +4,8 @@ import Link from 'next/link'
 
 export default function Nav() {
     return (
-        <aside className={css({ position: 'fixed', bottom: '0', width: '100vw', p: '12px', bg: '#FFF1E5' })}>
-            <nav className={flex({ justifyContent: 'space-between' })}>
+        <nav className={css({ position: 'fixed', bottom: '0', width: '100vw', p: '12px', bg: '#FFF1E5' })}>
+            <div className={flex({ justifyContent: 'space-between' })}>
                 <Link href="/exhibitions">
                     <h2
                         className={css({
@@ -45,7 +45,7 @@ export default function Nav() {
                         Contact
                     </h2>
                 </Link>
-            </nav>
-        </aside>
+            </div>
+        </nav>
     )
 }

@@ -30,16 +30,16 @@ export default function ExhibitionsPage({ data }: ExhibitionsPagePayload) {
     const { upcomingExhibitions, pastExhibitions } = sortExhibitions(exhibitions)
 
     return (
-        <main className={css({ minHeight: '100vh', height: '100%', width: '100%', maxWidth: '100vw', p: '12px', bg: '#FFF1E5', overflow: 'hidden' })}>
+        <main className={css({ minHeight: '100vh', height: '100vh', width: '100%', maxWidth: '100vw', p: '12px', bg: '#FFF1E5' })}>
             <div className={flex({ gap: '4', w: '100%' })}>
-                <div className={flex({ flexDirection: 'column', gap: '4', w: '1/3' })}>
+                <div className={flex({ flexDirection: 'column', w: '1/3' })}>
                     <div className={flex({ h: '14vh', alignItems: 'center' })}>
-                        <h1 className={css({ fontFamily: 'azeretMono', position: 'fixed' })}>Exhibitions</h1>
+                        <h1 className={css({ fontFamily: 'azeretMono', position: 'fixed', opacity: 0 })}>Exhibitions</h1>
                     </div>
-                    <div className={flex({ gap: '8' })}>
-                        <div className={flex({ flexDirection: 'column', gap: '4' })}>
-                            <section>
-                                <h1 className={css({ fontFamily: 'azeretMono', mb: '4' })}>Upcoming / Current</h1>
+                    <div className={flex({ gap: '8', h: 'fit-content', mb: '8vh' })}>
+                        <div className={flex({ flexDirection: 'column', gap: '8' })}>
+                            <section className={flex({ flexDirection: 'column', gap: '4' })}>
+                                <h1 className={css({ fontFamily: 'simula', fontSize: 'lg' })}>Upcoming / Current</h1>
                                 {upcomingExhibitions && upcomingExhibitions.length > 0 && (
                                     <div className={flex({ flexDirection: 'column', gap: '4' })}>
                                         {upcomingExhibitions.map((exhibition: ExhibitionProps) => {
@@ -56,8 +56,8 @@ export default function ExhibitionsPage({ data }: ExhibitionsPagePayload) {
                                     </div>
                                 )}
                             </section>
-                            <section className={css({ mt: '12' })}>
-                                <h1 className={css({ fontFamily: 'azeretMono', mb: '4' })}>Past</h1>
+                            <section className={flex({ flexDirection: 'column', gap: '4' })}>
+                                <h1 className={css({ fontFamily: 'simula', fontSize: 'lg' })}>Past</h1>
                                 {pastExhibitions && pastExhibitions.length > 0 && (
                                     <div className={flex({ flexDirection: 'column', gap: '4' })}>
                                         {pastExhibitions.map((exhibition: ExhibitionProps) => {
@@ -77,7 +77,7 @@ export default function ExhibitionsPage({ data }: ExhibitionsPagePayload) {
                         </div>
                     </div>
                 </div>
-                <div className={flex({ flexDirection: 'column', gap: '4', w: '2/3', grow: 1, position: 'relative', mt: '14vh' })}>
+                <div className={flex({ flexDirection: 'column', gap: '4', w: '2/3', position: 'sticky', top: '14vh', h: '86vh' })}>
                     {exhibitions &&
                         exhibitions.length > 0 &&
                         exhibitions.map((exhibition: ExhibitionProps) => (

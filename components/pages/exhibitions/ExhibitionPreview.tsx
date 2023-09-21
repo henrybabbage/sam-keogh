@@ -18,9 +18,11 @@ export default function ExhibitionPreview(props: ExhibitionPreviewProps) {
     console.log(selectedExhibition, id)
 
     return (
-        <div className={css({ position: 'relative', aspectRatio: '16/9' })}>
+        <div className={css({ position: 'relative', aspectRatio: '16/9', pl: '12px' })}>
             <div className={css({ w: '100%', bg: 'gray.500' })}>
-                {image && <DynamicImage asset={image} width={390} height={260} mode="cover" sizes="80vw" />}
+                {image && (
+                    <DynamicImage asset={image} width={390} height={260} mode="cover" sizes="100vw" />
+                )}
             </div>
         </div>
     )
