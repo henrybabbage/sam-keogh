@@ -77,13 +77,14 @@ export default function ExhibitionsPage({ data }: ExhibitionsPagePayload) {
                         </div>
                     </div>
                 </div>
-                <div className={flex({ flexDirection: 'column', gap: '4', grow: 1 })}>
+                <div className={flex({ flexDirection: 'column', gap: '4', w: '2/3', grow: 1, position: 'relative', mt: '14vh' })}>
                     {exhibitions &&
                         exhibitions.length > 0 &&
                         exhibitions.map((exhibition: ExhibitionProps) => (
-                            <div key={exhibition._id}>
-                                {exhibition.imageGallery && exhibition.imageGallery.length > 0 &&
-                                <ExhibitionPreview image={exhibition.imageGallery[0]} id={exhibition._id} />}
+                            <div key={exhibition._id} className={css({ position: 'absolute', inset: 0 })}>
+                                {exhibition.imageGallery && exhibition.imageGallery.length > 0 && (
+                                    <ExhibitionPreview image={exhibition.imageGallery[0]} id={exhibition._id} />
+                                )}
                             </div>
                         ))}
                 </div>

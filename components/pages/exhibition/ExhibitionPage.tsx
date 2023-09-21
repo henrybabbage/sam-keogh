@@ -27,8 +27,9 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                         right: '12px',
                         fontFamily: 'simula',
                         fontStyle: 'normal',
-                        fontSize: 'md',
-                        _hover: { textDecorationLine: 'underline', textUnderlineOffset: '8px', textDecorationThickness: '3px', color: '#0026F5' }
+                        fontSize: 'lg',
+                        textTransform: 'uppercase',
+                        _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '1.5px', color: '#0026F5' }
                     })}
                 >
                     Back
@@ -55,17 +56,35 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                     </div>
                     <div className={flex({ flexDirection: 'column', gap: 6 })}>
                         {pressRelease && (
-                            <button className={css({ textAlign: 'left', cursor: 'pointer', _hover: { textDecoration: 'underline', color: '#0026F5' } })}>
+                            <button
+                                className={css({
+                                    textAlign: 'left',
+                                    cursor: 'pointer',
+                                    _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '1.5px', color: '#0026F5' }
+                                })}
+                            >
                                 <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Text</h3>
                             </button>
                         )}
                         {imageGallery && (
-                            <button className={css({ textAlign: 'left', cursor: 'pointer', _hover: { textDecoration: 'underline', color: '#0026F5' } })}>
+                            <button
+                                className={css({
+                                    textAlign: 'left',
+                                    cursor: 'pointer',
+                                    _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '1.5px', color: '#0026F5' }
+                                })}
+                            >
                                 <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Image</h3>
                             </button>
                         )}
                         {vimeo && (
-                            <button className={css({ textAlign: 'left', cursor: 'pointer', _hover: { textDecoration: 'underline', color: '#0026F5' } })}>
+                            <button
+                                className={css({
+                                    textAlign: 'left',
+                                    cursor: 'pointer',
+                                    _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '1.5px', color: '#0026F5' }
+                                })}
+                            >
                                 <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Video</h3>
                             </button>
                         )}
