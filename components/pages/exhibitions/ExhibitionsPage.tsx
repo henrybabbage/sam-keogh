@@ -42,13 +42,13 @@ export default function ExhibitionsPage({ data }: ExhibitionsPagePayload) {
                                 <h1 className={css({ fontFamily: 'azeretMono', mb: '4' })}>Upcoming / Current</h1>
                                 {upcomingExhibitions && upcomingExhibitions.length > 0 && (
                                     <div className={flex({ flexDirection: 'column', gap: '4' })}>
-                                        {upcomingExhibitions.map((exhibition: ExhibitionProps, key: number) => {
+                                        {upcomingExhibitions.map((exhibition: ExhibitionProps) => {
                                             const href = resolveHref(exhibition._type, exhibition.slug)
                                             if (!href) {
                                                 return null
                                             }
                                             return (
-                                                <Link key={key} href={href}>
+                                                <Link key={exhibition._id} href={href}>
                                                     <ExhibitionListItem exhibition={exhibition} />
                                                 </Link>
                                             )
@@ -60,13 +60,13 @@ export default function ExhibitionsPage({ data }: ExhibitionsPagePayload) {
                                 <h1 className={css({ fontFamily: 'azeretMono', mb: '4' })}>Past</h1>
                                 {pastExhibitions && pastExhibitions.length > 0 && (
                                     <div className={flex({ flexDirection: 'column', gap: '4' })}>
-                                        {pastExhibitions.map((exhibition: ExhibitionProps, key: number) => {
+                                        {pastExhibitions.map((exhibition: ExhibitionProps) => {
                                             const href = resolveHref(exhibition._type, exhibition.slug)
                                             if (!href) {
                                                 return null
                                             }
                                             return (
-                                                <Link key={key} href={href}>
+                                                <Link key={exhibition._id} href={href}>
                                                     <ExhibitionListItem exhibition={exhibition} />
                                                 </Link>
                                             )
@@ -78,7 +78,14 @@ export default function ExhibitionsPage({ data }: ExhibitionsPagePayload) {
                     </div>
                 </div>
                 <div className={flex({ flexDirection: 'column', gap: '4', grow: 1 })}>
-                    <ExhibitionPreview />
+                    {exhibitions &&
+                        exhibitions.length > 0 &&
+                        exhibitions.map((exhibition: ExhibitionProps) => (
+                            <div key={exhibition._id}>
+                                {exhibition.imageGallery && exhibition.imageGallery.length > 0 &&
+                                <ExhibitionPreview image={exhibition.imageGallery[0]} id={exhibition._id} />}
+                            </div>
+                        ))}
                 </div>
             </div>
         </main>

@@ -1,7 +1,7 @@
 import { DynamicImage } from '@/components/common/DynamicImage'
-import VimeoPlayer from '@/components/common/VimeoPlayer'
+import VideosList from '@/components/common/VideosList'
 import { css, cx } from '@/styled-system/css'
-import { flex, grid, gridItem, scrollable } from '@/styled-system/patterns'
+import { flex } from '@/styled-system/patterns'
 import type { ExhibitionPagePayload } from '@/types'
 import { format } from 'date-fns'
 import Link from 'next/link'
@@ -16,22 +16,26 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                         flexDirection: 'row',
                         justifyContent: 'flex-end'
                     }),
-                    css({ height: 'fit-content', position: 'fixed', top: '12px', right: '12px', zIndex: 10 })
+                    css({ height: '14vh', zIndex: 10 })
                 )}
             >
                 <Link
                     href="/exhibitions"
                     className={css({
-                        fontFamily: 'azeretMono',
+                        position: 'fixed',
+                        top: '12px',
+                        right: '12px',
+                        fontFamily: 'simula',
                         fontStyle: 'normal',
+                        fontSize: 'md',
                         _hover: { textDecorationLine: 'underline', textUnderlineOffset: '8px', textDecorationThickness: '3px', color: '#0026F5' }
                     })}
                 >
-                    Back to exhibitions
+                    Back
                 </Link>
             </header>
-            <div className={css({ position: 'fixed', top: '20vh', w: '3/12' })}>
-                <div className={cx(flex({ flexDirection: 'column', h: '100%', gap: 12 }))}>
+            <div className={flex({ gap: '4', w: '100%', h: '100%' })}>
+                <div className={flex({ flexDirection: 'column', h: '100%', gap: 12, w: '1/3' })}>
                     <div>
                         {title && <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'italic', fontSize: 'md' })}>{title}</h3>}
                         {venue && (
@@ -67,15 +71,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                         )}
                     </div>
                 </div>
-            </div>
-            <div className={grid({ columns: 12, gap: '0', pt: '20vh' })}>
-                <div
-                    className={cx(
-                        gridItem({ colStart: 4, colEnd: 13 }),
-                        flex({ flexDirection: 'column' }),
-                        scrollable({ direction: 'vertical', hideScrollbar: true })
-                    )}
-                >
+                <div className={flex({ flexDirection: 'column', gap: '0', h: '100%', w: '2/3' })}>
                     {imageGallery && imageGallery.length > 0 && (
                         <>
                             {imageGallery.map((image, key) => (
@@ -103,7 +99,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                             ))}
                         </>
                     )}
-                    {vimeo && <VimeoPlayer videos={vimeo} provider="vimeo" />}
+                    {vimeo && <VideosList videos={vimeo} provider="vimeo" />}
                 </div>
             </div>
         </main>
