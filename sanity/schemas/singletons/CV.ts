@@ -11,7 +11,17 @@ export default defineType({
             name: 'name',
             title: 'Name',
             type: 'string',
-            hidden: true,
+            hidden: true
+        }),
+        defineField({
+            name: 'slug',
+            title: 'Slug',
+            type: 'slug',
+            description: 'Generate the URL slug for this page',
+            options: {
+                source: 'name',
+                maxLength: 96
+            }
         }),
         defineField({
             name: 'cv',
@@ -21,9 +31,9 @@ export default defineType({
                 {
                     title: 'Block',
                     type: 'block',
-                    styles: [{title: 'Normal', value: 'normal'}],
-                    lists: [],
-                },
+                    styles: [{ title: 'Normal', value: 'normal' }],
+                    lists: []
+                }
             ]
         })
     ]

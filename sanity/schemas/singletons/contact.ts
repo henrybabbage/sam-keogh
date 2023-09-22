@@ -14,6 +14,16 @@ export default defineType({
             hidden: true,
         }),
         defineField({
+            name: 'slug',
+            title: 'Slug',
+            type: 'slug',
+            description: 'Generate the URL slug for this page',
+            options: {
+                source: 'title',
+                maxLength: 96
+            },
+        }),
+        defineField({
             name: 'email',
             title: 'Email',
             type: 'string',
