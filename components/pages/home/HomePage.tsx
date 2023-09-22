@@ -26,6 +26,7 @@ export default function HomePage({ data }: HomePageProps) {
                     asset={hero}
                     mode="cover"
                     sizes="100vw"
+                    loading="eager"
                     style={{
                         position: 'absolute',
                         top: 0,
