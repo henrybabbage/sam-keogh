@@ -15,6 +15,7 @@ export default function VimeoPlayer(props: VideoProps) {
                 width="100%"
                 height="100%"
                 controls
+                playing={false}
                 muted
                 url={url}
                 config={{
