@@ -14,17 +14,17 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
     const { title, startDate, endDate, imageGallery, venue, vimeo, pressRelease } = data ?? {}
 
     const { scrollIntoView: scrollIntoViewImages, targetRef: imagesRef } = useScrollIntoView<HTMLDivElement>({
-        duration: 1000,
+        duration: 800,
         offset: 12
     })
 
     const { scrollIntoView: scrollIntoViewVideos, targetRef: videosRef } = useScrollIntoView<HTMLDivElement>({
-        duration: 1000,
+        duration: 800,
         offset: 12
     })
 
     const { scrollIntoView: scrollIntoViewText, targetRef: textRef } = useScrollIntoView<HTMLDivElement>({
-        duration: 1000,
+        duration: 800,
         offset: 12
     })
 
