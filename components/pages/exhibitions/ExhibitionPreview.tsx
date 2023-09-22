@@ -22,7 +22,7 @@ export default function ExhibitionPreview(props: ExhibitionPreviewProps) {
                 aspectRatio: '16/9',
                 pl: '12px',
                 opacity: selectedExhibition === id ? 1 : 0,
-                transition: 'opacity 0.3s ease-in-out'
+                transition: 'opacity 0.2s ease-in-out'
             })}
         >
             <div className={css({ w: '100%', bg: 'gray.500' })}>
