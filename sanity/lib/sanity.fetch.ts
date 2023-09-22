@@ -46,7 +46,7 @@ export async function sanityFetch<QueryResponse>({
 export function getHomePage() {
     return sanityFetch<HomePagePayload | null>({
         query: homePageQuery,
-        tags: ['home', 'exhibition']
+        tags: ['home']
     })
 }
 
