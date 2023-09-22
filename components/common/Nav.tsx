@@ -13,7 +13,7 @@ export default function Nav() {
                             color: 'black',
                             fontFamily: 'simula',
                             textTransform: 'uppercase',
-                            _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '1.5px', color: '#0026F5' }
+                            _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: '#0026F5' }
                         })}
                     >
                         Exhibitions
@@ -26,7 +26,7 @@ export default function Nav() {
                             color: 'black',
                             fontFamily: 'simula',
                             textTransform: 'uppercase',
-                            _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '1.5px', color: '#0026F5' }
+                            _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: '#0026F5' }
                         })}
                     >
                         CV
@@ -39,7 +39,7 @@ export default function Nav() {
                             color: 'black',
                             fontFamily: 'simula',
                             textTransform: 'uppercase',
-                            _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '1.5px', color: '#0026F5' }
+                            _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: '#0026F5' }
                         })}
                     >
                         Contact
