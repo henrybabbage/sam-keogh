@@ -19,6 +19,8 @@ export default function ContactPage({ data }: ContactPageProps) {
                             _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '1.5px', color: '#0026F5' }
                         })}
                         href={`mailto:${email}`}
+                        target="_blank"
+                        rel="noreferrer"
                     >
                         {email}
                     </a>
@@ -28,6 +30,8 @@ export default function ContactPage({ data }: ContactPageProps) {
                             _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '1.5px', color: '#0026F5' }
                         })}
                         href={instagram?.url}
+                        target="_blank"
+                        rel="noreferrer"
                     >
                         {instagram?.title}
                     </a>
@@ -37,6 +41,8 @@ export default function ContactPage({ data }: ContactPageProps) {
                             _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '1.5px', color: '#0026F5' }
                         })}
                         href={gallery?.url}
+                        target="_blank"
+                        rel="noreferrer"
                     >
                         {gallery?.title}
                     </a>
