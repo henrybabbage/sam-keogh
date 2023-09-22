@@ -1,71 +1,28 @@
 'use client'
 
 import { css } from '@/styled-system/css'
-import type { VideoProps } from '@/types'
-import Plyr, { APITypes } from 'plyr-react'
-import 'plyr-react/plyr.css'
-import { useRef } from 'react'
+import { VideoProps } from '@/types'
+import dynamic from 'next/dynamic'
+const ReactPlayer = dynamic(() => import('react-player/vimeo'), { ssr: false })
 
-export type VideoPlayerProps = {
-    videos: VideoProps[]
-    provider: 'vimeo'
-    // videoOptions?: any
-}
-
-export default function VimeoPlayer(props: VideoPlayerProps) {
-    const { videos, provider } = props
-
-    const ref = useRef<APITypes>(null)
-
-    function getVimeoIdFromUrl(url: string | null) {
-        const vimeoRegex = /vimeo\.com\/(\d+)/
-        const match = url?.match(vimeoRegex)
-
-        if (match) {
-            return match[1]
-        } else {
-            return null
-        }
-    }
-
-    function getVideosWithVimeoIds(videos: VideoProps[]) {
-        return videos.map((video) => {
-            const vimeoId = getVimeoIdFromUrl(video.url)
-            return {
-                ...video,
-                url: vimeoId ? vimeoId : video.url
-            }
-        })
-    }
-
-    const preparedVideos = getVideosWithVimeoIds(videos)
-
+export default function VimeoPlayer(props: VideoProps) {
+    const { url, title } = props
     return (
-        <div className={css({ width: '100%', height: '100%', position: 'relative' })}>
-            {preparedVideos &&
-                provider &&
-                preparedVideos.map((vimeo) => (
-                    <>
-                        <Plyr
-                            key={vimeo.url}
-                            ref={ref}
-                            playsInline
-                            source={{
-                                type: 'video',
-                                sources: [
-                                    {
-                                        src: vimeo.url,
-                                        provider: provider
-                                    }
-                                ]
-                            }}
-                            // options={videoOptions}
-                        />
-                        <figcaption className={css({ my: 4 })}>
-                            <h3 className={css({ fontFamily: 'simula', fontStyle: 'normal' })}>{vimeo?.title}</h3>
-                        </figcaption>
-                    </>
-                ))}
+        <div className={css({ position: 'relative', aspectRatio: 16 / 9 })}>
+            <ReactPlayer
+                id="react-player"
+                className={css({ position: 'absolute', top: 0, left: 0 })}
+                width="100%"
+                height="100%"
+                controls
+                playing
+                muted
+                url={url}
+                config={{
+                    title: title,
+                }}
+                playsinline
+            />
         </div>
     )
 }

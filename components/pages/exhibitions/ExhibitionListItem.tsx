@@ -4,7 +4,6 @@ import { css } from '@/styled-system/css'
 import type { ExhibitionProps } from '@/types'
 import { format } from 'date-fns'
 import { motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
 import { useExhibitionStore } from './store'
 
 export type ListItemProps = {
@@ -14,26 +13,16 @@ export type ListItemProps = {
 export default function ExhibitionListItem(props: ListItemProps) {
     const { exhibition } = props
 
-    const [isHovered, setIsHovered] = useState(false)
+    const setSelectedExhibition = useExhibitionStore((state) => state.setSelectedExhibition)
 
-    const setSelectedExhibition = useExhibitionStore(state => state.setSelectedExhibition)
-
-    const handleHover = () => {
-        setIsHovered(true)
-    }
-
-    const handleUnhover = () => {
-        setIsHovered(false)
-    }
-
-    useEffect(() => {
-        setSelectedExhibition(exhibition)
-    }, [isHovered, exhibition, setSelectedExhibition])
-    
     return (
         <motion.li
-            onMouseEnter={handleHover}
-            onMouseLeave={handleUnhover}
+            onMouseEnter={() => {
+                setSelectedExhibition(exhibition._id)
+            }}
+            onMouseLeave={() => {
+                setSelectedExhibition(null)
+            }}
             key={exhibition._id}
             whileHover={{
                 translateX: '20px',
@@ -51,7 +40,7 @@ export default function ExhibitionListItem(props: ListItemProps) {
                 </h3>
             )}
             {exhibition.startDate && exhibition.endDate && (
-                <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'italic' })}>
+                <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal' })}>
                     <span>{format(new Date(exhibition?.startDate), 'dd MMM')}</span>
                     <span>{' — '}</span>
                     <span>{format(new Date(exhibition?.endDate), 'dd MMM yyyy')}</span>

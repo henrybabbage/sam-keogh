@@ -19,8 +19,9 @@ export type FigureProps = {
 }
 
 export type VideoProps = {
-    title: string 
-    url: string 
+    _key?: string
+    title?: string 
+    url: string
 }
 
 export type LinkProps = {

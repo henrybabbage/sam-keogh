@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    reactStrictMode: true,
     images: {
+        domains: ['i.vimeocdn.com', 'player.vimeo.com', 'cdn.sanity.io'],
         remotePatterns: [{ protocol: 'https', hostname: 'cdn.sanity.io' }]
     },
     env: {
