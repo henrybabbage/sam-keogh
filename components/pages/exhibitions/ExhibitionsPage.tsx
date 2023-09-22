@@ -27,6 +27,19 @@ export default function ExhibitionsPage({ data }: ExhibitionsPagePayload) {
         return { upcomingExhibitions, pastExhibitions }
     }
 
+    function getExhibitionYears(exhibitions: ExhibitionProps[]) {
+        const years = exhibitions.reduce((acc: string[], exhibition) => {
+            const year = exhibition.year
+            if (!acc.includes(year)) {
+                acc.push(year)
+            }
+            return acc
+        }, [])
+        return years.sort((a, b) => parseInt(b, 10) - parseInt(a, 10))
+    }
+
+    console.log(getExhibitionYears(exhibitions))
+
     const { upcomingExhibitions, pastExhibitions } = sortExhibitions(exhibitions)
 
     return (

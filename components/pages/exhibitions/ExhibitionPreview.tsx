@@ -15,14 +15,10 @@ export default function ExhibitionPreview(props: ExhibitionPreviewProps) {
 
     const selectedExhibition = useExhibitionStore((state) => state.selectedExhibition)
 
-    console.log(selectedExhibition, id)
-
     return (
-        <div className={css({ position: 'relative', aspectRatio: '16/9', pl: '12px' })}>
+        <div className={css({ position: 'relative', aspectRatio: '16/9', pl: '12px', opacity: selectedExhibition === id ? 1 : 0 })}>
             <div className={css({ w: '100%', bg: 'gray.500' })}>
-                {image && (
-                    <DynamicImage asset={image} width={390} height={260} mode="cover" sizes="100vw" />
-                )}
+                {image && <DynamicImage asset={image} width={390} height={260} mode="cover" sizes="100vw" />}
             </div>
         </div>
     )
