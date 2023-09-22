@@ -2,9 +2,12 @@
 
 import { css } from '@/styled-system/css'
 import type { VideoProps } from '@/types'
-import Plyr, { APITypes } from 'plyr-react'
+import dynamic from 'next/dynamic'
+import type { APITypes } from 'plyr-react'
 import 'plyr-react/plyr.css'
 import { useRef } from 'react'
+
+const Plyr = dynamic(() => import('plyr-react'), { ssr: false })
 
 export type VideosListProps = {
     videos: VideoProps[] | null
@@ -17,7 +20,7 @@ export default function VideosList(props: VideosListProps) {
 
     const ref = useRef<APITypes>(null)
 
-    function getVimeoIdFromUrl(url: string | null) {
+    function getVimeoIdFromUrl(url: string) {
         const vimeoRegex = /vimeo\.com\/(\d+)/
         const match = url?.match(vimeoRegex)
 
@@ -40,18 +43,17 @@ export default function VideosList(props: VideosListProps) {
 
     const preparedVideos = videos ? getVideosWithVimeoIds(videos) : []
 
-    console.log({preparedVideos})
-
     return (
         <>
-            {preparedVideos &&
-                provider &&
+            {provider &&
+                preparedVideos &&
                 preparedVideos.map((vimeo) => (
-                    <div key={vimeo.url} className={css({ aspectRatio: 16/9, width: '100%', height: '100%', position: 'relative' })}>
+                    <div key={vimeo._key} className={css({ aspectRatio: 16 / 9, position: 'relative' })}>
                         <Plyr
+                            key={vimeo._key}
                             ref={ref}
+                            id="plyr-player"
                             playsInline
-                            id="player"
                             crossOrigin=""
                             source={{
                                 type: 'video',

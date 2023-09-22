@@ -2,7 +2,7 @@
 
 import { CustomPortableText } from '@/components/common/CustomPortableText'
 import { DynamicImage } from '@/components/common/DynamicImage'
-import VideosList from '@/components/common/VideosList'
+import VimeoPlayer from '@/components/common/VimeoPlayer'
 import { css, cx } from '@/styled-system/css'
 import { flex } from '@/styled-system/patterns'
 import type { ExhibitionPagePayload } from '@/types'
@@ -50,7 +50,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                         fontStyle: 'normal',
                         fontSize: 'lg',
                         textTransform: 'uppercase',
-                        _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '1.5px', color: '#0026F5' }
+                        _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: '#0026F5' }
                     })}
                 >
                     Back
@@ -86,7 +86,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                             className={css({
                                 textAlign: 'left',
                                 cursor: 'pointer',
-                                _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '1.5px', color: '#0026F5' }
+                                _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: '#0026F5' }
                             })}
                         >
                             <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Image</h3>
@@ -102,7 +102,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                             className={css({
                                 textAlign: 'left',
                                 cursor: 'pointer',
-                                _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '1.5px', color: '#0026F5' }
+                                _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: '#0026F5' }
                             })}
                         >
                             <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Video</h3>
@@ -118,7 +118,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                             className={css({
                                 textAlign: 'left',
                                 cursor: 'pointer',
-                                _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '1.5px', color: '#0026F5' }
+                                _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: '#0026F5' }
                             })}
                         >
                             <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Text</h3>
@@ -136,7 +136,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                     mb: '14vh'
                 })}
             >
-                <div className={flex({ flexDirection: 'column', gap: '0' })}>
+                <div className={flex({ flexDirection: 'column', gap: '12' })}>
                     {imageGallery && imageGallery.length > 0 && (
                         <section ref={imagesRef}>
                             {imageGallery.map((image, key) => (
@@ -167,7 +167,12 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                     )}
                     {vimeo && (
                         <section ref={videosRef}>
-                            <VideosList videos={vimeo} provider="vimeo" />
+                            {vimeo &&
+                                vimeo.map((video) => (
+                                    <div key={video._key}>
+                                        <VimeoPlayer url={video.url} title={video.title} />
+                                    </div>
+                                ))}
                         </section>
                     )}
                     {pressRelease && (
