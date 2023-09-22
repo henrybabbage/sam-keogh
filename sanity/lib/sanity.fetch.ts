@@ -1,11 +1,11 @@
 import 'server-only'
 
-import { ExhibitionProps, HomePagePayload } from '@/types'
+import { ContactPagePayload, CvPagePayload, ExhibitionProps, HomePagePayload } from '@/types'
 import type { QueryParams } from '@sanity/client'
 import { draftMode } from 'next/headers'
 import { revalidateSecret } from './sanity.api'
 import { client } from './sanity.client'
-import { exhibitionBySlugQuery, exhibitionsPageQuery, exhibitionsPaths, homePageQuery, pagesPaths } from './sanity.queries'
+import { contactPageQuery, cvPageQuery, exhibitionBySlugQuery, exhibitionsPageQuery, exhibitionsPaths, homePageQuery, pagesPaths } from './sanity.queries'
 
 export const token = process.env.SANITY_API_READ_TOKEN
 
@@ -47,6 +47,20 @@ export function getHomePage() {
     return sanityFetch<HomePagePayload | null>({
         query: homePageQuery,
         tags: ['home']
+    })
+}
+
+export function getCvPage() {
+    return sanityFetch<CvPagePayload | null>({
+        query: cvPageQuery,
+        tags: ['cv']
+    })
+}
+
+export function getContactPage() {
+    return sanityFetch<ContactPagePayload | null>({
+        query: contactPageQuery,
+        tags: ['contact']
     })
 }
 

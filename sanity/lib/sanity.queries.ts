@@ -52,6 +52,7 @@ export const exhibitionsPageQuery = groq`
 export const cvPageQuery = groq`
   *[_type == "cv"][0] {
     _id,
+    "slug": slug.current,
     cv
   }
 `
@@ -59,6 +60,7 @@ export const cvPageQuery = groq`
 export const contactPageQuery = groq`
   *[_type == "contact"][0] {
     _id,
+    "slug": slug.current,
     email,
     gallery,
     instagram,
