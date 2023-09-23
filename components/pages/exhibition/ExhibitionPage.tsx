@@ -68,7 +68,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                         </h3>
                     )}
                     {startDate && endDate && (
-                        <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'italic', fontSize: 'md' })}>
+                        <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'italic', fontSize: 'md', fontVariantNumeric: 'slashed-zero' })}>
                             <span>{format(new Date(startDate), 'dd MMM')}</span>
                             <span>{' — '}</span>
                             <span>{format(new Date(endDate), 'dd MMM yyyy')}</span>
@@ -89,7 +89,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                                 _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: '#0026F5' }
                             })}
                         >
-                            <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Image</h3>
+                            <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Images</h3>
                         </button>
                     )}
                     {vimeo && (
@@ -105,7 +105,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                                 _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: '#0026F5' }
                             })}
                         >
-                            <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Video</h3>
+                            <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Videos</h3>
                         </button>
                     )}
                     {pressRelease && (
