@@ -121,7 +121,7 @@ export default defineType({
             title: 'Year',
             type: 'string',
             validation: (rule) => rule.warning().required().max(4),
-            description: 'Must be in format: YYYY'
+            description: 'Must be in format: YYYY (important for ordering)'
         }),
         defineField({
             name: 'venue',
