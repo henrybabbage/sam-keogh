@@ -11,6 +11,7 @@ export type HomePageProps = {
 export default function HomePage({ data }: HomePageProps) {
     // Default to an empty object to allow previews on non-existent documents
     const { hero = {} } = data ?? {}
+
     return (
         <main className={css({ maxHeight: '100vh', height: '100vh', p: '12px', bg: '#FFF1E5' })}>
             <section
