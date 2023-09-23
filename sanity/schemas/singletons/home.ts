@@ -16,8 +16,9 @@ export default defineType({
         defineField({
             name: 'hero',
             title: 'Hero',
-            description: 'Landing page image',
             type: 'image',
+            description: 'Landing page image',
+            validation: (Rule) => Rule.required(),
             options: {
                 storeOriginalFilename: true,
                 hotspot: true

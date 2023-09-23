@@ -95,8 +95,9 @@ export default defineType({
             title: 'Artist(s)',
             type: 'reference',
             to: { type: 'artist' },
-            description: 'Participating artist(s)',
-            hidden: ({ document }) => document?.type !== 'group'
+            description: 'Participating artist(s) (optional)',
+            hidden: true
+            // hidden: ({ document }) => document?.type !== 'group'
         }),
         // TODO: Add switch for eventDate type or exhibitionDates type
         defineField({
@@ -117,11 +118,20 @@ export default defineType({
             validation: (rule) => rule.warning().min(rule.valueOfField('startDate'))
         }),
         defineField({
+            name: 'eventDate',
+            title: 'Event date',
+            type: 'datetime',
+            options: {
+                dateFormat: 'MMMM Do YYYY'
+            },
+            description: 'For events or performances that occur on a single date'
+        }),
+        defineField({
             name: 'year',
             title: 'Year',
             type: 'string',
             validation: (rule) => rule.warning().required().max(4),
-            description: 'Must be in format: YYYY'
+            description: 'Must be in format: YYYY (important for ordering)'
         }),
         defineField({
             name: 'venue',
