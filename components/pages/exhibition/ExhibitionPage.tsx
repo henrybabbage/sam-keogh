@@ -45,10 +45,10 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                         zIndex: 10,
                         position: 'fixed',
                         top: '12px',
-                        right: '12px',
+                        left: '12px',
                         fontFamily: 'simula',
                         fontStyle: 'normal',
-                        fontSize: 'lg',
+                        fontSize: 'md',
                         textTransform: 'uppercase',
                         _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: '#0026F5' }
                     })}
