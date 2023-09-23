@@ -38,7 +38,8 @@ export default defineType({
                     name: 'alt',
                     title: 'Alternative text',
                     type: 'string',
-                    initialValue: 'Artwork by Sam Keogh'
+                    initialValue: 'Artwork by Sam Keogh',
+                    description: 'For accessibility and search engine optimization'
                 }),
                 defineField({
                     title: 'Caption',

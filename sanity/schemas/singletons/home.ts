@@ -1,5 +1,5 @@
-import {defineField, defineType} from 'sanity'
-import {HomeIcon} from '@sanity/icons'
+import { HomeIcon } from '@sanity/icons'
+import { defineField, defineType } from 'sanity'
 
 export default defineType({
     name: 'home',
@@ -27,8 +27,16 @@ export default defineType({
                     name: 'alt',
                     title: 'Alternative text',
                     type: 'string',
+                    description: 'For accessibility and search engine optimization'
                 }
             ]
+        }),
+        defineField({
+            name: 'link',
+            title: 'Link',
+            type: 'reference',
+            to: [{ type: 'exhibition' }],
+            description: 'Link the displayed image to an exhibition page'
         })
     ],
     preview: {

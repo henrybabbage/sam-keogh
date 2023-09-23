@@ -16,13 +16,14 @@ export default function ExhibitionsPage({ data }: ExhibitionsPagePayload) {
         const pastExhibitions: ExhibitionProps[] = []
 
         exhibitions.forEach((exhibition) => {
-            const endDate = new Date(exhibition.endDate)
-            if (endDate >= now) {
+            const endDate = exhibition.endDate ? new Date(exhibition.endDate) : null
+            if (endDate && endDate >= now) {
                 upcomingExhibitions.push(exhibition)
             } else {
                 pastExhibitions.push(exhibition)
             }
         })
+
 
         return { upcomingExhibitions, pastExhibitions }
     }

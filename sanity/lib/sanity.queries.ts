@@ -5,7 +5,13 @@ export const homePageQuery = groq`
         _id,
         _ref,
         _type,
+        link->{
+            "slug": slug.current,
+        },
         hero{
+            asset->{
+                ...
+            },
             alt,
             "id": asset._ref,
             "preview": asset->metadata.lqip,
