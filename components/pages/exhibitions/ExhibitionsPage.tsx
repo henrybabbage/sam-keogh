@@ -24,7 +24,6 @@ export default function ExhibitionsPage({ data }: ExhibitionsPagePayload) {
             }
         })
 
-
         return { upcomingExhibitions, pastExhibitions }
     }
 
@@ -53,7 +52,7 @@ export default function ExhibitionsPage({ data }: ExhibitionsPagePayload) {
                     <div className={flex({ gap: '8', h: 'fit-content', mb: '8vh' })}>
                         <div className={flex({ flexDirection: 'column', gap: '8' })}>
                             <section className={flex({ flexDirection: 'column', gap: '4' })}>
-                                <h1 className={css({ fontFamily: 'simula', fontSize: 'lg' })}>Upcoming / Current</h1>
+                                {upcomingExhibitions && <h1 className={css({ fontFamily: 'simula', fontSize: 'lg' })}>Upcoming / Current</h1>}
                                 {upcomingExhibitions && upcomingExhibitions.length > 0 && (
                                     <div className={flex({ flexDirection: 'column', gap: '4' })}>
                                         {upcomingExhibitions.map((exhibition: ExhibitionProps) => {

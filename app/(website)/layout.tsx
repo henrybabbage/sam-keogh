@@ -1,19 +1,27 @@
 import Nav from '@/components/common/Nav'
 import type { Metadata } from 'next'
-import { Azeret_Mono } from 'next/font/google'
 import localFont from 'next/font/local'
 import './index.css'
 
-const azeretMono = Azeret_Mono({
-    weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-    style: ['normal', 'italic'],
-    subsets: ['latin'],
+const azeretMono = localFont({
+    src: [
+        {
+            path: '../../fonts/AzeretMono/AzeretMono_Regular.otf',
+            style: 'normal',
+            weight: '400'
+        },
+        {
+            path: '../../fonts/AzeretMono/AzeretMono_Italic.otf',
+            style: 'italic',
+            weight: '400'
+        }
+    ],
     display: 'swap',
     variable: '--font-azeret-mono'
 })
 
 const simula = localFont({
-    src: '../../fonts/Simula-Book.otf',
+    src: '../../fonts/Simula/Simula-Book.otf',
     weight: '400',
     style: 'normal',
     display: 'swap',
