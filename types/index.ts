@@ -18,6 +18,23 @@ export type FigureProps = {
     asset: Image
 }
 
+export type HeroProps = {
+    alt: string
+    asset: Image
+    id: string
+    preview?: string
+    hotspot?: {
+        x: number
+        y: number
+    }
+    crop?: {
+        bottom: number
+        left: number
+        right: number
+        top: number
+    }
+}
+
 export type VideoProps = {
     _key?: string
     title?: string 
@@ -33,23 +50,26 @@ export type ExhibitionProps = {
     _id: string
     _type: string
     title: string
-    subtitle: string
+    subtitle?: string
     link?: 'internal' | 'external'
     slug?: string
     url?: string
-    imageGallery: FigureProps[]
-    vimeo: VideoProps[]
-    pressRelease: PortableTextBlock[]
+    imageGallery?: FigureProps[]
+    vimeo?: VideoProps[]
+    pressRelease?: PortableTextBlock[]
     type?: 'solo' | 'group'
-    startDate: string
-    endDate: string
+    startDate?: string
+    endDate?: string
     year: string
-    venue: VenueProps
-    photographerCredit: string
+    venue?: VenueProps
+    photographerCredit?: string
 }
 
 export type HomePagePayload = {
-    hero?: Image
+    _id: string
+    _type: string
+    hero?: HeroProps
+    link?: ExhibitionProps
 }
 
 export type ExhibitionsPagePayload = {
