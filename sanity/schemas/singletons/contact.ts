@@ -11,34 +11,35 @@ export default defineType({
             name: 'title',
             title: 'Title',
             type: 'string',
-            hidden: false,
-            // readOnly: true,
+            hidden: true,
+            readOnly: true,
             description: 'Internal use'
         }),
         defineField({
             name: 'slug',
             title: 'Slug',
             type: 'slug',
+            readOnly: true,
             description: 'Generate the URL slug for this page',
             options: {
                 source: 'title',
                 maxLength: 96
-            },
+            }
         }),
         defineField({
             name: 'email',
             title: 'Email',
-            type: 'string',
+            type: 'string'
         }),
         defineField({
             name: 'instagram',
             title: 'Instagram',
-            type: 'link',
+            type: 'link'
         }),
         defineField({
             name: 'gallery',
             title: 'Gallery',
-            type: 'link',
-        }),
-    ],
+            type: 'link'
+        })
+    ]
 })

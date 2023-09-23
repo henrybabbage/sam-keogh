@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/alt-text */
 'use client'
 
 import { DynamicImage } from '@/components/common/DynamicImage'

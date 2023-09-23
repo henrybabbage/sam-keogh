@@ -11,14 +11,15 @@ export default defineType({
             name: 'name',
             title: 'Name',
             type: 'string',
-            hidden: false,
-            // readOnly: true,
+            hidden: true,
+            readOnly: true,
             description: 'Internal use'
         }),
         defineField({
             name: 'slug',
             title: 'Slug',
             type: 'slug',
+            readOnly: true,
             description: 'Generate the URL slug for this page',
             options: {
                 source: 'name',
