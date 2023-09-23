@@ -27,6 +27,7 @@ export async function sanityFetch<QueryResponse>({
     }
 
     // @TODO this won't be necessary after https://github.com/sanity-io/client/pull/299 lands
+    // @TODO Refer to new suggested implementation here: https://github.com/sanity-io/next-sanity/tree/main#using-draftmode-to-deactivate-previews
     const sanityClient = client.config().useCdn && isDraftMode ? client.withConfig({ useCdn: false }) : client
     return sanityClient.fetch<QueryResponse>(query, params, {
         // We only cache if there's a revalidation webhook setup

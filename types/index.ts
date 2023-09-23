@@ -68,7 +68,7 @@ export type ExhibitionProps = {
 export type HomePagePayload = {
     _id: string
     _type: string
-    hero?: HeroProps
+    hero: HeroProps
     link?: ExhibitionProps
 }
 
