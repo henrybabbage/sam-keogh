@@ -136,6 +136,18 @@ export default defineType({
             type: 'string'
         })
     ],
+    orderings: [
+        {
+            title: 'Year (Ascending)',
+            name: 'yearAscending',
+            by: [{ field: 'year', direction: 'asc' }]
+        },
+        {
+            title: 'Year (Descending)',
+            name: 'yearDescending',
+            by: [{ field: 'year', direction: 'desc' }]
+        }
+    ],
     preview: {
         select: {
             title: 'title',

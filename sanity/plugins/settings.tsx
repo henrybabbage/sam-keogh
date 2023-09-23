@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /**
  * This plugin contains all the logic for setting up the singletons
  */
@@ -20,30 +21,30 @@ import home from '../schemas/singletons/home'
 import settings from '../schemas/singletons/settings'
 import theme from '../schemas/singletons/theme'
 
-// export const singletonPlugin = (types: string[]) => {
-//     return {
-//         name: 'singletonPlugin',
-//         document: {
-//             // Hide 'Singletons (such as Home)' from new document options
-//             // https://user-images.githubusercontent.com/81981/195728798-e0c6cf7e-d442-4e58-af3a-8cd99d7fcc28.png
-//             newDocumentOptions: (prev, { creationContext }) => {
-//                 if (creationContext.type === 'global') {
-//                     return prev.filter((templateItem) => !types.includes(templateItem.templateId))
-//                 }
+export const singletonPlugin = (types: string[]) => {
+    return {
+        name: 'singletonPlugin',
+        document: {
+            // Hide 'Singletons (such as Home)' from new document options
+            // https://user-images.githubusercontent.com/81981/195728798-e0c6cf7e-d442-4e58-af3a-8cd99d7fcc28.png
+            newDocumentOptions: (prev: any[], { creationContext }: any) => {
+                if (creationContext.type === 'global') {
+                    return prev.filter((templateItem) => !types.includes(templateItem.templateId))
+                }
 
-//                 return prev
-//             },
-//             // Removes the "duplicate" action on the Singletons (such as Home)
-//             actions: (prev, { schemaType }) => {
-//                 if (types.includes(schemaType)) {
-//                     return prev.filter(({ action }) => action !== 'duplicate')
-//                 }
+                return prev
+            },
+            // Removes the "duplicate" action on the Singletons (such as Home)
+            actions: (prev: any[], { schemaType }: any) => {
+                if (types.includes(schemaType)) {
+                    return prev.filter(({ action }) => action !== 'duplicate')
+                }
 
-//                 return prev
-//             }
-//         }
-//     }
-// }
+                return prev
+            }
+        }
+    }
+}
 
 // The StructureResolver is how we're changing the DeskTool structure to linking to document (named Singleton)
 // like how "Home" is handled.
