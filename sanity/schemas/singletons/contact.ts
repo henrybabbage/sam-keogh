@@ -12,7 +12,7 @@ export default defineType({
             title: 'Title',
             type: 'string',
             hidden: false,
-            readOnly: true,
+            // readOnly: true,
             description: 'Internal use'
         }),
         defineField({
