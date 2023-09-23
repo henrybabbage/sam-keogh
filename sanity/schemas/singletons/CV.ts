@@ -11,7 +11,9 @@ export default defineType({
             name: 'name',
             title: 'Name',
             type: 'string',
-            hidden: true
+            hidden: false,
+            readOnly: true,
+            description: 'Internal use'
         }),
         defineField({
             name: 'slug',

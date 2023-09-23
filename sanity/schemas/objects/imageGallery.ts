@@ -1,4 +1,4 @@
-import { getExtension, getImageDimensions } from '@sanity/asset-utils'
+import { getExtension } from '@sanity/asset-utils'
 import { ImagesIcon } from '@sanity/icons'
 import { defineField, defineType } from 'sanity'
 
@@ -31,12 +31,8 @@ export default defineType({
                     if (filetype !== 'jpg' && filetype !== 'png') {
                         return 'Image must be a JPG or PNG'
                     }
-                    const { width, height } = getImageDimensions(value?.asset?._ref || '')
-                    if (width < 1200 || height < 630) {
-                        return 'Image must be at least 1200x630 pixels'
-                    }
                     return true
-                }),
+                }).warning(),
             fields: [
                 defineField({
                     name: 'alt',
