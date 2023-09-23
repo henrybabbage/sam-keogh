@@ -19,14 +19,29 @@ export default function ExhibitionPreview(props: ExhibitionPreviewProps) {
         <div
             className={css({
                 position: 'relative',
-                aspectRatio: '16/9',
-                pl: '12px',
                 opacity: selectedExhibition === id ? 1 : 0,
                 transition: 'opacity 0.2s ease-in-out'
             })}
         >
-            <div className={css({ w: '100%', bg: 'gray.500' })}>
-                {image && <DynamicImage asset={image} width={390} height={260} mode="cover" loading="eager" sizes="100vw" />}
+            <div className={css({ w: '100%', h: '600px', bg: 'gray.500', position: 'relative', overflow: 'hidden' })}>
+                {image && (
+                    <DynamicImage
+                        asset={image}
+                        mode="contain"
+                        loading="eager"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 80vw"
+                        style={{
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'cover',
+                            userSelect: 'none',
+                            zIndex: 1
+                        }}
+                    />
+                )}
             </div>
         </div>
     )
