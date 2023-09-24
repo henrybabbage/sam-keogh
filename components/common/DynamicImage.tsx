@@ -7,7 +7,7 @@ const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET
 const baseUrl = `https://cdn.sanity.io/images/${projectId}/${dataset}/`
 
 export const DynamicImage = (props: Omit<React.ComponentProps<typeof SanityImage>, 'baseUrl' | 'dataset' | 'projectId'>) => {
-    const { asset, mode, sizes, width, height, loading } = props
+    const { asset, sizes, mode, width, height, loading } = props
     return (
         <SanityImage
             baseUrl={baseUrl}
@@ -20,7 +20,7 @@ export const DynamicImage = (props: Omit<React.ComponentProps<typeof SanityImage
             height={height}
             hotspot={asset?.hotspot}
             crop={asset?.crop}
-            queryParams={{ q: 75 }}
+            queryParams={{ q: 85 }}
             loading={loading || 'lazy'}
         />
     )

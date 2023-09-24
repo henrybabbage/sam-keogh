@@ -5,6 +5,7 @@
         /* font-family: var(--font-simula); */
         overscroll-behavior-y: none;
         --plyr-color-main: #0026F5;
+        --background-primary: #FFF1E5;
         font-variant-numeric: slashed-zero;
         font-kerning: normal;
         font-variant-ligatures: common-ligatures contextual;
@@ -26,12 +27,12 @@
         padding: 0;
     }
 
-    img {
+    /* img {
         display: block;
         max-width: 100%;
         width: 100%;
         height: auto;
-    }
+    } */
 
     #react-player iframe {
         width: 100%;

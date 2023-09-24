@@ -1,6 +1,23 @@
 import { PortableTextBlock } from '@portabletext/types'
 import type { Image } from 'sanity'
 
+export type Prettify<T> = {
+    [K in keyof T]: T[K]
+} & unknown
+
+export type Base = {
+    _createdAt: string
+    _id: string
+    _rev: string
+    _type: string
+    _updatedAt: string
+}
+
+export type Reference = {
+    _ref: string
+    _type: 'reference'
+}
+
 export type ColorThemeProps = {
     label: string
     value: string
@@ -12,32 +29,28 @@ export type VenueProps = {
     country: string
 }
 
+export type ImageMetadata = {
+    aspectRatio: number
+    height: number
+    width: number
+    id: string
+    preview: string
+}
+
 export type FigureProps = {
     alt: string
     caption: string
-    asset: Image
-}
+} & Image &
+    ImageMetadata
 
 export type HeroProps = {
     alt: string
-    asset: Image
-    id: string
-    preview?: string
-    hotspot?: {
-        x: number
-        y: number
-    }
-    crop?: {
-        bottom: number
-        left: number
-        right: number
-        top: number
-    }
-}
+} & Image &
+    ImageMetadata
 
 export type VideoProps = {
     _key?: string
-    title?: string 
+    title?: string
     url: string
 }
 
@@ -68,7 +81,7 @@ export type ExhibitionProps = {
 export type HomePagePayload = {
     _id: string
     _type: string
-    hero: HeroProps
+    hero: Image
     link?: ExhibitionProps
 }
 

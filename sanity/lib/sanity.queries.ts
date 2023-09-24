@@ -13,6 +13,9 @@ export const homePageQuery = groq`
                 ...
             },
             alt,
+            "width": asset->metadata.dimensions.width,
+            "height": asset->metadata.dimensions.height,
+            "aspectRatio": asset->metadata.dimensions.aspectRatio,
             "id": asset._ref,
             "preview": asset->metadata.lqip,
             hotspot { x, y },
