@@ -17,11 +17,13 @@ export default defineType({
         name: 'city',
         title: 'City',
         type: 'string',
+        description: 'Optional'
     }),
     defineField({
         name: 'country',
         title: 'Country',
         type: 'string',
+        description: 'Optional'
     }),
   ]
 })
