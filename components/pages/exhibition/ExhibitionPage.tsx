@@ -29,7 +29,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
     })
 
     return (
-        <main className={flex({ width: '100%', maxWidth: '100vw', p: '12px', bg: '#FFF1E5' })}>
+        <main className={flex({ width: '100%', maxWidth: '100vw', p: '12px', bg: 'var(--background-primary)' })}>
             <header
                 className={cx(
                     flex({
@@ -130,7 +130,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
             <div
                 className={flex({
                     flexGrow: 1,
-                    w: '2/3',
+                    w: '3.5',
                     mt: '14vh',
                     h: 'fit-content',
                     mb: '14vh'
@@ -150,7 +150,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                                     <DynamicImage
                                         asset={image}
                                         mode="cover"
-                                        sizes="80vw"
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 70vw"
                                         style={{
                                             width: '100%',
                                             height: '100%',

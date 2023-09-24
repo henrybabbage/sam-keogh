@@ -16,7 +16,7 @@ export default function Nav() {
                             _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: '#0026F5' }
                         })}
                     >
-                        Exhibitions
+                        Work
                     </h2>
                 </Link>
                 <Link href="/cv">

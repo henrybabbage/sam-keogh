@@ -29,14 +29,14 @@ export default function ExhibitionPreview(props: ExhibitionPreviewProps) {
                         asset={image}
                         mode="contain"
                         loading="eager"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 80vw"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 70vw"
                         style={{
                             position: 'absolute',
                             top: 0,
                             left: 0,
                             width: '100%',
                             height: '100%',
-                            objectFit: 'cover',
+                            objectFit: 'contain',
                             userSelect: 'none',
                             zIndex: 1
                         }}
