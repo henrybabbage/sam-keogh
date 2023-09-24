@@ -49,7 +49,7 @@ export default function ExhibitionsPage({ data }: ExhibitionsPagePayload) {
                     <div className={flex({ h: '14vh', w: '100%', alignItems: 'center' })}>
                         <h1 className={css({ fontFamily: 'azeretMono', position: 'fixed', opacity: 0 })}>Exhibitions</h1>
                     </div>
-                    <div className={flex({ gap: '8', h: 'fit-content', mb: '8vh' })}>
+                    <div className={flex({ gap: '8', h: 'fit-content', mb: '8vh', pr: '8' })}>
                         <div className={flex({ flexDirection: 'column', gap: '8' })}>
                             <section className={flex({ flexDirection: 'column', gap: '4' })}>
                                 {upcomingExhibitions && <h1 className={css({ fontFamily: 'simula', fontSize: 'lg' })}>Upcoming / Current</h1>}

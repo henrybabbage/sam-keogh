@@ -3,6 +3,7 @@
 import { css } from '@/styled-system/css'
 import type { ExhibitionProps } from '@/types'
 import { motion } from 'framer-motion'
+import { useState } from 'react'
 import { useExhibitionStore } from './store'
 
 export type ListItemProps = {
@@ -14,19 +15,29 @@ export default function ExhibitionListItem(props: ListItemProps) {
 
     const setSelectedExhibition = useExhibitionStore((state) => state.setSelectedExhibition)
 
+    const [isHovered, setIsHovered] = useState(false)
+
+    const handleHover = () => {
+        setIsHovered(true)
+        setSelectedExhibition(exhibition._id)
+    }
+
+    const handleUnhover = () => {
+        setIsHovered(false)
+        setSelectedExhibition(null)
+    }
+
     return (
         <motion.li
-            onMouseEnter={() => {
-                setSelectedExhibition(exhibition._id)
-            }}
-            onMouseLeave={() => {
-                setSelectedExhibition(null)
-            }}
+            onMouseEnter={handleHover}
+            onMouseLeave={handleUnhover}
             key={exhibition._id}
-            whileHover={{
-                translateX: '20px',
+            initial={{ x: 0 }}
+            animate={{
+                x: isHovered ? 20 : 0,
                 transition: {
-                    duration: 0.2
+                    duration: 0.2,
+                    ease: 'easeInOut'
                 }
             }}
         >
