@@ -57,8 +57,8 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                 </Link>
             </header>
 
-            <div className={flex({ flexDirection: 'column', gap: 8, position: 'sticky', top: 'calc(14vh + 12px)', w: '1/3', h: 'fit-content' })}>
-                <div className={flex({ flexDirection: 'column', gap: 0 })}>
+            <div className={flex({ flexDirection: 'column', gap: 8, position: 'sticky', top: 'calc(14vh + 12px)', w: '1/5', h: 'fit-content' })}>
+                <div className={flex({ flexDirection: 'column', gap: 0, pr: '8' })}>
                     {title && <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'italic', fontSize: 'md' })}>{title}</h3>}
                     {venue && (
                         <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md' })}>
@@ -130,7 +130,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
             <div
                 className={flex({
                     flexGrow: 1,
-                    w: '3.5',
+                    w: '4/5',
                     mt: '14vh',
                     h: 'fit-content',
                     mb: '14vh'

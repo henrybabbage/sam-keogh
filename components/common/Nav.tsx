@@ -6,7 +6,7 @@ export default function Nav() {
     return (
         <nav className={css({ position: 'fixed', bottom: '0', width: '100vw', p: '12px', bg: '#FFF1E5' })}>
             <div className={flex({ justifyContent: 'space-between' })}>
-                <Link href="/exhibitions">
+                <Link href="/work">
                     <h2
                         className={css({
                             width: 'fit-content',
