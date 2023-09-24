@@ -27,6 +27,15 @@ export default function ExhibitionsPage({ data }: ExhibitionsPagePayload) {
         return { upcomingExhibitions, pastExhibitions }
     }
 
+    const sortExhibitionsByYear = (exhibitions: ExhibitionProps[]) => {
+        const years = getExhibitionYears(exhibitions)
+        const exhibitionsByYear: { [key: string]: ExhibitionProps[] } = {}
+        years.forEach((year) => {
+            exhibitionsByYear[year] = exhibitions.filter((exhibition) => exhibition.year === year)
+        })
+        return exhibitionsByYear
+    }
+
     function getExhibitionYears(exhibitions: ExhibitionProps[]) {
         const years = exhibitions.reduce((acc: string[], exhibition) => {
             const year = exhibition.year
@@ -38,9 +47,16 @@ export default function ExhibitionsPage({ data }: ExhibitionsPagePayload) {
         return years.sort((a, b) => parseInt(b, 10) - parseInt(a, 10))
     }
 
-    console.log(getExhibitionYears(exhibitions))
-
     const { upcomingExhibitions, pastExhibitions } = sortExhibitions(exhibitions)
+
+    const pastExhibitionsByYear = sortExhibitionsByYear(pastExhibitions)
+    const upcomingExhibitionsByYear = sortExhibitionsByYear(upcomingExhibitions)
+    
+    console.log(pastExhibitionsByYear)
+    console.log(upcomingExhibitionsByYear)
+
+    const sortedYears = getExhibitionYears(exhibitions)
+    console.log(sortedYears)
 
     return (
         <main className={css({ minHeight: '100vh', height: '100vh', width: '100%', maxWidth: '100vw', p: '12px', bg: '#FFF1E5' })}>
@@ -86,6 +102,22 @@ export default function ExhibitionsPage({ data }: ExhibitionsPagePayload) {
                                         })}
                                     </div>
                                 )}
+                                {/* {Object.entries(pastExhibitionsByYear).map(([year, exhibitions]) => (
+                                    <div key={year} className={flex({ flexDirection: 'column', gap: '4' })}>
+                                        <h3 className={css({ fontFamily: 'simula', fontSize: 'lg' })}>{year}</h3>
+                                        {exhibitions.map((exhibition: ExhibitionProps) => {
+                                            const href = resolveHref(exhibition._type, exhibition.slug)
+                                            if (!href) {
+                                                return null
+                                            }
+                                            return (
+                                                <Link key={exhibition._id} href={href}>
+                                                    <ExhibitionListItem exhibition={exhibition} />
+                                                </Link>
+                                            )
+                                        })}
+                                    </div>
+                                ))} */}
                             </section>
                         </div>
                     </div>
