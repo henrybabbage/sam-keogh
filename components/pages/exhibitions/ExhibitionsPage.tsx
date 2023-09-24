@@ -44,9 +44,9 @@ export default function ExhibitionsPage({ data }: ExhibitionsPagePayload) {
 
     return (
         <main className={css({ minHeight: '100vh', height: '100vh', width: '100%', maxWidth: '100vw', p: '12px', bg: '#FFF1E5' })}>
-            <div className={flex({ gap: '4', w: '100%' })}>
+            <div className={flex({ w: '100%' })}>
                 <div className={flex({ flexDirection: 'column', w: '1/3' })}>
-                    <div className={flex({ h: '14vh', alignItems: 'center' })}>
+                    <div className={flex({ h: '14vh', w: '100%', alignItems: 'center' })}>
                         <h1 className={css({ fontFamily: 'azeretMono', position: 'fixed', opacity: 0 })}>Exhibitions</h1>
                     </div>
                     <div className={flex({ gap: '8', h: 'fit-content', mb: '8vh' })}>
@@ -90,7 +90,7 @@ export default function ExhibitionsPage({ data }: ExhibitionsPagePayload) {
                         </div>
                     </div>
                 </div>
-                <div className={flex({ flexDirection: 'column', gap: '4', w: '2/3', position: 'sticky', top: '14vh', h: '86vh' })}>
+                <div className={flex({ flexDirection: 'column', w: '2/3', position: 'sticky', top: 'calc(14vh + 12px)', h: '86vh' })}>
                     {exhibitions &&
                         exhibitions.length > 0 &&
                         exhibitions.map((exhibition: ExhibitionProps) => (

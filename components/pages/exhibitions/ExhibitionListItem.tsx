@@ -30,7 +30,15 @@ export default function ExhibitionListItem(props: ListItemProps) {
                 }
             }}
         >
-            <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontWeight: '400', fontVariantNumeric: 'slashed-zero' })}>
+            <h3
+                className={css({
+                    fontFamily: 'azeretMono',
+                    fontStyle: 'normal',
+                    fontWeight: '400',
+                    fontVariantNumeric: 'slashed-zero',
+                    _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: '#0026F5' }
+                })}
+            >
                 {exhibition?.title}
             </h3>
         </motion.li>
