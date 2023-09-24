@@ -40,7 +40,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                 )}
             >
                 <Link
-                    href="/exhibitions"
+                    href="/work"
                     className={css({
                         zIndex: 10,
                         position: 'fixed',
