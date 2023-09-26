@@ -29,7 +29,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
     })
 
     return (
-        <main className={flex({ width: '100%', maxWidth: '100vw', p: '12px', bg: 'var(--background-primary)' })}>
+        <main className={flex({ width: '100%', maxWidth: '1440px', p: '12px', bg: 'var(--background-primary)' })}>
             <header
                 className={cx(
                     flex({
