@@ -1,12 +1,17 @@
-@layer reset, base, tokens, recipes, utilities;
+@layer base, tokens, recipes, utilities;
 
 @layer base {
     /* This assumes no margin or padding on #app's parent(s) */
+    body {
+        margin: 0;
+    }
+
     #app {
         height: 100vh;
         max-height: 100dvh;
         overscroll-behavior: none;
         -webkit-font-smoothing: antialiased;
         overflow: auto;
+        margin: 0;
     }
 }

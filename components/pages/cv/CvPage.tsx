@@ -17,7 +17,8 @@ export default function CvPage({ data }: CvPageProps) {
                         maxW: '3xl',
                         color: 'black',
                         fontSize: 'md',
-                        lineHeight: 'xl'
+                        lineHeight: 'xl',
+                        mb: '4'
                     })}
                     value={cv}
                 />

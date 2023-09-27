@@ -27,6 +27,16 @@
         padding: 0;
     }
 
+    html {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+    }
+
+    /* p:not(:last-child) {
+        margin-bottom: 0.875rem;
+    } */
+
     #react-player iframe {
         width: 100%;
         height: 100%;

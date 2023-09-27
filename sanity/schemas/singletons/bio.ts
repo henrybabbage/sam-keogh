@@ -29,15 +29,7 @@ export default defineType({
         defineField({
             name: 'cv',
             title: 'CV',
-            type: 'array',
-            of: [
-                {
-                    title: 'Block',
-                    type: 'block',
-                    styles: [{ title: 'Normal', value: 'normal' }],
-                    lists: []
-                }
-            ]
+            type: 'simpleBlockContent'
         })
     ]
 })
