@@ -25,7 +25,7 @@ const title = process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'Sam Keogh'
 const singletonActions = new Set(['publish', 'discardChanges', 'restore'])
 
 // Define the singleton document types
-const singletonTypes = new Set(['home', 'settings', 'theme', 'cv'])
+const singletonTypes = new Set(['home', 'settings', 'theme'])
 
 export default defineConfig({
     theme: sanityTheme,
@@ -40,10 +40,10 @@ export default defineConfig({
     },
     plugins: [
         deskTool({
-            structure: pageStructure([home, cv, theme, settings, contact])
+            structure: pageStructure([home, theme, settings, contact])
         }),
         // Configures the global "new document" button, and document actions, to suit the Settings document singleton
-        singletonPlugin(['home', 'cv', 'artist', 'category', 'settings', 'theme', 'contact']),
+        singletonPlugin(['home', 'artist', 'category', 'settings', 'theme', 'contact']),
         // Vision is a tool that lets you query your content with GROQ in the studio
         // https://www.sanity.io/docs/the-vision-plugin
         visionTool({ defaultApiVersion: apiVersion }),
