@@ -1,3 +1,4 @@
+import { DesktopIcon } from '@sanity/icons'
 import { defineArrayMember, defineType } from 'sanity'
 
 export default defineType({
@@ -37,6 +38,23 @@ export default defineType({
                                         allowRelative: false,
                                         scheme: ['https', 'http', 'mailto', 'tel']
                                     })
+                            }
+                        ]
+                    },
+                    {
+                        name: 'internalLink',
+                        type: 'object',
+                        title: 'Internal link',
+                        icon: DesktopIcon,
+                        options: {
+                            modal: { type: 'popover', width: 'large' }
+                        },
+                        fields: [
+                            {
+                                name: 'reference',
+                                type: 'reference',
+                                title: 'Reference',
+                                to: [{ type: 'exhibition' }]
                             }
                         ]
                     }

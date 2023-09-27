@@ -53,7 +53,8 @@ export function CustomPortableText({ paragraphClasses, value }: { paragraphClass
                         )}
                     </div>
                 )
-            }
+            },
+            hardBreak: () => <br className={css({ mb: '4' })} />
         }
     }
 
