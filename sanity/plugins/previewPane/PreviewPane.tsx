@@ -28,6 +28,7 @@ export function PreviewPane(
   const { document, previewSecretId, apiVersion } = props
   const { displayed } = document
   const documentType = displayed?._type
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any, prefer-const
   let slug = (displayed?.slug as any)?.current
 
   const href = resolveHref(documentType, displayed?.slug as string)

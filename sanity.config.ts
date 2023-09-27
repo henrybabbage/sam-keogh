@@ -8,9 +8,10 @@ import { simplerColorInput } from 'sanity-plugin-simpler-color-input'
 import { deskTool } from 'sanity/desk'
 import { pageStructure, singletonPlugin } from './sanity/plugins/settings'
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
+import { theme as sanityTheme } from 'https://themer.sanity.build/api/hues?primary=0026f5&positive=00cc00;400&caution=ffee0d;300'
 import { apiVersion, dataset, projectId } from './sanity/env'
 import { schema } from './sanity/schema'
-import bio from './sanity/schemas/singletons/CV'
+import bio from './sanity/schemas/singletons/bio'
 import contact from './sanity/schemas/singletons/contact'
 import home from './sanity/schemas/singletons/home'
 import settings from './sanity/schemas/singletons/settings'
@@ -27,29 +28,30 @@ const singletonActions = new Set(['publish', 'discardChanges', 'restore'])
 const singletonTypes = new Set(['home', 'settings', 'theme', 'bio'])
 
 export default defineConfig({
-  basePath: '/studio',
-  projectId: projectId,
-  dataset: dataset,
-  title: title,
-  // Add and edit the content schema in the './sanity/schema' folder
-  schema: {
-    types: schema.types,
-    templates: (templates) => templates.filter(({ schemaType }) => !singletonTypes.has(schemaType))
-  },
-  plugins: [
-    deskTool({
-        structure: pageStructure([home, bio, theme, settings, contact]),
-    }),
-    // Configures the global "new document" button, and document actions, to suit the Settings document singleton
-    singletonPlugin(['home', 'bio', 'artist', 'category', 'settings', 'theme', 'contact']),
-    // Vision is a tool that lets you query your content with GROQ in the studio
-    // https://www.sanity.io/docs/the-vision-plugin
-    visionTool({defaultApiVersion: apiVersion}),
-    simplerColorInput(),
-  ],
-  document: {
-    // For singleton types, filter out actions that are not explicitly included
-    // in the `singletonActions` list defined above
-    actions: (input, context) => (singletonTypes.has(context.schemaType) ? input.filter(({ action }) => action && singletonActions.has(action)) : input)
-  },
+    theme: sanityTheme,
+    basePath: '/studio',
+    projectId: projectId,
+    dataset: dataset,
+    title: title,
+    // Add and edit the content schema in the './sanity/schema' folder
+    schema: {
+        types: schema.types,
+        templates: (templates) => templates.filter(({ schemaType }) => !singletonTypes.has(schemaType))
+    },
+    plugins: [
+        deskTool({
+            structure: pageStructure([home, bio, theme, settings, contact])
+        }),
+        // Configures the global "new document" button, and document actions, to suit the Settings document singleton
+        singletonPlugin(['home', 'bio', 'artist', 'category', 'settings', 'theme', 'contact']),
+        // Vision is a tool that lets you query your content with GROQ in the studio
+        // https://www.sanity.io/docs/the-vision-plugin
+        visionTool({ defaultApiVersion: apiVersion }),
+        simplerColorInput()
+    ],
+    document: {
+        // For singleton types, filter out actions that are not explicitly included
+        // in the `singletonActions` list defined above
+        actions: (input, context) => (singletonTypes.has(context.schemaType) ? input.filter(({ action }) => action && singletonActions.has(action)) : input)
+    }
 })

@@ -1,4 +1,4 @@
-import { defineConfig } from '@pandacss/dev'
+import { defineConfig } from '@pandacss/dev';
 
 export default defineConfig({
     // Whether to use css reset
@@ -14,6 +14,12 @@ export default defineConfig({
     theme: {
         extend: {
             tokens: {
+                colors: {
+                    hover: { value: '#0026F5' },
+                    active: { value: '#00cc00' },
+                    background: { value: '#fff1e5' },
+                    foreground: { value: '#222222' },
+                },
                 fonts: {
                     simula: { value: 'var(--font-simula), serif' },
                     azeretMono: { value: 'var(--font-azeret-mono), Menlo, monospace' }
