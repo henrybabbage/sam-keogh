@@ -54,7 +54,7 @@ export function getHomePage() {
 export function getCvPage() {
     return sanityFetch<CvPagePayload | null>({
         query: cvPageQuery,
-        tags: ['cv']
+        tags: ['bio']
     })
 }
 
