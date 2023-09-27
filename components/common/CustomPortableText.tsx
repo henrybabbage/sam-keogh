@@ -8,18 +8,25 @@ export function CustomPortableText({ paragraphClasses, value }: { paragraphClass
     const components: PortableTextComponents = {
         block: {
             normal: ({ children }) => {
-                return <p className={cx(css({ fontFamily: 'simula', fontStyle: 'normal', fontSize: 'md' }), paragraphClasses)}>{children}</p>
+                return (
+                    <p className={cx(css({ fontFamily: 'simula', fontStyle: 'normal', fontSize: 'md', color: 'foreground' }), paragraphClasses)}>{children}</p>
+                )
             },
             h4: ({ children }) => (
-                <h4 className={css({ fontFamily: 'simula', fontStyle: 'normal', fontSize: '2xl', textTransform: 'uppercase', mb: '4' })}>{children}</h4>
+                <h4 className={css({ fontFamily: 'simula', fontStyle: 'normal', fontSize: '2xl', textTransform: 'uppercase', mb: '4', color: 'foreground' })}>
+                    {children}
+                </h4>
             )
         },
         marks: {
-            em: ({ children }) => <em className={cx(css({ fontFamily: 'simula', fontStyle: 'italic', fontSize: 'md' }), paragraphClasses)}>{children}</em>,
+            em: ({ children }) => (
+                <em className={cx(css({ fontFamily: 'simula', fontStyle: 'italic', fontSize: 'md', color: 'foreground' }), paragraphClasses)}>{children}</em>
+            ),
             link: ({ children, value }) => {
                 return (
                     <a
                         className={css({
+                            color: 'foreground',
                             textDecorationLine: 'underline',
                             transitionProperty:
                                 'color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter',
@@ -36,12 +43,12 @@ export function CustomPortableText({ paragraphClasses, value }: { paragraphClass
             }
         },
         list: {
-            bullet: ({ children }) => (
-                <ul className={cx(css({ fontFamily: 'simula', fontStyle: 'normal', fontSize: 'md', mt: '1' }), paragraphClasses)}>{children}</ul>
-            ),
-            number: ({ children }) => (
-                <ol className={cx(css({ fontFamily: 'simula', fontStyle: 'normal', fontSize: 'md', mt: '1' }), paragraphClasses)}>{children}</ol>
-            )
+            // bullet: ({ children }) => (
+            //     <ul className={cx(css({ fontFamily: 'simula', fontStyle: 'normal', fontSize: 'md', color: 'foreground', mt: '1' }), paragraphClasses)}>{children}</ul>
+            // ),
+            // number: ({ children }) => (
+            //     <ol className={cx(css({ fontFamily: 'simula', fontStyle: 'normal', fontSize: 'md', color: 'foreground', mt: '1' }), paragraphClasses)}>{children}</ol>
+            // )
         },
         types: {
             image: ({ value }: { value: Image & { alt?: string; caption?: string } }) => {
@@ -49,7 +56,7 @@ export function CustomPortableText({ paragraphClasses, value }: { paragraphClass
                     <div className={css({ mt: '2', mb: '2' })}>
                         <ImageBox image={value} alt={value.alt} classesWrapper={css({ pos: 'relative', aspectRatio: '16/9' })} />
                         {value?.caption && (
-                            <div className={css({ fontFamily: 'azeretMono', fontSize: 'sm', lineHeight: 'sm', color: 'black' })}>{value.caption}</div>
+                            <div className={css({ fontFamily: 'azeretMono', fontSize: 'sm', lineHeight: 'sm', color: 'foreground' })}>{value.caption}</div>
                         )}
                     </div>
                 )
