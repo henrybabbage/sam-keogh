@@ -11,7 +11,6 @@ export default function CvPage({ data }: CvPageProps) {
     console.log({ cv })
     return (
         <main className={css({ height: '100%', width: '100vw', maxWidth: '100vw', p: '12px', bg: 'background' })}>
-            Text
             {cv && (
                 <CustomPortableText
                     paragraphClasses={css({
