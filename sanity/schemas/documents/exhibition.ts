@@ -55,7 +55,7 @@ export default defineType({
             title: 'External URL',
             name: 'url',
             type: 'link',
-            description: 'Optionally specify an external page link for an exhibition (opens in new tab)',
+            description: 'Optional: Specify an external page link for an exhibition (opens in new tab)',
             hidden: ({ document }) => document?.link !== 'external'
         }),
         defineField({
@@ -67,20 +67,21 @@ export default defineType({
         defineField({
             name: 'pressRelease',
             title: 'Press release',
-            type: 'blockContent'
+            type: 'blockContent',
+            description: 'Optional: Displayed on the individual exhibition page'
         }),
         defineField({
             name: 'vimeo',
             title: 'Vimeo / YouTube',
             type: 'array',
             of: [{ type: 'link' }],
-            description: 'Provide Vimeo URLs and captions (optional)'
+            description: 'Optional: Provide Vimeo URLs and captions'
         }),
         defineField({
             name: 'type',
             title: 'Type',
             type: 'string',
-            description: 'Solo or Group (used for filtering)',
+            description: 'Optional: Solo or Group (used for filtering)',
             options: {
                 list: [
                     { title: 'Solo', value: 'solo' },
@@ -95,7 +96,7 @@ export default defineType({
             title: 'Artist(s)',
             type: 'reference',
             to: { type: 'artist' },
-            description: 'Participating artist(s) (optional)',
+            description: 'Optional: Participating artist(s)',
             hidden: true
             // hidden: ({ document }) => document?.type !== 'group'
         }),
@@ -107,7 +108,7 @@ export default defineType({
             options: {
                 dateFormat: 'MMMM Do YYYY'
             },
-            description: 'Only displayed inside individual exhibition pages (optional)'
+            description: 'Optional: Only displayed inside individual exhibition pages'
         }),
         defineField({
             name: 'endDate',
@@ -116,7 +117,7 @@ export default defineType({
             options: {
                 dateFormat: 'MMMM Do YYYY'
             },
-            description: 'Only displayed inside individual exhibition pages (optional)',
+            description: 'Optional: Only displayed inside individual exhibition pages',
             validation: (rule) => rule.warning().min(rule.valueOfField('startDate'))
         }),
         defineField({
@@ -126,7 +127,7 @@ export default defineType({
             options: {
                 dateFormat: 'MMMM Do YYYY'
             },
-            description: 'For events or performances that occur on a single date (optional)'
+            description: 'Optional: For events or performances that occur on a single date'
         }),
         defineField({
             name: 'year',
@@ -140,7 +141,7 @@ export default defineType({
             title: 'Venue',
             type: 'reference',
             to: [{ type: 'venue' }],
-            description: 'Location of the exhibition (only displayed inside individual exhibition pages)'
+            description: 'Optional: Location of the exhibition (only displayed inside individual exhibition pages)'
         }),
         defineField({
             name: 'photographerCredit',

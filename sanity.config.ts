@@ -15,6 +15,7 @@ import cv from './sanity/schemas/singletons/cv'
 import home from './sanity/schemas/singletons/home'
 import settings from './sanity/schemas/singletons/settings'
 import theme from './sanity/schemas/singletons/theme'
+import { theme as sanityTheme } from 'https://themer.sanity.build/api/hues?primary=0026f5&positive=00cc00;400&caution=ffee0d;300'
 
 export const PREVIEWABLE_DOCUMENT_TYPES: string[] = []
 
@@ -27,6 +28,7 @@ const singletonActions = new Set(['publish', 'discardChanges', 'restore'])
 const singletonTypes = new Set(['home', 'settings', 'theme', 'cv'])
 
 export default defineConfig({
+    theme: sanityTheme,
     basePath: '/studio',
     projectId: projectId,
     dataset: dataset,
