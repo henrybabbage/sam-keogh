@@ -1,4 +1,4 @@
-
+'use client'
 
 import { css, cx } from '@/styled-system/css'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
