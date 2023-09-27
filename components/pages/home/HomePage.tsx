@@ -1,6 +1,6 @@
 'use client'
 
-import { DynamicImage } from '@/components/common/DynamicImage'
+import NextImage from '@/components/common/NextImage'
 import { css } from '@/styled-system/css'
 import { flex } from '@/styled-system/patterns'
 import { HomePagePayload } from '@/types'
@@ -28,7 +28,6 @@ export default function HomePage({ data }: HomePageProps) {
                 height: '100vh',
                 maxHeight: '100vh',
                 width: '100vw',
-                bg: 'var(--background-primary)',
                 position: 'relative'
             })}
         >
@@ -36,11 +35,11 @@ export default function HomePage({ data }: HomePageProps) {
                 className={css({
                     position: 'relative',
                     height: '80vh',
-                    objectFit: 'contain',
+                    width: '100vw',
                     overflow: 'hidden'
                 })}
             >
-                <DynamicImage asset={hero} sizes="100vw" loading="eager" mode="contain" style={{ objectFit: 'cover', objectPosition: 'center' }} />
+                <NextImage image={hero} priority={true} fill={true} />
             </section>
         </main>
     )

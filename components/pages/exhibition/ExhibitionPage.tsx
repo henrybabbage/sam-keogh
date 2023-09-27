@@ -50,7 +50,8 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                         fontStyle: 'normal',
                         fontSize: 'md',
                         textTransform: 'uppercase',
-                        _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: '#0026F5' }
+                        _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: '#0026F5' },
+                        _active: { color: 'active' }
                     })}
                 >
                     Back
@@ -69,8 +70,10 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                     h: 'fit-content'
                 })}
             >
-                <div className={flex({ flexDirection: 'column', gap: 0, pr: '8' })}>
-                    {title && <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'italic', fontSize: 'md' })}>{title}</h3>}
+                <div className={flex({ flexDirection: 'column', pr: 8 })}>
+                    <div className={css({ pb: 8 })}>
+                        {title && <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'italic', fontSize: 'md' })}>{title}</h3>}
+                    </div>
                     {venue && (
                         <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md' })}>
                             {venue.name && <span>{venue.city ? venue.name + ', ' : venue.name}</span>}
@@ -80,7 +83,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                         </h3>
                     )}
                     {startDate && endDate && (
-                        <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'italic', fontSize: 'md', fontVariantNumeric: 'slashed-zero' })}>
+                        <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', fontVariantNumeric: 'slashed-zero' })}>
                             <span>{format(new Date(startDate), 'dd MMM')}</span>
                             <span>{' — '}</span>
                             <span>{format(new Date(endDate), 'dd MMM yyyy')}</span>
@@ -98,7 +101,8 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                             className={css({
                                 textAlign: 'left',
                                 cursor: 'pointer',
-                                _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: '#0026F5' }
+                                _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: '#0026F5' },
+                                _active: { color: 'active' }
                             })}
                         >
                             <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Images</h3>
@@ -114,7 +118,8 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                             className={css({
                                 textAlign: 'left',
                                 cursor: 'pointer',
-                                _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: '#0026F5' }
+                                _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: '#0026F5' },
+                                _active: { color: 'active' }
                             })}
                         >
                             <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Videos</h3>
@@ -130,7 +135,8 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                             className={css({
                                 textAlign: 'left',
                                 cursor: 'pointer',
-                                _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: '#0026F5' }
+                                _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: '#0026F5' },
+                                _active: { color: 'active' }
                             })}
                         >
                             <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Text</h3>

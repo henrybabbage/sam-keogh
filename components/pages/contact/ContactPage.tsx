@@ -15,7 +15,8 @@ export default function ContactPage({ data }: ContactPageProps) {
                     <a
                         className={css({
                             fontFamily: 'azeretMono',
-                            _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '1.5px', color: '#0026F5' }
+                            _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '1.5px', color: '#0026F5' },
+                            _active: { color: 'active' }
                         })}
                         href={`mailto:${email}`}
                         target="_blank"
@@ -26,7 +27,8 @@ export default function ContactPage({ data }: ContactPageProps) {
                     <a
                         className={css({
                             fontFamily: 'azeretMono',
-                            _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '1.5px', color: '#0026F5' }
+                            _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '1.5px', color: '#0026F5' },
+                            _active: { color: 'active' }
                         })}
                         href={instagram?.url}
                         target="_blank"
@@ -37,7 +39,8 @@ export default function ContactPage({ data }: ContactPageProps) {
                     <a
                         className={css({
                             fontFamily: 'azeretMono',
-                            _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '1.5px', color: '#0026F5' }
+                            _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '1.5px', color: '#0026F5' },
+                            _active: { color: 'active' }
                         })}
                         href={gallery?.url}
                         target="_blank"
