@@ -9,18 +9,18 @@ export function CustomPortableText({ paragraphClasses, value }: { paragraphClass
         block: {
             normal: ({ children }) => {
                 return (
-                    <p className={cx(css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', color: 'foreground' }), paragraphClasses)}>{children}</p>
+                    <p className={cx(css({ fontFamily: 'simula', fontStyle: 'normal', fontSize: 'md', color: 'foreground' }), paragraphClasses)}>{children}</p>
                 )
             },
             h4: ({ children }) => (
-                <h4 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: '2xl', textTransform: 'uppercase', mb: '4', color: 'foreground' })}>
+                <h4 className={css({ fontFamily: 'simula', fontStyle: 'normal', fontSize: '2xl', textTransform: 'uppercase', mb: '4', color: 'foreground' })}>
                     {children}
                 </h4>
             )
         },
         marks: {
             em: ({ children }) => (
-                <em className={cx(css({ fontFamily: 'azeretMono', fontStyle: 'italic', fontSize: 'md', color: 'foreground' }), paragraphClasses)}>{children}</em>
+                <em className={cx(css({ fontFamily: 'simula', fontStyle: 'italic', fontSize: 'md', color: 'foreground' }), paragraphClasses)}>{children}</em>
             ),
             link: ({ children, value }) => {
                 return (
@@ -44,10 +44,14 @@ export function CustomPortableText({ paragraphClasses, value }: { paragraphClass
         },
         list: {
             bullet: ({ children }) => (
-                <ul className={cx(css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', color: 'foreground', mt: '1' }), paragraphClasses)}>{children}</ul>
+                <ul className={cx(css({ fontFamily: 'simula', fontStyle: 'normal', fontSize: 'md', color: 'foreground', mt: '1' }), paragraphClasses)}>
+                    {children}
+                </ul>
             ),
             number: ({ children }) => (
-                <ol className={cx(css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', color: 'foreground', mt: '1' }), paragraphClasses)}>{children}</ol>
+                <ol className={cx(css({ fontFamily: 'simula', fontStyle: 'normal', fontSize: 'md', color: 'foreground', mt: '1' }), paragraphClasses)}>
+                    {children}
+                </ol>
             )
         },
         types: {
@@ -56,7 +60,7 @@ export function CustomPortableText({ paragraphClasses, value }: { paragraphClass
                     <div className={css({ mt: '2', mb: '2' })}>
                         <ImageBox image={value} alt={value.alt} classesWrapper={css({ pos: 'relative', aspectRatio: '16/9' })} />
                         {value?.caption && (
-                            <div className={css({ fontFamily: 'azeretMono', fontSize: 'sm', lineHeight: 'sm', color: 'foreground' })}>{value.caption}</div>
+                            <div className={css({ fontFamily: 'simula', fontSize: 'sm', lineHeight: 'sm', color: 'foreground' })}>{value.caption}</div>
                         )}
                     </div>
                 )
