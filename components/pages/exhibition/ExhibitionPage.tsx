@@ -50,7 +50,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                         fontStyle: 'normal',
                         fontSize: 'md',
                         textTransform: 'uppercase',
-                        _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: '#0026F5' },
+                        _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: 'hover' },
                         _active: { color: 'active' }
                     })}
                 >
@@ -101,7 +101,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                             className={css({
                                 textAlign: 'left',
                                 cursor: 'pointer',
-                                _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: '#0026F5' },
+                                _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: 'hover' },
                                 _active: { color: 'active' }
                             })}
                         >
@@ -118,7 +118,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                             className={css({
                                 textAlign: 'left',
                                 cursor: 'pointer',
-                                _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: '#0026F5' },
+                                _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: 'hover' },
                                 _active: { color: 'active' }
                             })}
                         >
@@ -135,7 +135,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                             className={css({
                                 textAlign: 'left',
                                 cursor: 'pointer',
-                                _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: '#0026F5' },
+                                _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: 'hover' },
                                 _active: { color: 'active' }
                             })}
                         >

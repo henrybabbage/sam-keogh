@@ -51,7 +51,7 @@ export default function ExhibitionsPage({ data }: ExhibitionsPagePayload) {
 
     const pastExhibitionsByYear = sortExhibitionsByYear(pastExhibitions)
     const upcomingExhibitionsByYear = sortExhibitionsByYear(upcomingExhibitions)
-    
+
     console.log(pastExhibitionsByYear)
     console.log(upcomingExhibitionsByYear)
 
@@ -59,7 +59,7 @@ export default function ExhibitionsPage({ data }: ExhibitionsPagePayload) {
     console.log(sortedYears)
 
     return (
-        <main className={css({ minHeight: '100vh', height: '100vh', width: '100%', maxWidth: '100vw', p: '12px', bg: '#FFF1E5' })}>
+        <main className={css({ minHeight: '100vh', height: '100vh', width: '100%', maxWidth: '100vw', p: '12px', bg: 'background' })}>
             <div className={flex({ w: '100%' })}>
                 <div className={flex({ flexDirection: 'column', w: '1/3' })}>
                     <div className={flex({ h: '14vh', w: '100%', alignItems: 'center' })}>

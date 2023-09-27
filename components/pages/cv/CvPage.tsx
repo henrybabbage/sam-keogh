@@ -9,15 +9,11 @@ export type CvPageProps = {
 export default function CvPage({ data }: CvPageProps) {
     const { cv } = data ?? {}
     return (
-        <main className={css({ height: '100%', width: '100vw', maxWidth: '100vw', p: '12px', bg: '#FFF1E5' })}>
+        <main className={css({ height: '100%', width: '100vw', maxWidth: '100vw', p: '12px', bg: 'background' })}>
             {cv && (
                 <CustomPortableText
                     paragraphClasses={css({
-                        fontFamily: 'azeretMono',
-                        maxW: '3xl',
-                        color: 'black',
-                        fontSize: 'md',
-                        lineHeight: 'xl',
+                        maxW: '90vw',
                         mb: '4'
                     })}
                     value={cv}
