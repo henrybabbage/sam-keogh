@@ -59,9 +59,7 @@ export default defineConfig({
     },
 
     globalCss: {
-        body: {
-            backgroundColor: '#FFF1E5'
-        }
+        body: {}
     },
 
     // The output directory for your css system

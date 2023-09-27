@@ -1,5 +1,4 @@
 import { urlForImage } from '@/sanity/lib/sanity.image'
-import { css, cx } from '@/styled-system/css'
 import Image from 'next/image'
 
 interface ImageBoxProps {
@@ -16,10 +15,8 @@ export default function ImageBox({ image, alt = 'Cover image', width = 3500, hei
     const imageUrl = image && urlForImage(image)?.height(height).width(width).fit('crop').url()
 
     return (
-        <div className={cx(css({ w: 'full', overflow: 'hidden', rounded: '3px', bgColor: 'gray.50' }), classesWrapper)}>
-            {imageUrl && (
-                <Image className={css({ pos: 'absolute', h: 'full', w: 'full' })} alt={alt} width={width} height={height} sizes={size} src={imageUrl} />
-            )}
+        <div className={`w-full overflow-hidden rounded-[3px] bg-gray-50 ${classesWrapper}`}>
+            {imageUrl && <Image className="absolute h-full w-full" alt={alt} width={width} height={height} sizes={size} src={imageUrl} />}
         </div>
     )
 }
