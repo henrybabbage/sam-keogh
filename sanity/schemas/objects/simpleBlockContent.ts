@@ -1,4 +1,5 @@
-import { defineType, defineArrayMember } from 'sanity'
+import { DesktopIcon } from '@sanity/icons'
+import { defineArrayMember, defineType } from 'sanity'
 
 export default defineType({
     title: 'Simple Block Content',
@@ -10,12 +11,17 @@ export default defineType({
             type: 'block',
             styles: [
                 { title: 'Normal', value: 'normal' },
+                { title: 'Heading', value: 'h4' }
             ],
-            lists: [],
+            lists: [
+                { title: 'Bullet', value: 'bullet' },
+                { title: 'Numbered', value: 'number' }
+            ],
             marks: {
                 decorators: [
                     { title: 'Strong', value: 'strong' },
-                    { title: 'Emphasis', value: 'em' }
+                    { title: 'Emphasis', value: 'em' },
+                    { title: 'Underline', value: 'underline' }
                 ],
                 annotations: [
                     {
@@ -28,10 +34,27 @@ export default defineType({
                                 name: 'href',
                                 type: 'url',
                                 validation: (rule) =>
-                                rule.uri({
-                                    allowRelative: false,
-                                    scheme: ["https", "http", "mailto", "tel"],
-                                }),
+                                    rule.uri({
+                                        allowRelative: false,
+                                        scheme: ['https', 'http', 'mailto', 'tel']
+                                    })
+                            }
+                        ]
+                    },
+                    {
+                        name: 'internalLink',
+                        type: 'object',
+                        title: 'Internal link',
+                        icon: DesktopIcon,
+                        options: {
+                            modal: { type: 'popover', width: 'large' }
+                        },
+                        fields: [
+                            {
+                                name: 'reference',
+                                type: 'reference',
+                                title: 'Reference',
+                                to: [{ type: 'exhibition' }]
                             }
                         ]
                     }

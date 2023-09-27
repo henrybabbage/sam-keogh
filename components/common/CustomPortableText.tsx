@@ -1,4 +1,4 @@
-import { css } from '@/styled-system/css'
+import { css, cx } from '@/styled-system/css'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
 import type { PortableTextBlock } from '@portabletext/types'
 import type { Image } from 'sanity'
@@ -8,10 +8,14 @@ export function CustomPortableText({ paragraphClasses, value }: { paragraphClass
     const components: PortableTextComponents = {
         block: {
             normal: ({ children }) => {
-                return <p className={paragraphClasses}>{children}</p>
-            }
+                return <p className={cx(css({ fontFamily: 'simula', fontStyle: 'normal', fontSize: 'md' }), paragraphClasses)}>{children}</p>
+            },
+            h4: ({ children }) => (
+                <h4 className={css({ fontFamily: 'simula', fontStyle: 'normal', fontSize: '2xl', textTransform: 'uppercase', mb: '4' })}>{children}</h4>
+            )
         },
         marks: {
+            em: ({ children }) => <em className={cx(css({ fontFamily: 'simula', fontStyle: 'italic', fontSize: 'md' }), paragraphClasses)}>{children}</em>,
             link: ({ children, value }) => {
                 return (
                     <a
@@ -31,6 +35,14 @@ export function CustomPortableText({ paragraphClasses, value }: { paragraphClass
                 )
             }
         },
+        list: {
+            bullet: ({ children }) => (
+                <ul className={cx(css({ fontFamily: 'simula', fontStyle: 'normal', fontSize: 'md', mt: '1' }), paragraphClasses)}>{children}</ul>
+            ),
+            number: ({ children }) => (
+                <ol className={cx(css({ fontFamily: 'simula', fontStyle: 'normal', fontSize: 'md', mt: '1' }), paragraphClasses)}>{children}</ol>
+            )
+        },
         types: {
             image: ({ value }: { value: Image & { alt?: string; caption?: string } }) => {
                 return (
@@ -41,7 +53,8 @@ export function CustomPortableText({ paragraphClasses, value }: { paragraphClass
                         )}
                     </div>
                 )
-            }
+            },
+            hardBreak: () => <br className={css({ mb: '4' })} />
         }
     }
 
