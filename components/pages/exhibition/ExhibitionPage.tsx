@@ -29,7 +29,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
     })
 
     return (
-        <main className={flex({ width: '100%', maxWidth: '1440px', p: '12px', bg: 'var(--background-primary)' })}>
+        <main className={flex({ flexWrap: 'wrap', width: '100%', maxWidth: '1440px', p: '12px', bg: 'var(--background-primary)' })}>
             <header
                 className={cx(
                     flex({
@@ -57,14 +57,26 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                 </Link>
             </header>
 
-            <div className={flex({ flexDirection: 'column', gap: 8, position: 'sticky', top: 'calc(14vh + 12px)', w: '1/5', h: 'fit-content' })}>
+            <div
+                className={flex({
+                    flexBasis: '1/5',
+                    flexGrow: 1,
+                    flexDirection: 'column',
+                    gap: 8,
+                    position: 'sticky',
+                    top: 'calc(14vh + 12px)',
+                    w: '1/5',
+                    h: 'fit-content'
+                })}
+            >
                 <div className={flex({ flexDirection: 'column', gap: 0, pr: '8' })}>
                     {title && <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'italic', fontSize: 'md' })}>{title}</h3>}
                     {venue && (
                         <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md' })}>
                             {venue.name && <span>{venue.city ? venue.name + ', ' : venue.name}</span>}
-                            {venue.city && <span>{venue.country ? venue.city + ', ' : venue.city}</span>}
-                            {venue.country && <span>{venue.country}</span>}
+                            {venue.city && <span>{venue.city}</span>}
+                            {/* {venue.city && <span>{venue.country ? venue.city + ', ' : venue.city}</span>} */}
+                            {/* {venue.country && <span>{venue.country}</span>} */}
                         </h3>
                     )}
                     {startDate && endDate && (
@@ -129,8 +141,10 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
 
             <div
                 className={flex({
-                    flexGrow: 1,
-                    w: '4/5',
+                    // minInlineSize: '30%',
+                    flexBasis: '4/5',
+                    flexGrow: '999',
+                    // w: '4/5',
                     mt: '14vh',
                     h: 'fit-content',
                     mb: '14vh'

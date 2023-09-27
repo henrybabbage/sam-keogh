@@ -71,7 +71,7 @@ export default defineType({
         }),
         defineField({
             name: 'vimeo',
-            title: 'Vimeo',
+            title: 'Vimeo / YouTube',
             type: 'array',
             of: [{ type: 'link' }],
             description: 'Provide Vimeo URLs and captions (optional)'
@@ -124,7 +124,7 @@ export default defineType({
             options: {
                 dateFormat: 'MMMM Do YYYY'
             },
-            description: 'For events or performances that occur on a single date'
+            description: 'For events or performances that occur on a single date (optional)'
         }),
         defineField({
             name: 'year',
