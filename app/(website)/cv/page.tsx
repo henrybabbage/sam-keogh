@@ -4,8 +4,6 @@ import { notFound } from 'next/navigation'
 
 export const runtime = 'edge'
 
-export const revalidate = 60
-
 export default async function CV() {
     const data = await getCvPage()
     if (!data) {

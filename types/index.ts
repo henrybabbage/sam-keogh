@@ -94,10 +94,12 @@ export type ExhibitionPagePayload = {
 }
 
 export type CvPagePayload = {
-    cv: PortableTextBlock[]
+    slug: string
+    cv?: PortableTextBlock[]
 }
 
 export type ContactPagePayload = {
+    slug: string
     email: string
     instagram: LinkProps
     gallery: LinkProps
