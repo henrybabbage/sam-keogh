@@ -8,6 +8,7 @@ export type CvPageProps = {
 
 export default function CvPage({ data }: CvPageProps) {
     const { cv } = data ?? {}
+    console.log({ cv })
     return (
         <main className={css({ height: '100%', width: '100vw', maxWidth: '100vw', p: '12px', bg: 'background' })}>
             {cv && (
