@@ -11,10 +11,10 @@ import { pageStructure, singletonPlugin } from './sanity/plugins/settings'
 import { apiVersion, dataset, projectId } from './sanity/env'
 import { schema } from './sanity/schema'
 import contact from './sanity/schemas/singletons/contact'
+import cv from './sanity/schemas/singletons/cv'
 import home from './sanity/schemas/singletons/home'
 import settings from './sanity/schemas/singletons/settings'
 import theme from './sanity/schemas/singletons/theme'
-import cv from './sanity/schemas/singletons/cv'
 
 export const PREVIEWABLE_DOCUMENT_TYPES: string[] = []
 
