@@ -3,7 +3,7 @@ import { defineField, defineType } from 'sanity'
 
 export default defineType({
     name: 'exhibition',
-    title: 'Exhibitions',
+    title: 'Works',
     type: 'document',
     icon: StackCompactIcon,
     fields: [
@@ -80,7 +80,7 @@ export default defineType({
             name: 'type',
             title: 'Type',
             type: 'string',
-            description: 'Solo or Group',
+            description: 'Solo or Group (used for filtering)',
             options: {
                 list: [
                     { title: 'Solo', value: 'solo' },
@@ -106,7 +106,8 @@ export default defineType({
             type: 'datetime',
             options: {
                 dateFormat: 'MMMM Do YYYY'
-            }
+            },
+            description: 'Only displayed inside individual exhibition pages (optional)'
         }),
         defineField({
             name: 'endDate',
@@ -115,6 +116,7 @@ export default defineType({
             options: {
                 dateFormat: 'MMMM Do YYYY'
             },
+            description: 'Only displayed inside individual exhibition pages (optional)',
             validation: (rule) => rule.warning().min(rule.valueOfField('startDate'))
         }),
         defineField({
@@ -138,7 +140,7 @@ export default defineType({
             title: 'Venue',
             type: 'reference',
             to: [{ type: 'venue' }],
-            description: 'Location of the exhibition'
+            description: 'Location of the exhibition (only displayed inside individual exhibition pages)'
         }),
         defineField({
             name: 'photographerCredit',
