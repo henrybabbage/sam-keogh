@@ -95,7 +95,7 @@ export type ExhibitionPagePayload = {
 
 export type CvPagePayload = {
     slug: string
-    cv: PortableTextBlock[]
+    cv?: PortableTextBlock[]
 }
 
 export type ContactPagePayload = {
