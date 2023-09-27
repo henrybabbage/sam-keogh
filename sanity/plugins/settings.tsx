@@ -15,6 +15,7 @@ import category from '../schemas/documents/category'
 import venue from '../schemas/documents/venue'
 import link from '../schemas/objects/link'
 import simpleBlockContent from '../schemas/objects/simpleBlockContent'
+import bio from '../schemas/singletons/bio'
 import contact from '../schemas/singletons/contact'
 import home from '../schemas/singletons/home'
 import settings from '../schemas/singletons/settings'
@@ -86,7 +87,7 @@ export const pageStructure = (typeDefArray: DocumentDefinition[]): StructureReso
                 S.divider(),
                 ...S.documentTypeListItems().filter(
                     (listItem) =>
-                        ![home, venue, artist, category, theme, settings, contact, link, simpleBlockContent].find(
+                        ![home, bio, venue, artist, category, theme, settings, contact, link, simpleBlockContent].find(
                             (schema) => schema.name === listItem.getId()
                         )
                 )

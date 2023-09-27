@@ -8,13 +8,14 @@ import { simplerColorInput } from 'sanity-plugin-simpler-color-input'
 import { deskTool } from 'sanity/desk'
 import { pageStructure, singletonPlugin } from './sanity/plugins/settings'
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
+import { theme as sanityTheme } from 'https://themer.sanity.build/api/hues?primary=0026f5&positive=00cc00;400&caution=ffee0d;300'
 import { apiVersion, dataset, projectId } from './sanity/env'
 import { schema } from './sanity/schema'
+import bio from './sanity/schemas/singletons/bio'
 import contact from './sanity/schemas/singletons/contact'
 import home from './sanity/schemas/singletons/home'
 import settings from './sanity/schemas/singletons/settings'
 import theme from './sanity/schemas/singletons/theme'
-import { theme as sanityTheme } from 'https://themer.sanity.build/api/hues?primary=0026f5&positive=00cc00;400&caution=ffee0d;300'
 
 export const PREVIEWABLE_DOCUMENT_TYPES: string[] = []
 
@@ -24,7 +25,7 @@ const title = process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'Sam Keogh'
 const singletonActions = new Set(['publish', 'discardChanges', 'restore'])
 
 // Define the singleton document types
-const singletonTypes = new Set(['home', 'settings', 'theme'])
+const singletonTypes = new Set(['home', 'settings', 'theme', 'bio'])
 
 export default defineConfig({
     theme: sanityTheme,
@@ -39,10 +40,10 @@ export default defineConfig({
     },
     plugins: [
         deskTool({
-            structure: pageStructure([home, theme, settings, contact])
+            structure: pageStructure([home, bio, theme, settings, contact])
         }),
         // Configures the global "new document" button, and document actions, to suit the Settings document singleton
-        singletonPlugin(['home', 'artist', 'category', 'settings', 'theme', 'contact']),
+        singletonPlugin(['home', 'bio', 'artist', 'category', 'settings', 'theme', 'contact']),
         // Vision is a tool that lets you query your content with GROQ in the studio
         // https://www.sanity.io/docs/the-vision-plugin
         visionTool({ defaultApiVersion: apiVersion }),

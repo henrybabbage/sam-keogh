@@ -59,7 +59,7 @@ export const exhibitionsPageQuery = groq`
   }
 `
 export const cvPageQuery = groq`
-  *[_type == "cv"][0] {
+  *[_type == "bio"][0] {
     _id,
     "slug": slug.current,
     cv
