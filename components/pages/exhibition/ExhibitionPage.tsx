@@ -58,103 +58,101 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                     Back
                 </Link>
             </header>
-
             <div
                 className={flex({
-                    flexBasis: '1/5',
-                    flexGrow: 1,
-                    flexDirection: 'column',
-                    gap: 8,
+                    flexBasis: '300px',
+                    flexGrow: '999',
                     position: 'sticky',
                     top: 'calc(14vh + 12px)',
-                    w: '1/5',
-                    h: 'fit-content'
+                    h: 'fit-content',
+                    order: { base: '2', lg: '1' }
                 })}
             >
-                <div className={flex({ flexDirection: 'column', pr: 8 })}>
-                    <div className={css({ pb: 8 })}>
-                        {title && <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'italic', fontSize: 'md' })}>{title}</h3>}
+                <div className={css({ flexDirection: 'column', gap: 8 })}>
+                    <div className={flex({ flexDirection: 'column', pr: 8 })}>
+                        <div className={css({ pb: 8 })}>
+                            {title && <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'italic', fontSize: 'md' })}>{title}</h3>}
+                        </div>
+                        {venue && (
+                            <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md' })}>
+                                {venue.name && <span>{venue.city ? venue.name + ', ' : venue.name}</span>}
+                                {venue.city && <span>{venue.city}</span>}
+                                {/* {venue.city && <span>{venue.country ? venue.city + ', ' : venue.city}</span>} */}
+                                {/* {venue.country && <span>{venue.country}</span>} */}
+                            </h3>
+                        )}
+                        {startDate && endDate && (
+                            <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md' })}>
+                                <span>{format(new Date(startDate), 'dd MMM')}</span>
+                                <span>{' — '}</span>
+                                <span>{format(new Date(endDate), 'dd MMM yyyy')}</span>
+                            </h3>
+                        )}
                     </div>
-                    {venue && (
-                        <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md' })}>
-                            {venue.name && <span>{venue.city ? venue.name + ', ' : venue.name}</span>}
-                            {venue.city && <span>{venue.city}</span>}
-                            {/* {venue.city && <span>{venue.country ? venue.city + ', ' : venue.city}</span>} */}
-                            {/* {venue.country && <span>{venue.country}</span>} */}
-                        </h3>
-                    )}
-                    {startDate && endDate && (
-                        <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md' })}>
-                            <span>{format(new Date(startDate), 'dd MMM')}</span>
-                            <span>{' — '}</span>
-                            <span>{format(new Date(endDate), 'dd MMM yyyy')}</span>
-                        </h3>
-                    )}
-                </div>
-                <div className={flex({ flexDirection: 'column', gap: 4, w: '100%' })}>
-                    {imageGallery && (
-                        <button
-                            onClick={() =>
-                                scrollIntoViewImages({
-                                    alignment: 'start'
-                                })
-                            }
-                            className={css({
-                                textAlign: 'left',
-                                cursor: 'pointer',
-                                _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: 'hover' },
-                                _active: { color: 'active' }
-                            })}
-                        >
-                            <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Images</h3>
-                        </button>
-                    )}
-                    {vimeo && (
-                        <button
-                            onClick={() =>
-                                scrollIntoViewVideos({
-                                    alignment: 'start'
-                                })
-                            }
-                            className={css({
-                                textAlign: 'left',
-                                cursor: 'pointer',
-                                _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: 'hover' },
-                                _active: { color: 'active' }
-                            })}
-                        >
-                            <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Videos</h3>
-                        </button>
-                    )}
-                    {pressRelease && (
-                        <button
-                            onClick={() =>
-                                scrollIntoViewText({
-                                    alignment: 'start'
-                                })
-                            }
-                            className={css({
-                                textAlign: 'left',
-                                cursor: 'pointer',
-                                _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: 'hover' },
-                                _active: { color: 'active' }
-                            })}
-                        >
-                            <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Text</h3>
-                        </button>
-                    )}
+                    <div className={flex({ flexDirection: 'column', gap: 4, w: '100%' })}>
+                        {imageGallery && (
+                            <button
+                                onClick={() =>
+                                    scrollIntoViewImages({
+                                        alignment: 'start'
+                                    })
+                                }
+                                className={css({
+                                    textAlign: 'left',
+                                    cursor: 'pointer',
+                                    _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: 'hover' },
+                                    _active: { color: 'active' }
+                                })}
+                            >
+                                <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Images</h3>
+                            </button>
+                        )}
+                        {vimeo && (
+                            <button
+                                onClick={() =>
+                                    scrollIntoViewVideos({
+                                        alignment: 'start'
+                                    })
+                                }
+                                className={css({
+                                    textAlign: 'left',
+                                    cursor: 'pointer',
+                                    _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: 'hover' },
+                                    _active: { color: 'active' }
+                                })}
+                            >
+                                <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Videos</h3>
+                            </button>
+                        )}
+                        {pressRelease && (
+                            <button
+                                onClick={() =>
+                                    scrollIntoViewText({
+                                        alignment: 'start'
+                                    })
+                                }
+                                className={css({
+                                    textAlign: 'left',
+                                    cursor: 'pointer',
+                                    _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: 'hover' },
+                                    _active: { color: 'active' }
+                                })}
+                            >
+                                <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Text</h3>
+                            </button>
+                        )}
+                    </div>
                 </div>
             </div>
 
             <div
                 className={flex({
-                    // minInlineSize: '30%',
-                    flexBasis: '4/5',
-                    flexGrow: '999',
-                    // w: '4/5',
+                    flexBasis: '1024px',
+                    flexGrow: '1',
                     mt: '14vh',
                     h: 'fit-content',
-                    mb: '14vh'
+                    mb: '14vh',
+                    order: { base: '1', lg: '2' }
                 })}
             >
                 <div className={flex({ flexDirection: 'column', gap: '12' })}>
