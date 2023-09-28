@@ -10,7 +10,6 @@ import { useScrollIntoView } from '@mantine/hooks'
 import { format } from 'date-fns'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { useRef } from 'react'
 
 export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
     const { title, startDate, endDate, imageGallery, venue, vimeo, pressRelease } = data ?? {}
