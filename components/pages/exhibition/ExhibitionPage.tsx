@@ -65,7 +65,8 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                     position: 'sticky',
                     top: 'calc(14vh + 12px)',
                     h: 'fit-content',
-                    order: { base: '2', lg: '1' }
+                    order: { base: '2', lg: '1' },
+                    pb: 8
                 })}
             >
                 <div className={css({ flexDirection: 'column', gap: 8 })}>
