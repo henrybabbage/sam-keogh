@@ -10,8 +10,8 @@ export default function ContactPage({ data }: ContactPageProps) {
     const { email, gallery, instagram } = data ?? {}
     return (
         <main className={css({ maxHeight: '100vh', height: '100vh', width: '100vw', maxWidth: '100vw', p: '12px', bg: 'background' })}>
-            <div className={flex({ direction: 'column', justifyContent: 'center', height: '100%' })}>
-                <div className={flex({ direction: 'row', align: 'center', justifyContent: 'space-between', pb: '12px' })}>
+            <div className={flex({ direction: 'column', justifyContent: { base: 'start', lg: 'center' }, height: '100%' })}>
+                <div className={flex({ direction: { base: 'column', lg: 'row' }, align: 'center', justifyContent: 'space-between', pb: '12px' })}>
                     <a
                         className={css({
                             fontFamily: 'simula',
