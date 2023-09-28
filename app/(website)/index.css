@@ -5,14 +5,13 @@
         overscroll-behavior-y: none !important;
 
         /* Font */
-        font-variant-numeric: slashed-zero;
+        font-variant-numeric: tabular-nums;
         font-kerning: normal;
         font-variant-ligatures: common-ligatures contextual;
         -moz-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
         -ms-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
         -webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
         font-feature-settings: 'kern', 'liga', 'clig', 'calt';
-
     }
 
     ul {
@@ -32,10 +31,6 @@
         -moz-osx-font-smoothing: grayscale;
         overflow-x: hidden;
     }
-
-    /* p:not(:last-child) {
-        margin-bottom: 0.875rem;
-    } */
 
     #react-player iframe {
         width: 100%;

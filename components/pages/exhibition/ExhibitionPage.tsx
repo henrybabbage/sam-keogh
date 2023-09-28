@@ -84,7 +84,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                         </h3>
                     )}
                     {startDate && endDate && (
-                        <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', fontVariantNumeric: 'slashed-zero' })}>
+                        <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md' })}>
                             <span>{format(new Date(startDate), 'dd MMM')}</span>
                             <span>{' — '}</span>
                             <span>{format(new Date(endDate), 'dd MMM yyyy')}</span>
@@ -172,7 +172,6 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                                     }}
                                     key={key}
                                     className={css({
-                                        bg: 'background',
                                         position: 'relative',
                                         mb: 4
                                     })}

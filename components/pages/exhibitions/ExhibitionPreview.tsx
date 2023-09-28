@@ -23,7 +23,7 @@ export default function ExhibitionPreview(props: ExhibitionPreviewProps) {
                 transition: 'opacity 0.2s ease-in-out'
             })}
         >
-            <div className={css({ w: '100%', h: '35rem', position: 'relative', overflow: 'hidden' })}>
+            <div className={css({ w: '100%', h: '35rem', bg: 'background', position: 'relative', overflow: 'hidden' })}>
                 {image && <NextImage image={image} priority={true} fill={true} />}
             </div>
         </div>

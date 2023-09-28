@@ -52,72 +52,78 @@ export default function ExhibitionsPage({ data }: ExhibitionsPagePayload) {
     const pastExhibitionsByYear = sortExhibitionsByYear(pastExhibitions)
     const upcomingExhibitionsByYear = sortExhibitionsByYear(upcomingExhibitions)
 
-    console.log(pastExhibitionsByYear)
-    console.log(upcomingExhibitionsByYear)
-
-    const sortedYears = getExhibitionYears(exhibitions)
-    console.log(sortedYears)
-
     return (
         <main className={css({ minHeight: '100vh', height: '100vh', width: '100%', maxWidth: '100vw', p: '12px', bg: 'background' })}>
             <div className={flex({ w: '100%' })}>
                 <div className={flex({ flexDirection: 'column', w: '1/3' })}>
                     <div className={flex({ h: '14vh', w: '100%', alignItems: 'center' })}>
-                        <h1 className={css({ fontFamily: 'azeretMono', position: 'fixed', opacity: 0 })}>Exhibitions</h1>
+                        <h1 className={css({ fontFamily: 'azeretMono', textTransform: 'uppercase', position: 'fixed', opacity: 0 })}>Exhibitions</h1>
                     </div>
                     <div className={flex({ gap: '8', h: 'fit-content', mb: '8vh', pr: '8' })}>
                         <div className={flex({ flexDirection: 'column', gap: '8' })}>
                             <section className={flex({ flexDirection: 'column', gap: '4' })}>
-                                {upcomingExhibitions && <h1 className={css({ fontFamily: 'simula', fontSize: 'lg' })}>Upcoming / Current</h1>}
-                                {upcomingExhibitions && upcomingExhibitions.length > 0 && (
-                                    <div className={flex({ flexDirection: 'column', gap: '4' })}>
-                                        {upcomingExhibitions.map((exhibition: ExhibitionProps) => {
-                                            const href = resolveHref(exhibition._type, exhibition.slug)
-                                            if (!href) {
-                                                return null
-                                            }
-                                            return (
-                                                <Link key={exhibition._id} href={href}>
-                                                    <ExhibitionListItem exhibition={exhibition} />
-                                                </Link>
-                                            )
+                                {upcomingExhibitions && (
+                                    <h1
+                                        className={css({
+                                            fontFamily: 'azeretMono',
+                                            textTransform: 'uppercase',
+                                            fontSize: 'md',
+                                            fontWeight: '700',
+                                            color: 'foreground'
                                         })}
-                                    </div>
+                                    >
+                                        Upcoming / Current
+                                    </h1>
                                 )}
+                                {Object.entries(upcomingExhibitionsByYear)
+                                    .reverse()
+                                    .map(([year, exhibitions]) => (
+                                        <div key={year} className={flex({ flexDirection: 'column', gap: '4' })}>
+                                            <h3 className={css({ fontFamily: 'azeretMono', fontSize: 'md', fontWeight: '700' })}>{year}</h3>
+                                            {exhibitions.map((exhibition: ExhibitionProps) => {
+                                                const href = resolveHref(exhibition._type, exhibition.slug)
+                                                if (!href) {
+                                                    return null
+                                                }
+                                                return (
+                                                    <Link key={exhibition._id} href={href}>
+                                                        <ExhibitionListItem exhibition={exhibition} />
+                                                    </Link>
+                                                )
+                                            })}
+                                        </div>
+                                    ))}
                             </section>
                             <section className={flex({ flexDirection: 'column', gap: '4' })}>
-                                <h1 className={css({ fontFamily: 'simula', fontSize: 'lg' })}>Past</h1>
-                                {pastExhibitions && pastExhibitions.length > 0 && (
-                                    <div className={flex({ flexDirection: 'column', gap: '4' })}>
-                                        {pastExhibitions.map((exhibition: ExhibitionProps) => {
-                                            const href = resolveHref(exhibition._type, exhibition.slug)
-                                            if (!href) {
-                                                return null
-                                            }
-                                            return (
-                                                <Link key={exhibition._id} href={href}>
-                                                    <ExhibitionListItem exhibition={exhibition} />
-                                                </Link>
-                                            )
-                                        })}
-                                    </div>
-                                )}
-                                {/* {Object.entries(pastExhibitionsByYear).map(([year, exhibitions]) => (
-                                    <div key={year} className={flex({ flexDirection: 'column', gap: '4' })}>
-                                        <h3 className={css({ fontFamily: 'simula', fontSize: 'lg' })}>{year}</h3>
-                                        {exhibitions.map((exhibition: ExhibitionProps) => {
-                                            const href = resolveHref(exhibition._type, exhibition.slug)
-                                            if (!href) {
-                                                return null
-                                            }
-                                            return (
-                                                <Link key={exhibition._id} href={href}>
-                                                    <ExhibitionListItem exhibition={exhibition} />
-                                                </Link>
-                                            )
-                                        })}
-                                    </div>
-                                ))} */}
+                                <h1
+                                    className={css({
+                                        fontFamily: 'azeretMono',
+                                        textTransform: 'uppercase',
+                                        fontSize: 'md',
+                                        fontWeight: '700',
+                                        color: 'foreground'
+                                    })}
+                                >
+                                    Past
+                                </h1>
+                                {Object.entries(pastExhibitionsByYear)
+                                    .reverse()
+                                    .map(([year, exhibitions]) => (
+                                        <div key={year} className={flex({ flexDirection: 'column', gap: '4' })}>
+                                            <h3 className={css({ fontFamily: 'azeretMono', fontSize: 'md', fontWeight: '700' })}>{year}</h3>
+                                            {exhibitions.map((exhibition: ExhibitionProps) => {
+                                                const href = resolveHref(exhibition._type, exhibition.slug)
+                                                if (!href) {
+                                                    return null
+                                                }
+                                                return (
+                                                    <Link key={exhibition._id} href={href}>
+                                                        <ExhibitionListItem exhibition={exhibition} />
+                                                    </Link>
+                                                )
+                                            })}
+                                        </div>
+                                    ))}
                             </section>
                         </div>
                     </div>

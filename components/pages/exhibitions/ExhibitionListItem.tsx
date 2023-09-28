@@ -41,18 +41,18 @@ export default function ExhibitionListItem(props: ListItemProps) {
                 }
             }}
         >
-            <h3
+            <h2
                 className={css({
                     fontFamily: 'azeretMono',
                     fontStyle: 'normal',
                     fontWeight: '400',
-                    fontVariantNumeric: 'slashed-zero',
+                    fontSize: 'lg',
                     _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: 'hover' },
                     _active: { color: 'active' }
                 })}
             >
                 {exhibition?.title}
-            </h3>
+            </h2>
         </motion.li>
     )
 }
