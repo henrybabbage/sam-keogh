@@ -46,7 +46,7 @@ export default function ExhibitionListItem(props: ListItemProps) {
                     fontFamily: 'azeretMono',
                     fontStyle: 'normal',
                     fontWeight: '400',
-                    fontSize: 'lg',
+                    fontSize: { base: 'sm', lg: 'md' },
                     _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: 'hover' },
                     _active: { color: 'active' }
                 })}
