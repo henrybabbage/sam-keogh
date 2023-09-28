@@ -172,9 +172,6 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                                     }}
                                     key={key}
                                     className={css({
-                                        w: '100%',
-                                        h: '100%',
-                                        bg: 'background',
                                         position: 'relative',
                                         mb: 4
                                     })}
@@ -211,7 +208,6 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                                             hidden: { opacity: 0 }
                                         }}
                                         key={video._key}
-                                        className={css({ position: 'relative', mb: 4 })}
                                     >
                                         <VimeoPlayer url={video.url} title={video.title} />
                                     </motion.div>
@@ -229,7 +225,6 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                                 hidden: { opacity: 0 }
                             }}
                             ref={text}
-                            className={css({ position: 'relative', mb: 4 })}
                         >
                             <CustomPortableText
                                 value={pressRelease}
