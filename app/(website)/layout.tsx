@@ -1,8 +1,8 @@
 import Nav from '@/components/common/Nav'
+import { css } from '@/styled-system/css'
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import './index.css'
-import { css } from '@/styled-system/css'
 
 const azeretMono = localFont({
     src: [
@@ -15,6 +15,16 @@ const azeretMono = localFont({
             path: '../../fonts/AzeretMono/AzeretMono_Italic.otf',
             style: 'italic',
             weight: '400'
+        },
+        {
+            path: '../../fonts/AzeretMono/AzeretMono_Bold.otf',
+            style: 'normal',
+            weight: '700'
+        },
+        {
+            path: '../../fonts/AzeretMono/AzeretMono_BoldItalic.otf',
+            style: 'italic',
+            weight: '700'
         }
     ],
     display: 'swap',

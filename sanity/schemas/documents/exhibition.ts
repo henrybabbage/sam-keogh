@@ -91,15 +91,6 @@ export default defineType({
             },
             initialValue: 'solo'
         }),
-        defineField({
-            name: 'artist',
-            title: 'Artist(s)',
-            type: 'reference',
-            to: { type: 'artist' },
-            description: 'Optional: Participating artist(s)',
-            hidden: true
-            // hidden: ({ document }) => document?.type !== 'group'
-        }),
         // TODO: Add switch for eventDate type or exhibitionDates type
         defineField({
             name: 'startDate',
@@ -165,11 +156,12 @@ export default defineType({
         select: {
             title: 'title',
             venue: 'venue.name',
+            year: 'year',
             media: 'imageGallery.[0]'
         },
         prepare(selection) {
-            const { venue } = selection
-            return { ...selection, subtitle: venue && `${venue}` }
+            const { venue, year } = selection
+            return { ...selection, subtitle: venue ? `${venue} | ${year}` : `${year}` }
         }
     }
 })
