@@ -4,6 +4,8 @@ import NextImage from '@/components/common/NextImage'
 import { css } from '@/styled-system/css'
 import { flex } from '@/styled-system/patterns'
 import { HomePagePayload } from '@/types'
+import { motion, useInView } from 'framer-motion'
+import { useRef } from 'react'
 
 export type HomePageProps = {
     data: HomePagePayload | null
@@ -20,8 +22,12 @@ export default function HomePage({ data }: HomePageProps) {
 
     console.log({ isLandscape })
 
+    const ref = useRef(null)
+    const isInView = useInView(ref)
+
     return (
         <main
+            ref={ref}
             className={flex({
                 justifyContent: 'center',
                 p: '12px',
@@ -31,7 +37,15 @@ export default function HomePage({ data }: HomePageProps) {
                 position: 'relative'
             })}
         >
-            <section
+            <motion.section
+                initial={{ opacity: 0 }}
+                animate={{
+                    opacity: isInView ? 1 : 0,
+                    transition: {
+                        duration: 0.4,
+                        ease: 'easeInOut'
+                    }
+                }}
                 className={css({
                     position: 'relative',
                     height: '80vh',
@@ -40,7 +54,7 @@ export default function HomePage({ data }: HomePageProps) {
                 })}
             >
                 <NextImage image={hero} priority={true} fill={true} />
-            </section>
+            </motion.section>
         </main>
     )
 }

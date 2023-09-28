@@ -14,7 +14,8 @@ export default function ContactPage({ data }: ContactPageProps) {
                 <div className={flex({ direction: 'row', align: 'center', justifyContent: 'space-between', pb: '12px' })}>
                     <a
                         className={css({
-                            fontFamily: 'azeretMono',
+                            fontFamily: 'simula',
+                            textTransform: 'uppercase',
                             _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '1.5px', color: 'hover' },
                             _active: { color: 'active' }
                         })}
@@ -25,8 +26,12 @@ export default function ContactPage({ data }: ContactPageProps) {
                         {email}
                     </a>
                     <a
-                        className={css({
-                            fontFamily: 'azeretMono',
+                        className={flex({
+                            align: 'center',
+                            justifyContent: 'center',
+                            gap: '2',
+                            fontFamily: 'simula',
+                            textTransform: 'uppercase',
                             _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '1.5px', color: 'hover' },
                             _active: { color: 'active' }
                         })}
@@ -38,7 +43,8 @@ export default function ContactPage({ data }: ContactPageProps) {
                     </a>
                     <a
                         className={css({
-                            fontFamily: 'azeretMono',
+                            fontFamily: 'simula',
+                            textTransform: 'uppercase',
                             _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '1.5px', color: 'hover' },
                             _active: { color: 'active' }
                         })}

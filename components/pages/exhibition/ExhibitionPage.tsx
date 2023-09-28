@@ -8,22 +8,23 @@ import { flex } from '@/styled-system/patterns'
 import type { ExhibitionPagePayload } from '@/types'
 import { useScrollIntoView } from '@mantine/hooks'
 import { format } from 'date-fns'
+import { motion } from 'framer-motion'
 import Link from 'next/link'
 
 export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
     const { title, startDate, endDate, imageGallery, venue, vimeo, pressRelease } = data ?? {}
 
-    const { scrollIntoView: scrollIntoViewImages, targetRef: imagesRef } = useScrollIntoView<HTMLDivElement>({
+    const { scrollIntoView: scrollIntoViewImages, targetRef: images } = useScrollIntoView<HTMLDivElement>({
         duration: 800,
         offset: 12
     })
 
-    const { scrollIntoView: scrollIntoViewVideos, targetRef: videosRef } = useScrollIntoView<HTMLDivElement>({
+    const { scrollIntoView: scrollIntoViewVideos, targetRef: videos } = useScrollIntoView<HTMLDivElement>({
         duration: 800,
         offset: 12
     })
 
-    const { scrollIntoView: scrollIntoViewText, targetRef: textRef } = useScrollIntoView<HTMLDivElement>({
+    const { scrollIntoView: scrollIntoViewText, targetRef: text } = useScrollIntoView<HTMLDivElement>({
         duration: 800,
         offset: 12
     })
@@ -158,11 +159,20 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
             >
                 <div className={flex({ flexDirection: 'column', gap: '12' })}>
                     {imageGallery && imageGallery.length > 0 && (
-                        <section ref={imagesRef}>
+                        <section ref={images}>
                             {imageGallery.map((image, key) => (
-                                <div
+                                <motion.div
+                                    initial="hidden"
+                                    whileInView="visible"
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.4, ease: 'easeInOut' }}
+                                    variants={{
+                                        visible: { opacity: 1 },
+                                        hidden: { opacity: 0 }
+                                    }}
                                     key={key}
                                     className={css({
+                                        bg: 'background',
                                         position: 'relative',
                                         mb: 4
                                     })}
@@ -181,22 +191,42 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                                     <figcaption className={css({ my: 4 })}>
                                         <h3 className={css({ fontFamily: 'simula', fontStyle: 'normal' })}>{image?.caption}</h3>
                                     </figcaption>
-                                </div>
+                                </motion.div>
                             ))}
                         </section>
                     )}
                     {vimeo && (
-                        <section ref={videosRef}>
+                        <section ref={videos}>
                             {vimeo &&
                                 vimeo.map((video) => (
-                                    <div key={video._key}>
+                                    <motion.div
+                                        initial="hidden"
+                                        whileInView="visible"
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.4, ease: 'easeInOut' }}
+                                        variants={{
+                                            visible: { opacity: 1 },
+                                            hidden: { opacity: 0 }
+                                        }}
+                                        key={video._key}
+                                    >
                                         <VimeoPlayer url={video.url} title={video.title} />
-                                    </div>
+                                    </motion.div>
                                 ))}
                         </section>
                     )}
                     {pressRelease && (
-                        <section ref={textRef}>
+                        <motion.section
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.4, ease: 'easeInOut' }}
+                            variants={{
+                                visible: { opacity: 1 },
+                                hidden: { opacity: 0 }
+                            }}
+                            ref={text}
+                        >
                             <CustomPortableText
                                 value={pressRelease}
                                 paragraphClasses={css({
@@ -207,7 +237,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                                     lineHeight: 'xl'
                                 })}
                             />
-                        </section>
+                        </motion.section>
                     )}
                 </div>
             </div>

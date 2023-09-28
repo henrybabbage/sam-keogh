@@ -1,5 +1,3 @@
-'use client'
-
 import { css, cx } from '@/styled-system/css'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
 import type { PortableTextBlock } from '@portabletext/types'
@@ -7,7 +5,6 @@ import type { Image } from 'sanity'
 import ImageBox from './ImageBox'
 
 export function CustomPortableText({ paragraphClasses, value }: { paragraphClasses?: string; value: PortableTextBlock[] }) {
-    console.log('inside-portable-text', value)
     const components: PortableTextComponents = {
         block: {
             normal: ({ children }) => {
