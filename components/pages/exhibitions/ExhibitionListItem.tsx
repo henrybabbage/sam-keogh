@@ -47,7 +47,6 @@ export default function ExhibitionListItem(props: ListItemProps) {
                     fontStyle: 'normal',
                     fontWeight: '400',
                     fontSize: 'lg',
-                    fontVariantNumeric: 'slashed-zero',
                     _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: 'hover' },
                     _active: { color: 'active' }
                 })}

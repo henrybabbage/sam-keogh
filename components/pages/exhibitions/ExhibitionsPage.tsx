@@ -63,7 +63,15 @@ export default function ExhibitionsPage({ data }: ExhibitionsPagePayload) {
                         <div className={flex({ flexDirection: 'column', gap: '8' })}>
                             <section className={flex({ flexDirection: 'column', gap: '4' })}>
                                 {upcomingExhibitions && (
-                                    <h1 className={css({ fontFamily: 'azeretMono', textTransform: 'uppercase', fontSize: 'lg', fontWeight: '700' })}>
+                                    <h1
+                                        className={css({
+                                            fontFamily: 'azeretMono',
+                                            textTransform: 'uppercase',
+                                            fontSize: 'lg',
+                                            fontWeight: '700',
+                                            color: 'foreground'
+                                        })}
+                                    >
                                         Upcoming / Current
                                     </h1>
                                 )}
@@ -87,7 +95,17 @@ export default function ExhibitionsPage({ data }: ExhibitionsPagePayload) {
                                     ))}
                             </section>
                             <section className={flex({ flexDirection: 'column', gap: '4' })}>
-                                <h1 className={css({ fontFamily: 'azeretMono', textTransform: 'uppercase', fontSize: 'lg', fontWeight: '700' })}>Past</h1>
+                                <h1
+                                    className={css({
+                                        fontFamily: 'azeretMono',
+                                        textTransform: 'uppercase',
+                                        fontSize: 'lg',
+                                        fontWeight: '700',
+                                        color: 'foreground'
+                                    })}
+                                >
+                                    Past
+                                </h1>
                                 {Object.entries(pastExhibitionsByYear)
                                     .reverse()
                                     .map(([year, exhibitions]) => (
