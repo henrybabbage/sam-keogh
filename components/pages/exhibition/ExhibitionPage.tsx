@@ -66,10 +66,10 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                     top: 'calc(14vh + 12px)',
                     h: 'fit-content',
                     order: { base: '2', lg: '1' },
-                    pb: 8
+                    mb: { base: '14vh', lg: '8' }
                 })}
             >
-                <div className={css({ flexDirection: 'column', gap: 8 })}>
+                <div className={flex({ flexDirection: 'column', gap: 8 })}>
                     <div className={flex({ flexDirection: 'column', pr: 8 })}>
                         <div className={css({ pb: 8 })}>
                             {title && <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'italic', fontSize: 'md' })}>{title}</h3>}
@@ -90,7 +90,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                             </h3>
                         )}
                     </div>
-                    <div className={flex({ flexDirection: 'column', gap: 4, w: '100%' })}>
+                    <div className={flex({ hideBelow: 'md', flexDirection: 'column', gap: 4, w: '100%' })}>
                         {imageGallery && (
                             <button
                                 onClick={() =>
@@ -152,7 +152,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                     flexGrow: '1',
                     mt: '14vh',
                     h: 'fit-content',
-                    mb: '14vh',
+                    mb: { base: '7vh', lg: '14vh' },
                     order: { base: '1', lg: '2' }
                 })}
             >
