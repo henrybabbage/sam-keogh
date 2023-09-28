@@ -5,13 +5,14 @@
         overscroll-behavior-y: none !important;
 
         /* Font */
-        font-variant-numeric: tabular-nums;
+        font-variant: normal;
+        /* font-variant-numeric: tabular-nums;
         font-kerning: normal;
         font-variant-ligatures: common-ligatures contextual;
         -moz-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
         -ms-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
         -webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
-        font-feature-settings: 'kern', 'liga', 'clig', 'calt';
+        font-feature-settings: 'kern', 'liga', 'clig', 'calt'; */
     }
 
     ul {
