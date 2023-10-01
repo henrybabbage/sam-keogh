@@ -47,10 +47,12 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                         position: 'fixed',
                         top: '12px',
                         left: '12px',
-                        fontFamily: 'simula',
+                        fontFamily: 'azeretMono',
                         fontStyle: 'normal',
+                        fontWeight: '700',
                         fontSize: 'lg',
                         textTransform: 'uppercase',
+                        color: 'black',
                         _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: 'hover' },
                         _active: { color: 'active' }
                     })}
