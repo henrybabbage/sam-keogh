@@ -22,6 +22,7 @@ export default function Nav() {
                             color: 'black',
                             fontFamily: 'azeretMono',
                             fontWeight: '700',
+                            fontSize: 'md',
                             textTransform: 'uppercase',
                             _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: 'hover' },
                             _active: { color: 'active' }
@@ -37,6 +38,7 @@ export default function Nav() {
                             color: 'black',
                             fontFamily: 'azeretMono',
                             fontWeight: '700',
+                            fontSize: 'md',
                             textTransform: 'uppercase',
                             _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: 'hover' },
                             _active: { color: 'active' }
@@ -52,6 +54,7 @@ export default function Nav() {
                             color: 'black',
                             fontFamily: 'azeretMono',
                             fontWeight: '700',
+                            fontSize: 'md',
                             textTransform: 'uppercase',
                             _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: 'hover' },
                             _active: { color: 'active' }

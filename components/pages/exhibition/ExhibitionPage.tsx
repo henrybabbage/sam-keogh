@@ -46,18 +46,23 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                         zIndex: 10,
                         position: 'fixed',
                         top: '12px',
-                        left: '12px',
-                        fontFamily: 'azeretMono',
-                        fontStyle: 'normal',
-                        fontWeight: '700',
-                        fontSize: 'lg',
-                        textTransform: 'uppercase',
-                        color: 'black',
-                        _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: 'hover' },
-                        _active: { color: 'active' }
+                        left: '12px'
                     })}
                 >
-                    Back
+                    <h2
+                        className={css({
+                            fontFamily: 'azeretMono',
+                            fontStyle: 'normal',
+                            fontWeight: '700',
+                            fontSize: 'md',
+                            textTransform: 'uppercase',
+                            color: 'black',
+                            _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: 'hover' },
+                            _active: { color: 'active' }
+                        })}
+                    >
+                        Back
+                    </h2>
                 </Link>
             </header>
             <div
