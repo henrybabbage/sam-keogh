@@ -29,7 +29,7 @@ export default defineConfig({
                 },
                 fonts: {
                     simula: { value: 'var(--font-simula), serif' },
-                    azeretMono: { value: 'var(--font-azeret-mono), Menlo, monospace' }
+                    azeretMono: { value: 'var(--font-azeret-mono), monospace' }
                 }
             }
         }
@@ -68,7 +68,7 @@ export default defineConfig({
     globalCss: {
         'html, body': {
             margin: '0',
-            padding: '0',
+            padding: '0'
         }
     },
 

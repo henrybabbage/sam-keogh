@@ -418,7 +418,7 @@
   --fonts-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   --fonts-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --fonts-simula: var(--font-simula), serif;
-  --fonts-azeret-mono: var(--font-azeret-mono), Menlo, monospace;
+  --fonts-azeret-mono: var(--font-azeret-mono), monospace;
   --breakpoints-sm: 640px;
   --breakpoints-md: 768px;
   --breakpoints-lg: 1024px;

@@ -43,10 +43,11 @@ export default function ExhibitionListItem(props: ListItemProps) {
         >
             <h2
                 className={css({
-                    fontFamily: 'azeretMono',
+                    fontFamily: 'simula',
                     fontStyle: 'normal',
                     fontWeight: '400',
-                    fontSize: { base: 'sm', lg: 'md' },
+                    textTransform: 'uppercase',
+                    fontSize: { base: 'sm', lg: 'lg' },
                     _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: 'hover' },
                     _active: { color: 'active' }
                 })}

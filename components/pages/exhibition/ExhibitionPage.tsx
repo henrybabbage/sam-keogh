@@ -37,7 +37,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                         flexDirection: 'row',
                         justifyContent: 'flex-end'
                     }),
-                    css({ height: '14vh', zIndex: 10 })
+                    css({ height: { base: 'auto', lg: '14vh' }, zIndex: 10 })
                 )}
             >
                 <Link
@@ -49,7 +49,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                         left: '12px',
                         fontFamily: 'simula',
                         fontStyle: 'normal',
-                        fontSize: 'md',
+                        fontSize: 'lg',
                         textTransform: 'uppercase',
                         _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: 'hover' },
                         _active: { color: 'active' }
@@ -72,10 +72,10 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                 <div className={flex({ flexDirection: 'column', gap: 8 })}>
                     <div className={flex({ flexDirection: 'column', pr: 8 })}>
                         <div className={css({ pb: 8 })}>
-                            {title && <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'italic', fontSize: 'md' })}>{title}</h3>}
+                            {title && <h3 className={css({ fontFamily: 'simula', fontStyle: 'italic', fontSize: 'lg' })}>{title}</h3>}
                         </div>
                         {venue && (
-                            <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md' })}>
+                            <h3 className={css({ fontFamily: 'simula', fontStyle: 'normal', fontSize: 'lg' })}>
                                 {venue.name && <span>{venue.city ? venue.name + ', ' : venue.name}</span>}
                                 {venue.city && <span>{venue.city}</span>}
                                 {/* {venue.city && <span>{venue.country ? venue.city + ', ' : venue.city}</span>} */}
@@ -83,7 +83,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                             </h3>
                         )}
                         {startDate && endDate && (
-                            <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md' })}>
+                            <h3 className={css({ fontFamily: 'simula', fontStyle: 'normal', fontSize: 'lg' })}>
                                 <span>{format(new Date(startDate), 'dd MMM')}</span>
                                 <span>{' — '}</span>
                                 <span>{format(new Date(endDate), 'dd MMM yyyy')}</span>
@@ -232,7 +232,8 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                                     mb: 4,
                                     color: 'black',
                                     fontSize: 'lg',
-                                    lineHeight: 'xl'
+                                    lineHeight: 'xl',
+                                    textJustify: 'auto'
                                 })}
                             />
                         </motion.section>
