@@ -7,22 +7,22 @@ import './index.css'
 const azeretMono = localFont({
     src: [
         {
-            path: '../../fonts/AzeretMono/AzeretMono_Regular.otf',
+            path: '../../fonts/NeueMontreal/NeueMontreal_Regular.woff2',
             style: 'normal',
             weight: '400'
         },
         {
-            path: '../../fonts/AzeretMono/AzeretMono_Italic.otf',
+            path: '../../fonts/NeueMontreal/NeueMontreal_Italic.woff2',
             style: 'italic',
             weight: '400'
         },
         {
-            path: '../../fonts/AzeretMono/AzeretMono_Bold.otf',
+            path: '../../fonts/NeueMontreal/NeueMontreal_Bold.woff2',
             style: 'normal',
             weight: '700'
         },
         {
-            path: '../../fonts/AzeretMono/AzeretMono_BoldItalic.otf',
+            path: '../../fonts/NeueMontreal/NeueMontreal_BoldItalic.woff2',
             style: 'italic',
             weight: '700'
         }

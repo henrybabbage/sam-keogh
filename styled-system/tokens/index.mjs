@@ -1672,7 +1672,7 @@ const tokens = {
     "variable": "var(--fonts-simula)"
   },
   "fonts.azeretMono": {
-    "value": "var(--font-azeret-mono), Menlo, monospace",
+    "value": "var(--font-azeret-mono), monospace",
     "variable": "var(--fonts-azeret-mono)"
   },
   "breakpoints.sm": {

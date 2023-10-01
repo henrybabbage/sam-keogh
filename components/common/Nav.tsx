@@ -4,14 +4,24 @@ import Link from 'next/link'
 
 export default function Nav() {
     return (
-        <nav className={css({ position: 'fixed', bottom: '0', width: '100vw', p: '12px', bg: '#FFF1E5' })}>
+        <nav
+            className={css({
+                position: 'fixed',
+                bottom: '0',
+                width: '100vw',
+                py: { base: '12px', lg: '16px' },
+                px: '12px',
+                bg: '#FFF1E5'
+            })}
+        >
             <div className={flex({ justifyContent: 'space-between' })}>
                 <Link href="/work">
                     <h2
                         className={css({
                             width: 'fit-content',
                             color: 'black',
-                            fontFamily: 'simula',
+                            fontFamily: 'azeretMono',
+                            fontWeight: '700',
                             textTransform: 'uppercase',
                             _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: '#0026F5' },
                             _active: { color: 'active' }
@@ -25,7 +35,8 @@ export default function Nav() {
                         className={css({
                             width: 'fit-content',
                             color: 'black',
-                            fontFamily: 'simula',
+                            fontFamily: 'azeretMono',
+                            fontWeight: '700',
                             textTransform: 'uppercase',
                             _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: '#0026F5' },
                             _active: { color: 'active' }
@@ -39,7 +50,8 @@ export default function Nav() {
                         className={css({
                             width: 'fit-content',
                             color: 'black',
-                            fontFamily: 'simula',
+                            fontFamily: 'azeretMono',
+                            fontWeight: '700',
                             textTransform: 'uppercase',
                             _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: '#0026F5' },
                             _active: { color: 'active' }

@@ -56,7 +56,7 @@ export default function ExhibitionsPage({ data }: ExhibitionsPagePayload) {
         <main className={css({ minHeight: '100vh', height: '100vh', width: '100%', maxWidth: '100vw', p: '12px', bg: 'background' })}>
             <div className={flex({ w: '100%' })}>
                 <div className={flex({ flexDirection: 'column', w: { base: '100%', md: '2/3', lg: '1/3' } })}>
-                    <div className={flex({ h: '14vh', w: '100%', alignItems: 'center' })}>
+                    <div className={flex({ h: { base: '14vh', lg: '14vh' }, w: '100%', alignItems: 'center' })}>
                         <h1
                             className={css({
                                 fontFamily: 'azeretMono',
