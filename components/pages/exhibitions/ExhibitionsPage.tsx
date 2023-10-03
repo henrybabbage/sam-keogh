@@ -2,30 +2,14 @@ import { css } from '@/styled-system/css'
 import { flex } from '@/styled-system/patterns'
 
 import { resolveHref } from '@/sanity/lib/sanity.links'
-import type { ExhibitionProps, ExhibitionsPagePayload } from '@/types'
+import type { ExhibitionProps, ExhibitionsPagePayload, UpcomingProps } from '@/types'
 import Link from 'next/link'
 import ExhibitionListItem from './ExhibitionListItem'
 import ExhibitionPreview from './ExhibitionPreview'
+import UpcomingListItem from './UpcomingListItem'
 
-export default function ExhibitionsPage({ data }: ExhibitionsPagePayload) {
-    const exhibitions = data || []
-
-    function sortExhibitions(exhibitions: ExhibitionProps[]) {
-        const now = new Date()
-        const upcomingExhibitions: ExhibitionProps[] = []
-        const pastExhibitions: ExhibitionProps[] = []
-
-        exhibitions.forEach((exhibition) => {
-            const endDate = exhibition.endDate ? new Date(exhibition.endDate) : null
-            if (endDate && endDate >= now) {
-                upcomingExhibitions.push(exhibition)
-            } else {
-                pastExhibitions.push(exhibition)
-            }
-        })
-
-        return { upcomingExhibitions, pastExhibitions }
-    }
+export default function ExhibitionsPage(props: ExhibitionsPagePayload) {
+    const { exhibitions = [], upcoming = [] } = props || {}
 
     const sortExhibitionsByYear = (exhibitions: ExhibitionProps[]) => {
         const years = getExhibitionYears(exhibitions)
@@ -47,10 +31,7 @@ export default function ExhibitionsPage({ data }: ExhibitionsPagePayload) {
         return years.sort((a, b) => parseInt(b, 10) - parseInt(a, 10))
     }
 
-    const { upcomingExhibitions, pastExhibitions } = sortExhibitions(exhibitions)
-
-    const pastExhibitionsByYear = sortExhibitionsByYear(pastExhibitions)
-    const upcomingExhibitionsByYear = sortExhibitionsByYear(upcomingExhibitions)
+    const sortedExhibitions = sortExhibitionsByYear(exhibitions)
 
     return (
         <main className={css({ minHeight: '100vh', height: '100vh', width: '100%', maxWidth: '100vw', p: '12px', bg: 'background' })}>
@@ -74,37 +55,28 @@ export default function ExhibitionsPage({ data }: ExhibitionsPagePayload) {
                     <div className={flex({ gap: '8', h: 'fit-content', mb: '8vh', pr: '8' })}>
                         <div className={flex({ flexDirection: 'column', gap: '8' })}>
                             <section className={flex({ flexDirection: 'column', gap: '4' })}>
-                                {upcomingExhibitions && (
-                                    <h1
-                                        className={css({
-                                            fontFamily: 'azeretMono',
-                                            textTransform: 'uppercase',
-                                            fontSize: { base: 'sm', lg: 'md' },
-                                            fontWeight: '700',
-                                            color: 'foreground'
+                                <h1
+                                    className={css({
+                                        fontFamily: 'azeretMono',
+                                        textTransform: 'uppercase',
+                                        fontSize: { base: 'sm', lg: 'md' },
+                                        fontWeight: '700',
+                                        color: 'foreground',
+                                        visibility: 'hidden'
+                                    })}
+                                >
+                                    Upcoming / Current
+                                </h1>
+                                <div className={flex({ flexDirection: 'column', gap: { base: '2', lg: '4' } })}>
+                                    {upcoming &&
+                                        upcoming.map((item: UpcomingProps) => {
+                                            return (
+                                                <a key={item._id} href={item.url} target="_blank" rel="noreferrer">
+                                                    <UpcomingListItem upcoming={item} />
+                                                </a>
+                                            )
                                         })}
-                                    >
-                                        Upcoming / Current
-                                    </h1>
-                                )}
-                                {Object.entries(upcomingExhibitionsByYear)
-                                    .reverse()
-                                    .map(([year, exhibitions]) => (
-                                        <div key={year} className={flex({ flexDirection: 'column', gap: '4' })}>
-                                            <h3 className={css({ fontFamily: 'azeretMono', fontSize: { base: 'sm', lg: 'md' }, fontWeight: '700' })}>{year}</h3>
-                                            {exhibitions.map((exhibition: ExhibitionProps) => {
-                                                const href = resolveHref(exhibition._type, exhibition.slug)
-                                                if (!href) {
-                                                    return null
-                                                }
-                                                return (
-                                                    <Link key={exhibition._id} href={href}>
-                                                        <ExhibitionListItem exhibition={exhibition} />
-                                                    </Link>
-                                                )
-                                            })}
-                                        </div>
-                                    ))}
+                                </div>
                             </section>
                             <section className={flex({ flexDirection: 'column', gap: { base: '2', lg: '4' } })}>
                                 <h1
@@ -113,12 +85,13 @@ export default function ExhibitionsPage({ data }: ExhibitionsPagePayload) {
                                         textTransform: 'uppercase',
                                         fontSize: { base: 'sm', lg: 'md' },
                                         fontWeight: '700',
-                                        color: 'foreground'
+                                        color: 'foreground',
+                                        visibility: 'hidden'
                                     })}
                                 >
                                     Past
                                 </h1>
-                                {Object.entries(pastExhibitionsByYear)
+                                {Object.entries(sortedExhibitions)
                                     .reverse()
                                     .map(([year, exhibitions]) => (
                                         <div key={year} className={flex({ flexDirection: 'column', gap: { base: '2', lg: '4' } })}>

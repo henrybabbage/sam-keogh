@@ -32,9 +32,18 @@ const azeretMono = localFont({
 })
 
 const simula = localFont({
-    src: '../../fonts/Simula/Simula-Book.otf',
-    weight: '400',
-    style: 'normal',
+    src: [
+        {
+            path: '../../fonts/Simula/Simula_Book.woff2',
+            style: 'normal',
+            weight: '400'
+        },
+        {
+            path: '../../fonts/Simula/Simula_BookItalic.woff2',
+            style: 'italic',
+            weight: '400'
+        }
+    ],
     display: 'swap',
     variable: '--font-simula'
 })
