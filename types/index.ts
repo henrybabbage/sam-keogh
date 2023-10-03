@@ -84,7 +84,6 @@ export type UpcomingProps = {
     title: string
     info?: string
     upcomingDate?: string
-    // url?: string
     venue?: VenueProps
 }
 

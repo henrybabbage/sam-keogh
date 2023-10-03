@@ -28,12 +28,6 @@ export default defineType({
             },
             description: 'Date for the item'
         }),
-        // defineField({
-        //     title: 'External URL',
-        //     name: 'url',
-        //     type: 'link',
-        //     description: 'Optional: Specify an external page link for the announcement (opens in new tab)'
-        // }),
         defineField({
             name: 'venue',
             title: 'Venue',
