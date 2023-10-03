@@ -49,24 +49,12 @@ export default function ExhibitionsPage(props: ExhibitionsPagePayload) {
                                 opacity: 0
                             })}
                         >
-                            Exhibitions
+                            Work
                         </h1>
                     </div>
                     <div className={flex({ gap: '8', h: 'fit-content', mb: '8vh', pr: '8' })}>
                         <div className={flex({ flexDirection: 'column', gap: '4' })}>
                             <section className={flex({ flexDirection: 'column', gap: '4' })}>
-                                <h1
-                                    className={css({
-                                        fontFamily: 'azeretMono',
-                                        textTransform: 'uppercase',
-                                        fontSize: { base: 'sm', lg: 'md' },
-                                        fontWeight: '700',
-                                        color: 'foreground',
-                                        visibility: 'hidden'
-                                    })}
-                                >
-                                    Upcoming / Current
-                                </h1>
                                 <div className={flex({ flexDirection: 'column', gap: { base: '2', lg: '4' } })}>
                                     {upcoming &&
                                         upcoming.map((item: UpcomingProps) => {
@@ -75,18 +63,6 @@ export default function ExhibitionsPage(props: ExhibitionsPagePayload) {
                                 </div>
                             </section>
                             <section className={flex({ flexDirection: 'column', gap: { base: '2', lg: '4' } })}>
-                                <h1
-                                    className={css({
-                                        fontFamily: 'azeretMono',
-                                        textTransform: 'uppercase',
-                                        fontSize: { base: 'sm', lg: 'md' },
-                                        fontWeight: '700',
-                                        color: 'foreground',
-                                        visibility: 'hidden'
-                                    })}
-                                >
-                                    Past
-                                </h1>
                                 {Object.entries(sortedExhibitions)
                                     .reverse()
                                     .map(([year, exhibitions]) => (
