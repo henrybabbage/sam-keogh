@@ -85,12 +85,12 @@ export const themeQuery = groq`
 `
 
 export const upcomingQuery = groq`
-    *[_type == "upcoming"]| order(date desc) {
+    *[_type == "upcoming"]| order(upcomingDate desc) {
         _id,
         _type,
         title,
         info,
-        date,
+        upcomingDate,
         venue->{
             ...
         },
