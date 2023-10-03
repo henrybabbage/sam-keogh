@@ -83,8 +83,8 @@ export type UpcomingProps = {
     _type: string
     title: string
     info?: string
-    date?: string
-    url?: string
+    upcomingDate?: string
+    // url?: string
     venue?: VenueProps
 }
 

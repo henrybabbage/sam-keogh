@@ -53,7 +53,7 @@ export default function ExhibitionsPage(props: ExhibitionsPagePayload) {
                         </h1>
                     </div>
                     <div className={flex({ gap: '8', h: 'fit-content', mb: '8vh', pr: '8' })}>
-                        <div className={flex({ flexDirection: 'column', gap: '8' })}>
+                        <div className={flex({ flexDirection: 'column', gap: '4' })}>
                             <section className={flex({ flexDirection: 'column', gap: '4' })}>
                                 <h1
                                     className={css({
@@ -70,11 +70,7 @@ export default function ExhibitionsPage(props: ExhibitionsPagePayload) {
                                 <div className={flex({ flexDirection: 'column', gap: { base: '2', lg: '4' } })}>
                                     {upcoming &&
                                         upcoming.map((item: UpcomingProps) => {
-                                            return (
-                                                <a key={item._id} href={item.url} target="_blank" rel="noreferrer">
-                                                    <UpcomingListItem upcoming={item} />
-                                                </a>
-                                            )
+                                            return <UpcomingListItem key={item._id} upcoming={item} />
                                         })}
                                 </div>
                             </section>

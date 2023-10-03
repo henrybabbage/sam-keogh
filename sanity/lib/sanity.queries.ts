@@ -91,7 +91,7 @@ export const upcomingQuery = groq`
         title,
         info,
         date,
-        url,
+        // url,
         venue->{
             ...
         },
