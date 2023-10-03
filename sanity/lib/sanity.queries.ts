@@ -84,6 +84,20 @@ export const themeQuery = groq`
     }
 `
 
+export const upcomingQuery = groq`
+    *[_type == "upcoming"]| order(date desc) {
+        _id,
+        _type,
+        title,
+        info,
+        date,
+        // url,
+        venue->{
+            ...
+        },
+    }
+`
+
 export const exhibitionsPaths = groq`
   *[_type == "exhibition" && slug.current != null].slug.current
 `

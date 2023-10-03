@@ -78,6 +78,16 @@ export type ExhibitionProps = {
     photographerCredit?: string
 }
 
+export type UpcomingProps = {
+    _id: string
+    _type: string
+    title: string
+    info?: string
+    upcomingDate?: string
+    // url?: string
+    venue?: VenueProps
+}
+
 export type HomePagePayload = {
     _id: string
     _type: string
@@ -86,7 +96,8 @@ export type HomePagePayload = {
 }
 
 export type ExhibitionsPagePayload = {
-    data: ExhibitionProps[] | null
+    exhibitions: ExhibitionProps[]
+    upcoming?: UpcomingProps[] | null
 }
 
 export type ExhibitionPagePayload = {
