@@ -104,11 +104,15 @@ export type ExhibitionPagePayload = {
 }
 
 export type CvPagePayload = {
+    _id: string
+    _type: string
     slug: string
     cv?: PortableTextBlock[]
 }
 
 export type ContactPagePayload = {
+    _id: string
+    _type: string
     slug: string
     email: string
     instagram: LinkProps

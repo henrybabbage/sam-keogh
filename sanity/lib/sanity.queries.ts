@@ -61,6 +61,7 @@ export const exhibitionsPageQuery = groq`
 export const cvPageQuery = groq`
   *[_type == "bio"][0] {
     _id,
+    _type,
     "slug": slug.current,
     cv
   }
@@ -69,6 +70,7 @@ export const cvPageQuery = groq`
 export const contactPageQuery = groq`
   *[_type == "contact"][0] {
     _id,
+    _type,
     "slug": slug.current,
     email,
     gallery,
@@ -108,6 +110,7 @@ export const pagesPaths = groq`
 export const exhibitionBySlugQuery = groq`
   *[_type == "exhibition" && slug.current == $slug][0] {
     _id,
+    _type,
     "slug": slug.current,
     title,
     subtitle,
