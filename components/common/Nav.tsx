@@ -1,17 +1,28 @@
 import { css } from '@/styled-system/css'
 import { flex } from '@/styled-system/patterns'
+import { token } from '@/styled-system/tokens'
 import Link from 'next/link'
 
-export default function Nav() {
+type Props = {
+    color: string
+}
+
+export default function Nav(props: Props) {
+    const { color } = props ?? 'theme'
+    console.log(color)
     return (
         <nav
+            style={{
+                // background: token(`colors.${color}`)
+                background: token('colors.theme')
+            }}
             className={css({
                 position: 'fixed',
                 bottom: '0',
                 width: '100vw',
                 py: { base: '12px', lg: '16px' },
-                px: '12px',
-                bg: '#FFF1E5'
+                px: '12px'
+                // bg: '#FFF1E5'
             })}
         >
             <div className={flex({ justifyContent: 'space-between' })}>

@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import Nav from '@/components/common/Nav'
-import { css } from '@/styled-system/css'
+import { getTheme } from '@/sanity/lib/sanity.fetch'
+import { token } from '@/styled-system/tokens'
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import './index.css'
@@ -53,12 +55,23 @@ export const metadata: Metadata = {
     description: 'Website for the artist Sam Keogh'
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+    const data = await getTheme()
+    const { typefaceSerif, typefaceSansSerif, backgroundColor } = data ?? {}
+    console.log('theme', backgroundColor)
+    console.log('theme', typefaceSerif)
+    console.log('theme', typefaceSansSerif)
+    const fallback = '#fff1e5'
+    const background = backgroundColor?.value ?? fallback
     return (
         <html lang="en" className={`${simula.variable} ${azeretMono.variable}`}>
-            <body className={css({ bg: 'background' })}>
+            <body
+                style={{
+                    background: token('colors.theme')
+                }}
+            >
                 {children}
-                <Nav />
+                <Nav color={background} />
             </body>
         </html>
     )

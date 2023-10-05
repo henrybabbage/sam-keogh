@@ -1,9 +1,19 @@
 import 'server-only'
 
-import { ContactPagePayload, CvPagePayload, ExhibitionProps, HomePagePayload, UpcomingProps } from '@/types'
+import { ContactPagePayload, CvPagePayload, ExhibitionProps, HomePagePayload, ThemeProps, UpcomingProps } from '@/types'
 import type { QueryParams } from '@sanity/client'
 import { client } from './sanity.client'
-import { contactPageQuery, cvPageQuery, exhibitionBySlugQuery, exhibitionsPageQuery, exhibitionsPaths, homePageQuery, pagesPaths, upcomingQuery } from './sanity.queries'
+import {
+    contactPageQuery,
+    cvPageQuery,
+    exhibitionBySlugQuery,
+    exhibitionsPageQuery,
+    exhibitionsPaths,
+    homePageQuery,
+    pagesPaths,
+    themeQuery,
+    upcomingQuery
+} from './sanity.queries'
 
 export const token = process.env.SANITY_API_READ_TOKEN
 
@@ -60,6 +70,13 @@ export function getAllUpcoming() {
     return sanityFetch<UpcomingProps[] | null>({
         query: upcomingQuery,
         tags: ['upcoming']
+    })
+}
+
+export function getTheme() {
+    return sanityFetch<ThemeProps | null>({
+        query: themeQuery,
+        tags: ['theme']
     })
 }
 
