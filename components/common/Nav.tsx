@@ -21,7 +21,7 @@ export default function Nav(props: Props) {
                 bottom: '0',
                 width: '100vw',
                 py: { base: '12px', lg: '16px' },
-                px: '12px'
+                px: '16px'
                 // bg: '#FFF1E5'
             })}
         >

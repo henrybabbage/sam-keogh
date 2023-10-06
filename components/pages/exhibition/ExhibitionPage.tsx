@@ -30,7 +30,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
     })
 
     return (
-        <main className={flex({ flexWrap: 'wrap', width: '100%', maxWidth: '1440px', p: '12px', bg: 'var(--background-primary)' })}>
+        <main className={flex({ flexWrap: 'wrap', width: '100%', maxWidth: '1440px', p: '12px' })}>
             <header
                 className={cx(
                     flex({
