@@ -14,10 +14,29 @@ export default defineType({
             hidden: true
         }),
         defineField({
-            name: 'hero',
-            title: 'Hero',
+            name: 'desktopHero',
+            title: 'Desktop hero',
             type: 'image',
-            description: 'Landing page image',
+            description: 'Landing page image on desktop browsers',
+            validation: (Rule) => Rule.required(),
+            options: {
+                storeOriginalFilename: true,
+                hotspot: true
+            },
+            fields: [
+                {
+                    name: 'alt',
+                    title: 'Alternative text',
+                    type: 'string',
+                    description: 'For accessibility and search engine optimization'
+                }
+            ]
+        }),
+        defineField({
+            name: 'mobileHero',
+            title: 'Mobile hero',
+            type: 'image',
+            description: 'Landing page image on mobile browsers',
             validation: (Rule) => Rule.required(),
             options: {
                 storeOriginalFilename: true,

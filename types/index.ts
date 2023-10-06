@@ -90,7 +90,8 @@ export type UpcomingProps = {
 export type HomePagePayload = {
     _id: string
     _type: string
-    hero: Image
+    desktopHero: Image
+    mobileHero: Image
     link?: ExhibitionProps
 }
 
