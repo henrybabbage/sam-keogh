@@ -185,7 +185,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                                     <DynamicImage
                                         asset={image}
                                         mode="cover"
-                                        sizes="(min-width: 1360px) 1024px, calc(100vw - 24px)"
+                                        sizes="(min-width: 1440px) 1200px, calc(100vw - 24px)"
                                         style={{
                                             width: '100%',
                                             height: '100%',

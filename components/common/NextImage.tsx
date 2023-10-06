@@ -12,9 +12,10 @@ export type ImageBoxProps = {
     sizes?: string
     priority?: boolean
     fill?: boolean
+    mode: 'contain' | 'cover'
 }
 
-export default function NextImage({ image, alt = '', width, height, sizes = '100vw', priority = false, fill = false }: ImageBoxProps) {
+export default function NextImage({ image, alt = '', width, height, sizes = '100vw', priority = false, fill = false, mode = 'contain' }: ImageBoxProps) {
     const imageUrl = image && urlForImage(image)?.fit('crop').url()
     return (
         imageUrl && (
@@ -28,7 +29,7 @@ export default function NextImage({ image, alt = '', width, height, sizes = '100
                 // Make the image display full width
                 priority={priority}
                 style={{
-                    objectFit: 'contain'
+                    objectFit: `${mode}`
                 }}
             />
         )
