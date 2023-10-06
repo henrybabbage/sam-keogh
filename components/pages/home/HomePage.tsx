@@ -48,7 +48,7 @@ export default function HomePage({ data }: HomePageProps) {
                         overflow: 'hidden'
                     })}
                 >
-                    <NextImage image={desktopHero} priority={true} fill={true} />
+                    <NextImage image={desktopHero} priority={true} fill={true} mode='cover' />
                 </motion.section>
             )}
             {mobileHero && (
@@ -69,7 +69,7 @@ export default function HomePage({ data }: HomePageProps) {
                         overflow: 'hidden'
                     })}
                 >
-                    <NextImage image={mobileHero} priority={true} fill={true} />
+                    <NextImage image={mobileHero} priority={true} fill={true} mode='contain' />
                 </motion.section>
             )}
         </main>
