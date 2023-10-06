@@ -9,7 +9,14 @@ export function CustomPortableText({ paragraphClasses, value }: { paragraphClass
         block: {
             normal: ({ children }) => {
                 return (
-                    <p className={cx(css({ fontFamily: 'simula', fontStyle: 'normal', fontSize: 'md', color: 'foreground' }), paragraphClasses)}>{children}</p>
+                    <p
+                        className={cx(
+                            css({ fontFamily: 'simula', fontStyle: 'normal', fontSize: 'md', color: 'foreground' }),
+                            paragraphClasses
+                        )}
+                    >
+                        {children}
+                    </p>
                 )
             },
             h4: ({ children }) => (
