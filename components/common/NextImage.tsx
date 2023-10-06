@@ -12,7 +12,7 @@ export type ImageBoxProps = {
     sizes?: string
     priority?: boolean
     fill?: boolean
-    mode: 'contain' | 'cover'
+    mode?: 'contain' | 'cover'
 }
 
 export default function NextImage({ image, alt = '', width, height, sizes = '100vw', priority = false, fill = false, mode = 'contain' }: ImageBoxProps) {
