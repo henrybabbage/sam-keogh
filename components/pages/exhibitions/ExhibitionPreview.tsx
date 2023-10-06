@@ -24,7 +24,7 @@ export default function ExhibitionPreview(props: ExhibitionPreviewProps) {
             })}
         >
             <div className={css({ w: '100%', h: '35rem', bg: 'background', position: 'relative', overflow: 'hidden' })}>
-                {image && <NextImage image={image} priority={true} fill={true} />}
+                {image && <NextImage image={image} priority={true} fill={true} mode='contain' />}
             </div>
         </div>
     )

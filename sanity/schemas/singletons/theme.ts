@@ -28,6 +28,19 @@ export default defineType({
             validation: (rule) => rule.warning().required().error('Color must be set for the website background color'),
         }),
         defineField({
+            name: 'fontColor',
+            title: 'Font color',
+            type: 'simplerColor',
+            options: {
+                colorList: [
+                    { label: 'Light', value: '#ffffff' },
+                    { label: 'Dark', value: '#222222' },
+                    { label: 'Custom...', value: 'custom' }
+                ]
+            },
+            validation: (rule) => rule.warning().required().error('Color must be set for the website background color'),
+        }),
+        defineField({
             name: 'typefaceSerif',
             title: 'Typeface serif',
             type: 'string',
@@ -50,7 +63,7 @@ export default defineType({
             description: 'Select a sans serif typeface',
             options: {
                 list: [
-                    { title: 'Azeret', value: 'azeret' },
+                    { title: 'Azeret Mono', value: 'azeret' },
                     { title: 'Neuebit', value: 'neuebit' },
                     { title: 'ROM', value: 'rom' }
                 ],

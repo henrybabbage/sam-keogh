@@ -122,6 +122,7 @@ export type ContactPagePayload = {
 
 export type ThemeProps = {
     backgroundColor: ColorThemeProps
+    fontColor: ColorThemeProps
     typefaceSerif: string
     typefaceSansSerif: string
 }
