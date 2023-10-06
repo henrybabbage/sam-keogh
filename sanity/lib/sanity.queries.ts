@@ -101,6 +101,7 @@ export const themeQuery = groq`
         typefaceSerif,
         typefaceSansSerif,
         backgroundColor,
+        fontColor,
     }
 `
 
