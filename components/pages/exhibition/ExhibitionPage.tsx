@@ -30,7 +30,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
     })
 
     return (
-        <main className={flex({ flexWrap: 'wrap', width: '100%', maxWidth: '1440px', p: '12px', bg: 'var(--background-primary)' })}>
+        <main className={flex({ flexWrap: 'wrap', width: '100%', maxWidth: '1440px', p: '12px' })}>
             <header
                 className={cx(
                     flex({
@@ -67,7 +67,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
             </header>
             <div
                 className={flex({
-                    flexBasis: '300px',
+                    flexBasis: '200px',
                     flexGrow: '999',
                     position: 'sticky',
                     top: 'calc(14vh + 12px)',
@@ -155,7 +155,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
 
             <div
                 className={flex({
-                    flexBasis: '1024px',
+                    flexBasis: '1200px',
                     flexGrow: '1',
                     mt: '14vh',
                     h: 'fit-content',
@@ -240,7 +240,8 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                                     color: 'black',
                                     fontSize: 'lg',
                                     lineHeight: 'xl',
-                                    textJustify: 'auto'
+                                    textAlign: 'justify',
+                                    textJustify: 'inter-word'
                                 })}
                             />
                         </motion.section>

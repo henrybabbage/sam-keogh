@@ -8,7 +8,25 @@ export const homePageQuery = groq`
         link->{
             "slug": slug.current,
         },
-        hero{
+        desktopHero{
+            asset->{
+                ...
+            },
+            alt,
+            "width": asset->metadata.dimensions.width,
+            "height": asset->metadata.dimensions.height,
+            "aspectRatio": asset->metadata.dimensions.aspectRatio,
+            "id": asset._ref,
+            "preview": asset->metadata.lqip,
+            hotspot { x, y },
+            crop {
+                bottom,
+                left,
+                right,
+                top,
+            }
+        },
+        mobileHero{
             asset->{
                 ...
             },

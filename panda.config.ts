@@ -25,7 +25,8 @@ export default defineConfig({
                     hover: { value: '#0026F5' },
                     active: { value: '#00cc00' },
                     background: { value: '#fff1e5' },
-                    foreground: { value: '#222222' }
+                    foreground: { value: '#222222' },
+                    theme: { value: '#fff1e5' }
                 },
                 fonts: {
                     simula: { value: 'var(--font-simula), serif' },
