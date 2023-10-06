@@ -23,7 +23,7 @@ export default function HomePage({ data }: HomePageProps) {
             ref={ref}
             className={flex({
                 justifyContent: 'center',
-                p: '12px',
+                p: { base: '12px', lg: '16px' },
                 height: '100vh',
                 maxHeight: '100vh',
                 width: '100vw',
