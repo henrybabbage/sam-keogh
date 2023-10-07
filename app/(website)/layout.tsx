@@ -1,12 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import Nav from '@/components/common/Nav'
 import { getTheme } from '@/sanity/lib/sanity.fetch'
-import { token } from '@/styled-system/tokens'
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import './index.css'
 
-const azeretMono = localFont({
+const neueMontreal = localFont({
     src: [
         {
             path: '../../fonts/NeueMontreal/NeueMontreal_Regular.woff2',
@@ -30,7 +29,7 @@ const azeretMono = localFont({
         }
     ],
     display: 'swap',
-    variable: '--font-azeret-mono'
+    variable: '--font-neue-montreal'
 })
 
 const simula = localFont({
@@ -57,22 +56,21 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
     const data = await getTheme()
-    const { typefaceSerif, typefaceSansSerif, backgroundColor, fontColor } = data ?? {}
-    console.log('fontColor', fontColor)
-    console.log('backgroundColor', backgroundColor)
-    console.log('typefaceSerif', typefaceSerif)
-    console.log('typefaceSansSerif', typefaceSansSerif)
-    const fallback = '#fff1e5'
-    const background = backgroundColor?.value ?? fallback
+    const { backgroundColor, fontColor, typefaceSerif, typefaceSansSerif } = data ?? {}
+    const fallbackColor = '#222'
+    const color = fontColor?.value ?? fallbackColor
+    const backgroundFallback = '#fff1e5'
+    const background = backgroundColor?.value ?? backgroundFallback
     return (
-        <html lang="en" className={`${simula.variable} ${azeretMono.variable}`}>
+        <html lang="en" className={`${simula.variable} ${neueMontreal.variable}`}>
             <body
                 style={{
-                    background: token('colors.theme')
+                    backgroundColor: `${backgroundFallback}`,
+                    color: `${color}`
                 }}
             >
                 {children}
-                <Nav color={background} />
+                <Nav />
             </body>
         </html>
     )
