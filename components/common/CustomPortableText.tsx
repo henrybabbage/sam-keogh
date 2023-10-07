@@ -9,26 +9,18 @@ export function CustomPortableText({ paragraphClasses, value }: { paragraphClass
         block: {
             normal: ({ children }) => {
                 return (
-                    <p
-                        className={cx(
-                            css({ fontFamily: 'simula', fontStyle: 'normal', fontSize: 'md', color: 'foreground' }),
-                            paragraphClasses
-                        )}
-                    >
-                        {children}
-                    </p>
+                    <p className={cx(css({ fontFamily: 'simula', fontStyle: 'normal', fontSize: 'md' }), paragraphClasses)}>{children}</p>
                 )
             },
             h4: ({ children }) => (
                 <h4
                     className={css({
-                        fontFamily: 'azeretMono',
+                        fontFamily: 'neueMontreal',
                         fontStyle: 'normal',
-                        fontSize: 'md',
+                        fontSize: 'lg',
                         fontWeight: '700',
                         textTransform: 'uppercase',
                         mb: '4',
-                        color: 'foreground'
                     })}
                 >
                     {children}
@@ -37,13 +29,12 @@ export function CustomPortableText({ paragraphClasses, value }: { paragraphClass
         },
         marks: {
             em: ({ children }) => (
-                <em className={cx(css({ fontFamily: 'simula', fontStyle: 'italic', fontSize: 'md', color: 'foreground' }), paragraphClasses)}>{children}</em>
+                <em className={cx(css({ fontFamily: 'simula', fontStyle: 'italic', fontSize: 'md' }), paragraphClasses)}>{children}</em>
             ),
             link: ({ children, value }) => {
                 return (
                     <a
                         className={css({
-                            color: 'foreground',
                             textDecorationLine: 'underline',
                             transitionProperty:
                                 'color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter',
@@ -61,12 +52,12 @@ export function CustomPortableText({ paragraphClasses, value }: { paragraphClass
         },
         list: {
             bullet: ({ children }) => (
-                <ul className={cx(css({ fontFamily: 'simula', fontStyle: 'normal', fontSize: 'md', color: 'foreground', mt: '1' }), paragraphClasses)}>
+                <ul className={cx(css({ fontFamily: 'simula', fontStyle: 'normal', fontSize: 'md', mt: '1' }), paragraphClasses)}>
                     {children}
                 </ul>
             ),
             number: ({ children }) => (
-                <ol className={cx(css({ fontFamily: 'simula', fontStyle: 'normal', fontSize: 'md', color: 'foreground', mt: '1' }), paragraphClasses)}>
+                <ol className={cx(css({ fontFamily: 'simula', fontStyle: 'normal', fontSize: 'md', mt: '1' }), paragraphClasses)}>
                     {children}
                 </ol>
             )
@@ -77,7 +68,7 @@ export function CustomPortableText({ paragraphClasses, value }: { paragraphClass
                     <div className={css({ mt: '2', mb: '2' })}>
                         <ImageBox image={value} alt={value.alt} classesWrapper={css({ pos: 'relative', aspectRatio: '16/9' })} />
                         {value?.caption && (
-                            <div className={css({ fontFamily: 'simula', fontSize: 'sm', lineHeight: 'sm', color: 'foreground' })}>{value.caption}</div>
+                            <div className={css({ fontFamily: 'simula', fontSize: 'sm', lineHeight: 'sm' })}>{value.caption}</div>
                         )}
                     </div>
                 )

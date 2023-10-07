@@ -4,10 +4,10 @@ import { css } from '@/styled-system/css'
 export function PreviewBanner() {
     return (
         <div className={css({ bgColor: 'black', p: '3', textAlign: 'center', color: 'white' })}>
-            <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>{'Previewing drafts'}</h3>
+            <h3 className={css({ fontFamily: 'neueMontreal', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>{'Previewing drafts'}</h3>
             <a
                 className={css({
-                    fontFamily: 'azeretMono',
+                    fontFamily: 'neueMontreal',
                     fontStyle: 'normal',
                     fontSize: 'md',
                     textTransform: 'uppercase',

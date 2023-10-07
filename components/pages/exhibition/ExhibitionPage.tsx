@@ -30,7 +30,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
     })
 
     return (
-        <main className={flex({ flexWrap: 'wrap', width: '100%', maxWidth: '1440px', p: '12px' })}>
+        <main className={flex({ flexWrap: 'wrap', width: '100%', p: { base: '12px', lg: '16px' } })}>
             <header
                 className={cx(
                     flex({
@@ -51,12 +51,11 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                 >
                     <h2
                         className={css({
-                            fontFamily: 'azeretMono',
+                            fontFamily: 'neueMontreal',
                             fontStyle: 'normal',
                             fontWeight: '700',
                             fontSize: 'md',
                             textTransform: 'uppercase',
-                            color: 'black',
                             _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: 'hover' },
                             _active: { color: 'active' }
                         })}
@@ -69,6 +68,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                 className={flex({
                     flexBasis: '200px',
                     flexGrow: '999',
+                    maxWidth: '400px',
                     position: 'sticky',
                     top: 'calc(14vh + 12px)',
                     h: 'fit-content',
@@ -112,7 +112,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                                     _active: { color: 'active' }
                                 })}
                             >
-                                <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Images</h3>
+                                <h3 className={css({ fontFamily: 'neueMontreal', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Images</h3>
                             </button>
                         )}
                         {vimeo && (
@@ -129,7 +129,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                                     _active: { color: 'active' }
                                 })}
                             >
-                                <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Videos</h3>
+                                <h3 className={css({ fontFamily: 'neueMontreal', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Videos</h3>
                             </button>
                         )}
                         {pressRelease && (
@@ -146,7 +146,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                                     _active: { color: 'active' }
                                 })}
                             >
-                                <h3 className={css({ fontFamily: 'azeretMono', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Text</h3>
+                                <h3 className={css({ fontFamily: 'neueMontreal', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Text</h3>
                             </button>
                         )}
                     </div>
@@ -155,6 +155,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
 
             <div
                 className={flex({
+                    justifyContent: 'end',
                     flexBasis: '1200px',
                     flexGrow: '1',
                     mt: '14vh',
@@ -237,11 +238,8 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                                 paragraphClasses={css({
                                     fontFamily: 'simula',
                                     mb: 4,
-                                    color: 'black',
                                     fontSize: 'lg',
-                                    lineHeight: 'xl',
-                                    textAlign: 'justify',
-                                    textJustify: 'inter-word'
+                                    lineHeight: 'xl'
                                 })}
                             />
                         </motion.section>

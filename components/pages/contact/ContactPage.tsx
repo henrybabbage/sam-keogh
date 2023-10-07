@@ -15,7 +15,7 @@ export default function ContactPage({ data }: ContactPageProps) {
                     <a
                         className={cx(
                             css({
-                                fontFamily: 'azeretMono',
+                                fontFamily: 'neueMontreal',
                                 fontWeight: '700',
                                 textTransform: 'uppercase'
                             }),
@@ -27,7 +27,7 @@ export default function ContactPage({ data }: ContactPageProps) {
                     >
                         <span
                             className={css({
-                                fontFamily: 'azeretMono',
+                                fontFamily: 'neueMontreal',
                                 fontWeight: '700',
                                 textTransform: 'uppercase',
                                 _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '1.5px', color: 'hover' },
@@ -40,7 +40,7 @@ export default function ContactPage({ data }: ContactPageProps) {
                             className={css({
                                 opacity: '0',
                                 _groupHover: { opacity: '1' },
-                                fontFamily: 'azeretMono',
+                                fontFamily: 'neueMontreal',
                                 fontWeight: '700',
                                 textTransform: 'uppercase',
                                 color: 'hover',
@@ -54,7 +54,7 @@ export default function ContactPage({ data }: ContactPageProps) {
                     <a
                         className={cx(
                             css({
-                                fontFamily: 'azeretMono',
+                                fontFamily: 'neueMontreal',
                                 fontWeight: '700',
                                 textTransform: 'uppercase'
                             }),
@@ -66,7 +66,7 @@ export default function ContactPage({ data }: ContactPageProps) {
                     >
                         <span
                             className={css({
-                                fontFamily: 'azeretMono',
+                                fontFamily: 'neueMontreal',
                                 fontWeight: '700',
                                 textTransform: 'uppercase',
                                 _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '1.5px', color: 'hover' },
@@ -79,7 +79,7 @@ export default function ContactPage({ data }: ContactPageProps) {
                             className={css({
                                 opacity: '0',
                                 _groupHover: { opacity: '1' },
-                                fontFamily: 'azeretMono',
+                                fontFamily: 'neueMontreal',
                                 fontWeight: '700',
                                 textTransform: 'uppercase',
                                 color: 'hover',
@@ -93,7 +93,7 @@ export default function ContactPage({ data }: ContactPageProps) {
                     <a
                         className={cx(
                             css({
-                                fontFamily: 'azeretMono',
+                                fontFamily: 'neueMontreal',
                                 fontWeight: '700',
                                 textTransform: 'uppercase'
                             }),
@@ -105,7 +105,7 @@ export default function ContactPage({ data }: ContactPageProps) {
                     >
                         <span
                             className={css({
-                                fontFamily: 'azeretMono',
+                                fontFamily: 'neueMontreal',
                                 fontWeight: '700',
                                 textTransform: 'uppercase',
                                 _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '1.5px', color: 'hover' },
@@ -118,7 +118,7 @@ export default function ContactPage({ data }: ContactPageProps) {
                             className={css({
                                 opacity: '0',
                                 _groupHover: { opacity: '1' },
-                                fontFamily: 'azeretMono',
+                                fontFamily: 'neueMontreal',
                                 fontWeight: '700',
                                 textTransform: 'uppercase',
                                 color: 'hover',

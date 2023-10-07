@@ -4,7 +4,7 @@ import { css } from '@/styled-system/css'
 import type { ExhibitionProps } from '@/types'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import { useExhibitionStore } from './store'
+import { useExhibitionStore } from '../../../app/(website)/store'
 
 export type ListItemProps = {
     exhibition: ExhibitionProps

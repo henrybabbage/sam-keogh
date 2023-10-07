@@ -40,7 +40,7 @@ export default function ExhibitionsPage(props: ExhibitionsPagePayload) {
                     <div className={flex({ h: { base: '14vh', lg: '14vh' }, w: '100%', alignItems: 'center' })}>
                         <h1
                             className={css({
-                                fontFamily: 'azeretMono',
+                                fontFamily: 'neueMontreal',
                                 textTransform: 'uppercase',
                                 fontSize: { base: 'sm', lg: 'md' },
                                 fontWeight: '700',
@@ -67,7 +67,9 @@ export default function ExhibitionsPage(props: ExhibitionsPagePayload) {
                                     .reverse()
                                     .map(([year, exhibitions]) => (
                                         <div key={year} className={flex({ flexDirection: 'column', gap: { base: '2', lg: '4' } })}>
-                                            <h3 className={css({ fontFamily: 'azeretMono', fontSize: { base: 'sm', lg: 'md' }, fontWeight: '700' })}>{year}</h3>
+                                            <h3 className={css({ fontFamily: 'neueMontreal', fontSize: { base: 'sm', lg: 'lg' }, fontWeight: '700' })}>
+                                                {year}
+                                            </h3>
                                             {exhibitions.map((exhibition: ExhibitionProps) => {
                                                 const href = resolveHref(exhibition._type, exhibition.slug)
                                                 if (!href) {

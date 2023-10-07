@@ -10,6 +10,10 @@ export default defineConfig({
     // Files to exclude
     exclude: [],
 
+    // presets: [themePreset()],
+
+    // outExtension: 'js',
+
     // Useful for theme customization
     theme: {
         extend: {
@@ -26,11 +30,12 @@ export default defineConfig({
                     active: { value: '#00cc00' },
                     background: { value: '#fff1e5' },
                     foreground: { value: '#222222' },
-                    theme: { value: '#fff1e5' }
+                    theme: { value: '#fff1e5' },
+                    font: { value: '#222222' }
                 },
                 fonts: {
                     simula: { value: 'var(--font-simula), serif' },
-                    azeretMono: { value: 'var(--font-azeret-mono), monospace' }
+                    neueMontreal: { value: 'var(--font-neue-montreal), monospace' }
                 }
             }
         }

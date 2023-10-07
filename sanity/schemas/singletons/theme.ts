@@ -25,7 +25,7 @@ export default defineType({
                     { label: 'Custom...', value: 'custom' }
                 ]
             },
-            validation: (rule) => rule.warning().required().error('Color must be set for the website background color'),
+            validation: (rule) => rule.warning().required().error('Color must be set for the website background color')
         }),
         defineField({
             name: 'fontColor',
@@ -38,7 +38,7 @@ export default defineType({
                     { label: 'Custom...', value: 'custom' }
                 ]
             },
-            validation: (rule) => rule.warning().required().error('Color must be set for the website background color'),
+            validation: (rule) => rule.warning().required().error('Color must be set for the website background color')
         }),
         defineField({
             name: 'typefaceSerif',
@@ -54,7 +54,7 @@ export default defineType({
                 layout: 'dropdown'
             },
             initialValue: 'simula',
-            validation: (rule) => rule.warning().required().error('Sans serif must be set for the website text'),
+            validation: (rule) => rule.warning().required().error('Sans serif must be set for the website text')
         }),
         defineField({
             name: 'typefaceSansSerif',
@@ -63,14 +63,14 @@ export default defineType({
             description: 'Select a sans serif typeface',
             options: {
                 list: [
-                    { title: 'Azeret Mono', value: 'azeret' },
+                    { title: 'Neue Montreal', value: 'neueMontreal' },
                     { title: 'Neuebit', value: 'neuebit' },
                     { title: 'ROM', value: 'rom' }
                 ],
                 layout: 'dropdown'
             },
-            initialValue: 'azeret',
-            validation: (rule) => rule.warning().required().error('Serif must be set for the website text'),
+            initialValue: 'neueMontreal',
+            validation: (rule) => rule.warning().required().error('Serif must be set for the website text')
         })
     ],
     preview: {
