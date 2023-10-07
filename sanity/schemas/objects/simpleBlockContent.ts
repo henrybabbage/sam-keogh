@@ -14,7 +14,7 @@ export default defineType({
                 { title: 'Heading', value: 'h4' }
             ],
             lists: [
-                { title: 'Bullet', value: 'bullet' },
+                // { title: 'Bullet', value: 'bullet' },
                 // { title: 'Numbered', value: 'number' }
             ],
             marks: {
