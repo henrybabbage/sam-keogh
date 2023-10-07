@@ -18,7 +18,7 @@ export default function Nav(props: NavProps) {
                 bottom: '0',
                 width: '100vw',
                 py: { base: '12px', lg: '16px' },
-                px: '40px'
+                px: { base: '16px', lg: '40px' }
             })}
         >
             <div className={flex({ justifyContent: 'space-between' })}>
