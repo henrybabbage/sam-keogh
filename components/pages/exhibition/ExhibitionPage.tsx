@@ -54,7 +54,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                             fontFamily: 'neueMontreal',
                             fontStyle: 'normal',
                             fontWeight: '700',
-                            fontSize: 'xl',
+                            fontSize: { base: 'md', lg: 'xl' },
                             textTransform: 'uppercase',
                             _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: 'hover' },
                             _active: { color: 'active' }
