@@ -17,7 +17,7 @@ export function CustomPortableText({ paragraphClasses, value }: { paragraphClass
                     className={css({
                         fontFamily: 'neueMontreal',
                         fontStyle: 'normal',
-                        fontSize: 'md',
+                        fontSize: 'lg',
                         fontWeight: '700',
                         textTransform: 'uppercase',
                         mb: '4',

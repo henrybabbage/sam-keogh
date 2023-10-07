@@ -24,7 +24,7 @@ export default function Nav() {
                             width: 'fit-content',
                             fontFamily: 'neueMontreal',
                             fontWeight: '700',
-                            fontSize: 'md',
+                            fontSize: 'lg',
                             textTransform: 'uppercase',
                             _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: 'hover' },
                             _active: { color: 'active' }
@@ -39,7 +39,7 @@ export default function Nav() {
                             width: 'fit-content',
                             fontFamily: 'neueMontreal',
                             fontWeight: '700',
-                            fontSize: 'md',
+                            fontSize: 'lg',
                             textTransform: 'uppercase',
                             _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: 'hover' },
                             _active: { color: 'active' }
@@ -54,7 +54,7 @@ export default function Nav() {
                             width: 'fit-content',
                             fontFamily: 'neueMontreal',
                             fontWeight: '700',
-                            fontSize: 'md',
+                            fontSize: 'lg',
                             textTransform: 'uppercase',
                             _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: 'hover' },
                             _active: { color: 'active' }

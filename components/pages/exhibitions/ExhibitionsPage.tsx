@@ -67,7 +67,7 @@ export default function ExhibitionsPage(props: ExhibitionsPagePayload) {
                                     .reverse()
                                     .map(([year, exhibitions]) => (
                                         <div key={year} className={flex({ flexDirection: 'column', gap: { base: '2', lg: '4' } })}>
-                                            <h3 className={css({ fontFamily: 'neueMontreal', fontSize: { base: 'sm', lg: 'md' }, fontWeight: '700' })}>
+                                            <h3 className={css({ fontFamily: 'neueMontreal', fontSize: { base: 'sm', lg: 'lg' }, fontWeight: '700' })}>
                                                 {year}
                                             </h3>
                                             {exhibitions.map((exhibition: ExhibitionProps) => {
