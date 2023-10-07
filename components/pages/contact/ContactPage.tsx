@@ -9,7 +9,7 @@ export type ContactPageProps = {
 export default function ContactPage({ data }: ContactPageProps) {
     const { email, gallery, instagram } = data ?? {}
     return (
-        <main className={css({ maxHeight: '100vh', height: '100vh', width: '100vw', maxWidth: '100vw', p: { base: '12px', lg: '16px' } })}>
+        <main className={css({ maxHeight: '100vh', height: '100dvh', width: '100vw', maxWidth: '100vw', p: { base: '16px', lg: '40px' } })}>
             <div className={flex({ direction: 'column', justifyContent: { base: 'center', lg: 'center' }, height: '100%' })}>
                 <div className={flex({ direction: { base: 'column', lg: 'column' }, align: 'center', gap: '2' })}>
                     <a
@@ -17,7 +17,7 @@ export default function ContactPage({ data }: ContactPageProps) {
                             css({
                                 fontFamily: 'neueMontreal',
                                 fontWeight: '700',
-                                fontSize: 'lg',
+                                fontSize: { base: 'sm', lg: 'lg' },
                                 textTransform: 'uppercase'
                             }),
                             'group'
@@ -57,7 +57,7 @@ export default function ContactPage({ data }: ContactPageProps) {
                             css({
                                 fontFamily: 'neueMontreal',
                                 fontWeight: '700',
-                                fontSize: 'lg',
+                                fontSize: { base: 'sm', lg: 'lg' },
                                 textTransform: 'uppercase'
                             }),
                             'group'
@@ -97,7 +97,7 @@ export default function ContactPage({ data }: ContactPageProps) {
                             css({
                                 fontFamily: 'neueMontreal',
                                 fontWeight: '700',
-                                fontSize: 'lg',
+                                fontSize: { base: 'sm', lg: 'lg' },
                                 textTransform: 'uppercase'
                             }),
                             'group'

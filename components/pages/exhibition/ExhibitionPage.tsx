@@ -30,7 +30,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
     })
 
     return (
-        <main className={flex({ flexWrap: 'wrap', width: '100%', p: { base: '12px', lg: '16px' } })}>
+        <main className={flex({ flexWrap: 'wrap', width: '100%', p: { base: '16px', lg: '40px' } })}>
             <header
                 className={cx(
                     flex({
@@ -46,7 +46,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                         zIndex: 10,
                         position: 'fixed',
                         top: '12px',
-                        left: '12px'
+                        left: { base: '16px', lg: '40px' }
                     })}
                 >
                     <h2
@@ -54,7 +54,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                             fontFamily: 'neueMontreal',
                             fontStyle: 'normal',
                             fontWeight: '700',
-                            fontSize: 'md',
+                            fontSize: 'xl',
                             textTransform: 'uppercase',
                             _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: 'hover' },
                             _active: { color: 'active' }
