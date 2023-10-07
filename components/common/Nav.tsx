@@ -1,20 +1,24 @@
 import { css } from '@/styled-system/css'
 import { flex } from '@/styled-system/patterns'
-import { token } from '@/styled-system/tokens'
 import Link from 'next/link'
 
-export default function Nav() {
+export type NavProps = {
+    background: string
+}
+
+export default function Nav(props: NavProps) {
+    const { background } = props
     return (
         <nav
             style={{
-                background: token('colors.theme')
+                background: `${background}`
             }}
             className={css({
                 position: 'fixed',
                 bottom: '0',
                 width: '100vw',
                 py: { base: '12px', lg: '16px' },
-                px: '16px'
+                px: '40px'
             })}
         >
             <div className={flex({ justifyContent: 'space-between' })}>
@@ -24,7 +28,7 @@ export default function Nav() {
                             width: 'fit-content',
                             fontFamily: 'neueMontreal',
                             fontWeight: '700',
-                            fontSize: 'lg',
+                            fontSize: 'xl',
                             textTransform: 'uppercase',
                             _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: 'hover' },
                             _active: { color: 'active' }
@@ -39,7 +43,7 @@ export default function Nav() {
                             width: 'fit-content',
                             fontFamily: 'neueMontreal',
                             fontWeight: '700',
-                            fontSize: 'lg',
+                            fontSize: 'xl',
                             textTransform: 'uppercase',
                             _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: 'hover' },
                             _active: { color: 'active' }
@@ -54,7 +58,7 @@ export default function Nav() {
                             width: 'fit-content',
                             fontFamily: 'neueMontreal',
                             fontWeight: '700',
-                            fontSize: 'lg',
+                            fontSize: 'xl',
                             textTransform: 'uppercase',
                             _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: 'hover' },
                             _active: { color: 'active' }
