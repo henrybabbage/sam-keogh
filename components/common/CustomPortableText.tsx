@@ -17,7 +17,7 @@ export function CustomPortableText({ paragraphClasses, value }: { paragraphClass
                     className={css({
                         fontFamily: 'neueMontreal',
                         fontStyle: 'normal',
-                        fontSize: {base: 'sm', lg: 'lg' },
+                        fontSize: { base: 'sm', lg: 'lg' },
                         fontWeight: '700',
                         textTransform: 'uppercase',
                         mb: '4'
@@ -28,7 +28,9 @@ export function CustomPortableText({ paragraphClasses, value }: { paragraphClass
             )
         },
         marks: {
-            em: ({ children }) => <em className={cx(css({ fontFamily: 'simula', fontStyle: 'italic' }), paragraphClasses)}>{children}</em>,
+            em: ({ children }) => (
+                <em className={cx(css({ fontFamily: 'simula', fontStyle: 'italic', fontSize: { base: 'sm', lg: 'lg' } }), paragraphClasses)}>{children}</em>
+            ),
             link: ({ children, value }) => {
                 return (
                     <a
@@ -49,8 +51,8 @@ export function CustomPortableText({ paragraphClasses, value }: { paragraphClass
             }
         },
         list: {
-            bullet: ({ children }) => <ul className={cx(css({ fontFamily: 'simula', fontStyle: 'normal', mt: '1' }), paragraphClasses)}>{children}</ul>,
-            number: ({ children }) => <ol className={cx(css({ fontFamily: 'simula', fontStyle: 'normal', mt: '1' }), paragraphClasses)}>{children}</ol>
+            bullet: ({ children }) => <ul className={cx(css({ fontFamily: 'simula', fontStyle: 'normal', fontSize: { base: 'sm', lg: 'lg' }, mt: '1' }), paragraphClasses)}>{children}</ul>,
+            number: ({ children }) => <ol className={cx(css({ fontFamily: 'simula', fontStyle: 'normal', fontSize: { base: 'sm', lg: 'lg' }, mt: '1' }), paragraphClasses)}>{children}</ol>
         },
         types: {
             image: ({ value }: { value: Image & { alt?: string; caption?: string } }) => {
