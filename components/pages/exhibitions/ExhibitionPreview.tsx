@@ -3,7 +3,7 @@
 import NextImage from '@/components/common/NextImage'
 import { css } from '@/styled-system/css'
 import { FigureProps } from '@/types'
-import { useExhibitionStore } from './store'
+import { useExhibitionStore } from '../../../app/(website)/store'
 
 export type ExhibitionPreviewProps = {
     image: FigureProps | null
@@ -24,7 +24,7 @@ export default function ExhibitionPreview(props: ExhibitionPreviewProps) {
             })}
         >
             <div className={css({ w: '100%', h: '35rem', bg: 'background', position: 'relative', overflow: 'hidden' })}>
-                {image && <NextImage image={image} priority={true} fill={true} mode='contain' />}
+                {image && <NextImage image={image} priority={true} fill={true} mode="contain" />}
             </div>
         </div>
     )

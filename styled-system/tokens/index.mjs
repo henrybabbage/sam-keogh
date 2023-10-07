@@ -1659,6 +1659,10 @@ const tokens = {
     "value": "#fff1e5",
     "variable": "var(--colors-theme)"
   },
+  "colors.font": {
+    "value": "#222222",
+    "variable": "var(--colors-font)"
+  },
   "fonts.sans": {
     "value": "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
     "variable": "var(--fonts-sans)"
@@ -1675,9 +1679,9 @@ const tokens = {
     "value": "var(--font-simula), serif",
     "variable": "var(--fonts-simula)"
   },
-  "fonts.azeretMono": {
-    "value": "var(--font-azeret-mono), monospace",
-    "variable": "var(--fonts-azeret-mono)"
+  "fonts.neueMontreal": {
+    "value": "var(--font-neue-montreal), monospace",
+    "variable": "var(--fonts-neue-montreal)"
   },
   "breakpoints.sm": {
     "value": "640px",
