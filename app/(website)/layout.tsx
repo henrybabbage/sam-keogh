@@ -57,7 +57,7 @@ export const metadata: Metadata = {
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
     const data = await getTheme()
     const { backgroundColor, fontColor, typefaceSerif, typefaceSansSerif } = data ?? {}
-    const fallbackColor = '#222'
+    const fallbackColor = '#000000'
     const color = fontColor?.value ?? fallbackColor
     const backgroundFallback = '#fff1e5'
     const background = backgroundColor?.value ?? backgroundFallback

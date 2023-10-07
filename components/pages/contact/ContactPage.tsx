@@ -17,6 +17,7 @@ export default function ContactPage({ data }: ContactPageProps) {
                             css({
                                 fontFamily: 'neueMontreal',
                                 fontWeight: '700',
+                                fontSize: 'lg',
                                 textTransform: 'uppercase'
                             }),
                             'group'
@@ -56,6 +57,7 @@ export default function ContactPage({ data }: ContactPageProps) {
                             css({
                                 fontFamily: 'neueMontreal',
                                 fontWeight: '700',
+                                fontSize: 'lg',
                                 textTransform: 'uppercase'
                             }),
                             'group'
@@ -95,6 +97,7 @@ export default function ContactPage({ data }: ContactPageProps) {
                             css({
                                 fontFamily: 'neueMontreal',
                                 fontWeight: '700',
+                                fontSize: 'lg',
                                 textTransform: 'uppercase'
                             }),
                             'group'
