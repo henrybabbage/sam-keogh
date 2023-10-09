@@ -9,7 +9,7 @@ export type ContactPageProps = {
 export default function ContactPage({ data }: ContactPageProps) {
     const { email, gallery, instagram } = data ?? {}
     return (
-        <main className={css({ maxHeight: '100vh', height: '100dvh', width: '100vw', maxWidth: '100vw', p: { base: '16px', lg: '40px' } })}>
+        <main className={css({ maxHeight: '100vh', height: '100dvh', width: '100vw', maxWidth: '100vw', p: { base: '16px', lg: '16px 40px' } })}>
             <div className={flex({ direction: 'column', justifyContent: { base: 'center', lg: 'center' }, height: '100%' })}>
                 <div className={flex({ direction: { base: 'column', lg: 'column' }, align: 'center', gap: '2' })}>
                     <a

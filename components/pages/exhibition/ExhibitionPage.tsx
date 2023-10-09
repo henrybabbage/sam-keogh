@@ -30,7 +30,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
     })
 
     return (
-        <main className={flex({ flexWrap: 'wrap', width: '100%', p: { base: '16px', lg: '40px' } })}>
+        <main className={flex({ flexWrap: 'wrap', width: '100%', p: { base: '16px', lg: '16px 40px' } })}>
             <header
                 className={cx(
                     flex({
@@ -45,7 +45,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                     className={css({
                         zIndex: 10,
                         position: 'fixed',
-                        top: '12px',
+                        top: '16px',
                         left: { base: '16px', lg: '40px' }
                     })}
                 >
@@ -66,11 +66,11 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
             </header>
             <div
                 className={flex({
-                    flexBasis: '200px',
-                    flexGrow: '999',
-                    maxWidth: '400px',
+                    flexBasis: '12.5em',
+                    // flexGrow: '9999',
+                    // maxWidth: '400px',
                     position: 'sticky',
-                    top: 'calc(14vh + 12px)',
+                    top: 'calc(14vh + 16px)',
                     h: 'fit-content',
                     order: { base: '2', lg: '1' },
                     mb: { base: '14vh', lg: '8' }
@@ -79,18 +79,16 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                 <div className={flex({ flexDirection: 'column', gap: 8 })}>
                     <div className={flex({ flexDirection: 'column', pr: 8 })}>
                         <div className={css({ pb: 8 })}>
-                            {title && <h3 className={css({ fontFamily: 'simula', fontStyle: 'italic', fontSize: 'lg' })}>{title}</h3>}
+                            {title && <h3 className={css({ fontFamily: 'simula', fontStyle: 'italic', fontSize: { base: 'sm', lg: 'lg' } })}>{title}</h3>}
                         </div>
                         {venue && (
-                            <h3 className={css({ fontFamily: 'simula', fontStyle: 'normal', fontSize: 'lg' })}>
+                            <h3 className={css({ fontFamily: 'simula', fontStyle: 'normal', fontSize: { base: 'sm', lg: 'lg' } })}>
                                 {venue.name && <span>{venue.city ? venue.name + ', ' : venue.name}</span>}
                                 {venue.city && <span>{venue.city}</span>}
-                                {/* {venue.city && <span>{venue.country ? venue.city + ', ' : venue.city}</span>} */}
-                                {/* {venue.country && <span>{venue.country}</span>} */}
                             </h3>
                         )}
                         {startDate && endDate && (
-                            <h3 className={css({ fontFamily: 'simula', fontStyle: 'normal', fontSize: 'lg' })}>
+                            <h3 className={css({ fontFamily: 'simula', fontStyle: 'normal', fontSize: { base: 'sm', lg: 'lg' } })}>
                                 <span>{format(new Date(startDate), 'dd MMM')}</span>
                                 <span>{' — '}</span>
                                 <span>{format(new Date(endDate), 'dd MMM yyyy')}</span>
@@ -112,7 +110,16 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                                     _active: { color: 'active' }
                                 })}
                             >
-                                <h3 className={css({ fontFamily: 'neueMontreal', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Images</h3>
+                                <h3
+                                    className={css({
+                                        fontFamily: 'neueMontreal',
+                                        fontStyle: 'normal',
+                                        fontSize: { base: 'sm', lg: 'lg' },
+                                        textTransform: 'uppercase'
+                                    })}
+                                >
+                                    Images
+                                </h3>
                             </button>
                         )}
                         {vimeo && (
@@ -129,7 +136,16 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                                     _active: { color: 'active' }
                                 })}
                             >
-                                <h3 className={css({ fontFamily: 'neueMontreal', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Videos</h3>
+                                <h3
+                                    className={css({
+                                        fontFamily: 'neueMontreal',
+                                        fontStyle: 'normal',
+                                        fontSize: { base: 'sm', lg: 'lg' },
+                                        textTransform: 'uppercase'
+                                    })}
+                                >
+                                    Videos
+                                </h3>
                             </button>
                         )}
                         {pressRelease && (
@@ -146,7 +162,16 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                                     _active: { color: 'active' }
                                 })}
                             >
-                                <h3 className={css({ fontFamily: 'neueMontreal', fontStyle: 'normal', fontSize: 'md', textTransform: 'uppercase' })}>Text</h3>
+                                <h3
+                                    className={css({
+                                        fontFamily: 'neueMontreal',
+                                        fontStyle: 'normal',
+                                        fontSize: { base: 'sm', lg: 'lg' },
+                                        textTransform: 'uppercase'
+                                    })}
+                                >
+                                    Text
+                                </h3>
                             </button>
                         )}
                     </div>
@@ -156,7 +181,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
             <div
                 className={flex({
                     justifyContent: 'end',
-                    flexBasis: '1200px',
+                    flexBasis: '1000px',
                     flexGrow: '1',
                     mt: '14vh',
                     h: 'fit-content',
@@ -164,7 +189,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                     order: { base: '1', lg: '2' }
                 })}
             >
-                <div className={flex({ flexDirection: 'column', gap: '12' })}>
+                <div className={flex({ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '12' })}>
                     {imageGallery && imageGallery.length > 0 && (
                         <section ref={images}>
                             {imageGallery.map((image, key) => (
@@ -238,7 +263,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                                 paragraphClasses={css({
                                     fontFamily: 'simula',
                                     mb: 4,
-                                    fontSize: 'lg',
+                                    fontSize: { base: 'sm', lg: 'lg' },
                                     lineHeight: 'xl'
                                 })}
                             />
