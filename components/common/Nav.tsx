@@ -17,7 +17,7 @@ export default function Nav(props: NavProps) {
                 position: 'fixed',
                 bottom: '0',
                 width: '100vw',
-                py: { base: '12px', lg: '16px' },
+                pb: { base: '12px', lg: '16px' },
                 px: { base: '16px', lg: '40px' }
             })}
         >
