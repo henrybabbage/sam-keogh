@@ -1,11 +1,13 @@
 'use client'
 
+import AspectImage from '@/components/common/AspectImage'
 import { CustomPortableText } from '@/components/common/CustomPortableText'
-import { DynamicImage } from '@/components/common/DynamicImage'
+import NextImage from '@/components/common/NextImage'
 import VimeoPlayer from '@/components/common/VimeoPlayer'
 import { css, cx } from '@/styled-system/css'
 import { flex } from '@/styled-system/patterns'
 import type { ExhibitionPagePayload } from '@/types'
+import { useMediaQuery } from '@/utils/useMediaQuery'
 import { useScrollIntoView } from '@mantine/hooks'
 import { format } from 'date-fns'
 import { motion } from 'framer-motion'
@@ -28,6 +30,8 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
         duration: 800,
         offset: 12
     })
+
+    const tabletAndBelow = useMediaQuery('(max-width: 1024px)')
 
     return (
         <main className={flex({ flexWrap: 'wrap', width: '100%', p: { base: '16px', lg: '16px 40px' } })}>
@@ -189,36 +193,52 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                     order: { base: '1', lg: '2' }
                 })}
             >
-                <div className={flex({ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '12' })}>
+                <div className={flex({ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '12', w: '100%', h: '100%' })}>
                     {imageGallery && imageGallery.length > 0 && (
-                        <section ref={images}>
+                        <section ref={images} className={css({ position: 'relative', w: '100%' })}>
                             {imageGallery.map((image, key) => (
                                 <motion.div
                                     initial="hidden"
                                     whileInView="visible"
                                     viewport={{ once: true }}
-                                    transition={{ duration: 0.4, ease: 'easeInOut' }}
+                                    transition={{ duration: 1, ease: 'easeInOut' }}
                                     variants={{
                                         visible: { opacity: 1 },
                                         hidden: { opacity: 0 }
                                     }}
                                     key={key}
-                                    className={css({
-                                        position: 'relative',
-                                        mb: 4
-                                    })}
+                                    className={cx(
+                                        css({
+                                            position: 'relative',
+                                            w: { base: '90vw', lg: '100%' },
+                                            h: { base: '90vh', lg: '100%' },
+                                            mb: 4,
+                                            bg: 'background'
+                                        })
+                                    )}
                                 >
-                                    <DynamicImage
-                                        asset={image}
-                                        mode="cover"
-                                        sizes="(min-width: 1440px) 1200px, calc(100vw - 24px)"
-                                        style={{
-                                            width: '100%',
-                                            height: '100%',
-                                            objectFit: 'cover',
-                                            objectPosition: 'center'
-                                        }}
-                                    />
+                                    {tabletAndBelow ? (
+                                        <NextImage
+                                            image={image}
+                                            priority={false}
+                                            fill={true}
+                                            height={image.height}
+                                            width={image.width}
+                                            mode="cover"
+                                            sizes="100vw"
+                                        />
+                                    ) : (
+                                        <AspectImage
+                                            image={image}
+                                            alt={image.alt}
+                                            priority={false}
+                                            fill={true}
+                                            height={image.height}
+                                            width={image.width}
+                                            mode="contain"
+                                            sizes="100vw"
+                                        />
+                                    )}
                                     <figcaption className={css({ my: 4 })}>
                                         <h3 className={css({ fontFamily: 'simula', fontStyle: 'normal' })}>{image?.caption}</h3>
                                     </figcaption>

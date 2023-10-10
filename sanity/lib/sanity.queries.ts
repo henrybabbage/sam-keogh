@@ -60,6 +60,7 @@ export const exhibitionsPageQuery = groq`
         ...,
         "id": asset._ref,
         "preview": asset->metadata.lqip,
+        "aspectRatio": asset->metadata.dimensions.aspectRatio,
         asset->{
           ...
         }
@@ -139,6 +140,7 @@ export const exhibitionBySlugQuery = groq`
         ...,
         "id": asset._ref,
         "preview": asset->metadata.lqip,
+        "aspectRatio": asset->metadata.dimensions.aspectRatio,
         asset->{
           ...
         }

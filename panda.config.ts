@@ -43,6 +43,26 @@ export default defineConfig({
 
     patterns: {
         extend: {
+            aspect: {
+                description: 'An aspect ratio container',
+                properties: {
+                    ratio: { type: 'number' }
+                },
+                transform(props: { ratio: number }) {
+                    const { ratio } = props
+                    const landscape = ratio < 1
+                    const landscapeWidth = '66vw'
+                    const portraitHeight = '90vh'
+                    const calcPortraitWidth = `calc((90vh)*(1/${ratio}))`
+                    const calcLandscapeHeight = `calc((66vw)*(${ratio}))`
+                    return {
+                        width: landscape ? landscapeWidth : calcPortraitWidth,
+                        height: landscape ? calcLandscapeHeight : portraitHeight,
+                        maxWidth: landscapeWidth,
+                        maxHeight: portraitHeight
+                    }
+                }
+            },
             scrollable: {
                 description: 'A container that allows for scrolling',
                 properties: {
