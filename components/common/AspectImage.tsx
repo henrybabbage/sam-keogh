@@ -2,6 +2,7 @@
 'use client'
 
 import { client } from '@/sanity/lib/sanity.client'
+import { css } from '@/styled-system/css'
 import { FigureProps } from '@/types'
 import { useMediaQuery } from '@/utils/useMediaQuery'
 import { useNextSanityImage } from 'next-sanity-image'
@@ -58,21 +59,43 @@ export default function AspectImage({
     const tabletAndBelow = useMediaQuery('(max-width: 1024px)')
 
     return (
-        <div style={aspectRatioValuesDesktop}>
-            <Image
-                src={imageProps.src}
-                loader={imageProps.loader}
-                alt={alt}
-                width={width}
-                height={height}
-                sizes={sizes}
-                fill={fill}
-                priority={priority}
-                style={{
-                    objectFit: `${mode}`,
-                    objectPosition: 'top'
-                }}
-            />
-        </div>
+        <>
+            {tabletAndBelow && (
+                <div className={css({ width: '100', position: 'relative' })}>
+                    <Image
+                        src={imageProps.src}
+                        loader={imageProps.loader}
+                        alt={alt}
+                        width={width}
+                        height={height}
+                        sizes={sizes}
+                        fill={fill}
+                        priority={priority}
+                        style={{
+                            objectFit: `${mode}`,
+                            objectPosition: 'top'
+                        }}
+                    />
+                </div>
+            )}
+            {!tabletAndBelow && (
+                <div style={aspectRatioValuesDesktop}>
+                    <Image
+                        src={imageProps.src}
+                        loader={imageProps.loader}
+                        alt={alt}
+                        width={width}
+                        height={height}
+                        sizes={sizes}
+                        fill={fill}
+                        priority={priority}
+                        style={{
+                            objectFit: `${mode}`,
+                            objectPosition: 'top'
+                        }}
+                    />
+                </div>
+            )}
+        </>
     )
 }
