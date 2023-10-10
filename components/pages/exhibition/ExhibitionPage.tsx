@@ -210,8 +210,8 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                                     className={cx(
                                         css({
                                             position: 'relative',
-                                            w: { base: '100vw', lg: '100%' },
-                                            h: { base: '100vh', lg: '100%' },
+                                            w: { base: '90vw', lg: '100%' },
+                                            h: { base: '90vh', lg: '100%' },
                                             mb: 4,
                                             bg: 'background'
                                         })
