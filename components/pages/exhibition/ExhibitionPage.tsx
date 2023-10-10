@@ -1,7 +1,7 @@
 'use client'
 
+import AspectImage from '@/components/common/AspectImage'
 import { CustomPortableText } from '@/components/common/CustomPortableText'
-import NextImage from '@/components/common/NextImage'
 import VimeoPlayer from '@/components/common/VimeoPlayer'
 import { css, cx } from '@/styled-system/css'
 import { flex } from '@/styled-system/patterns'
@@ -28,13 +28,6 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
         duration: 800,
         offset: 12
     })
-
-    // const desktopImage = {
-    //     width: landscape ? `calc(${landscapeW})` : `calc((${portraitH})*${1 / ratio})`,
-    //     height: landscape ? `calc((${landscapeW})*${ratio})` : `calc(${portraitH})`,
-    //     maxWidth: `calc(${landscapeW})`,
-    //     maxHeight: `calc(${portraitH})`
-    // }
 
     return (
         <main className={flex({ flexWrap: 'wrap', width: '100%', p: { base: '16px', lg: '16px 40px' } })}>
@@ -198,7 +191,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
             >
                 <div className={flex({ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '12', w: '100%', h: '100%' })}>
                     {imageGallery && imageGallery.length > 0 && (
-                        <section ref={images} className={css({ position: 'relative' })}>
+                        <section ref={images} className={css({ position: 'relative', w: '100%' })}>
                             {imageGallery.map((image, key) => (
                                 <motion.div
                                     initial="hidden"
@@ -213,20 +206,20 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                                     className={cx(
                                         css({
                                             position: 'relative',
+                                            w: '100%',
                                             mb: 4,
-                                            w: '66vw',
-                                            h: '90vh',
                                             bg: 'background'
                                         })
                                     )}
                                 >
-                                    <NextImage
+                                    <AspectImage
                                         image={image}
+                                        alt={image.alt}
                                         priority={false}
                                         fill={true}
                                         height={image.height}
                                         width={image.width}
-                                        mode={image.aspectRatio > 1 ? 'cover' : 'contain'}
+                                        mode="contain"
                                         sizes="100vw"
                                     />
                                     <figcaption className={css({ my: 4 })}>

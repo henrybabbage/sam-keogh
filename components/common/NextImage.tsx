@@ -18,7 +18,6 @@ export type ImageBoxProps = {
 
 export default function NextImage({ image, alt = '', width = 0, height = 0, sizes = '100vw', priority = false, fill = false, mode = 'contain' }: ImageBoxProps) {
     const imageProps = useNextSanityImage(client, image)
-    // const imageUrl = image && urlForImage(image)?.fit('crop').url()
     return (
         imageProps && (
             <Image
