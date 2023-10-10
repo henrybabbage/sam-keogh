@@ -1,11 +1,12 @@
 'use client'
 
-import { urlForImage } from '@/sanity/lib/sanity.image'
+import { client } from '@/sanity/lib/sanity.client'
+import { useNextSanityImage } from 'next-sanity-image'
 import Image from 'next/image'
 
 export type ImageBoxProps = {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    image?: { asset?: any }
+    image: { asset?: any }
     alt?: string
     width?: number
     height?: number
@@ -15,12 +16,14 @@ export type ImageBoxProps = {
     mode?: 'contain' | 'cover'
 }
 
-export default function NextImage({ image, alt = '', width, height, sizes = '100vw', priority = false, fill = false, mode = 'contain' }: ImageBoxProps) {
-    const imageUrl = image && urlForImage(image)?.fit('crop').url()
+export default function NextImage({ image, alt = '', width = 0, height = 0, sizes = '100vw', priority = false, fill = false, mode = 'contain' }: ImageBoxProps) {
+    const imageProps = useNextSanityImage(client, image)
+    // const imageUrl = image && urlForImage(image)?.fit('crop').url()
     return (
-        imageUrl && (
+        imageProps && (
             <Image
-                src={imageUrl}
+                src={imageProps.src}
+                loader={imageProps.loader}
                 alt={alt}
                 width={width}
                 height={height}
@@ -29,7 +32,7 @@ export default function NextImage({ image, alt = '', width, height, sizes = '100
                 // Make the image display full width
                 priority={priority}
                 style={{
-                    objectFit: `${mode}`
+                    objectFit: `${mode}`,
                 }}
             />
         )
