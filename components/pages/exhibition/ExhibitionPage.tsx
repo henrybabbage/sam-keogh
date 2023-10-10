@@ -4,7 +4,7 @@ import { CustomPortableText } from '@/components/common/CustomPortableText'
 import NextImage from '@/components/common/NextImage'
 import VimeoPlayer from '@/components/common/VimeoPlayer'
 import { css, cx } from '@/styled-system/css'
-import { aspect, flex } from '@/styled-system/patterns'
+import { flex } from '@/styled-system/patterns'
 import type { ExhibitionPagePayload } from '@/types'
 import { useScrollIntoView } from '@mantine/hooks'
 import { format } from 'date-fns'
@@ -214,11 +214,10 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                                         css({
                                             position: 'relative',
                                             mb: 4,
-                                            w: '100vw',
+                                            w: '66vw',
                                             h: '90vh',
                                             bg: 'background'
-                                        }),
-                                        aspect({ ratio: image.aspectRatio })
+                                        })
                                     )}
                                 >
                                     <NextImage
@@ -227,7 +226,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                                         fill={true}
                                         height={image.height}
                                         width={image.width}
-                                        mode="contain"
+                                        mode={image.aspectRatio > 1 ? 'cover' : 'contain'}
                                         sizes="100vw"
                                     />
                                     <figcaption className={css({ my: 4 })}>
