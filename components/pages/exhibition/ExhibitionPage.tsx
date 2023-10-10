@@ -2,10 +2,12 @@
 
 import AspectImage from '@/components/common/AspectImage'
 import { CustomPortableText } from '@/components/common/CustomPortableText'
+import NextImage from '@/components/common/NextImage'
 import VimeoPlayer from '@/components/common/VimeoPlayer'
 import { css, cx } from '@/styled-system/css'
 import { flex } from '@/styled-system/patterns'
 import type { ExhibitionPagePayload } from '@/types'
+import { useMediaQuery } from '@/utils/useMediaQuery'
 import { useScrollIntoView } from '@mantine/hooks'
 import { format } from 'date-fns'
 import { motion } from 'framer-motion'
@@ -28,6 +30,8 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
         duration: 800,
         offset: 12
     })
+
+    const tabletAndBelow = useMediaQuery('(max-width: 1024px)')
 
     return (
         <main className={flex({ flexWrap: 'wrap', width: '100%', p: { base: '16px', lg: '16px 40px' } })}>
@@ -213,16 +217,28 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                                         })
                                     )}
                                 >
-                                    <AspectImage
-                                        image={image}
-                                        alt={image.alt}
-                                        priority={false}
-                                        fill={true}
-                                        height={image.height}
-                                        width={image.width}
-                                        mode="contain"
-                                        sizes="100vw"
-                                    />
+                                    {tabletAndBelow ? (
+                                        <NextImage
+                                            image={image}
+                                            priority={false}
+                                            fill={true}
+                                            height={image.height}
+                                            width={image.width}
+                                            mode="cover"
+                                            sizes="100vw"
+                                        />
+                                    ) : (
+                                        <AspectImage
+                                            image={image}
+                                            alt={image.alt}
+                                            priority={false}
+                                            fill={true}
+                                            height={image.height}
+                                            width={image.width}
+                                            mode="contain"
+                                            sizes="100vw"
+                                        />
+                                    )}
                                     <figcaption className={css({ my: 4 })}>
                                         <h3 className={css({ fontFamily: 'simula', fontStyle: 'normal' })}>{image?.caption}</h3>
                                     </figcaption>

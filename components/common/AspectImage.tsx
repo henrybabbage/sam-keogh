@@ -56,46 +56,23 @@ export default function AspectImage({
         maxHeight: mobilePortraitHeight
     }
 
-    const tabletAndBelow = useMediaQuery('(max-width: 1024px)')
 
     return (
-        <>
-            {tabletAndBelow && (
-                <div className={css({ width: '100', position: 'relative' })}>
-                    <Image
-                        src={imageProps.src}
-                        loader={imageProps.loader}
-                        alt={alt}
-                        width={width}
-                        height={height}
-                        sizes={sizes}
-                        fill={fill}
-                        priority={priority}
-                        style={{
-                            objectFit: `${mode}`,
-                            objectPosition: 'top'
-                        }}
-                    />
-                </div>
-            )}
-            {!tabletAndBelow && (
-                <div style={aspectRatioValuesDesktop}>
-                    <Image
-                        src={imageProps.src}
-                        loader={imageProps.loader}
-                        alt={alt}
-                        width={width}
-                        height={height}
-                        sizes={sizes}
-                        fill={fill}
-                        priority={priority}
-                        style={{
-                            objectFit: `${mode}`,
-                            objectPosition: 'top'
-                        }}
-                    />
-                </div>
-            )}
-        </>
+        <div className={css({ width: '100', position: 'relative' })}>
+            <Image
+                src={imageProps.src}
+                loader={imageProps.loader}
+                alt={alt}
+                width={width}
+                height={height}
+                sizes={sizes}
+                fill={fill}
+                priority={priority}
+                style={{
+                    objectFit: `${mode}`,
+                    objectPosition: 'top'
+                }}
+            />
+        </div>
     )
 }
