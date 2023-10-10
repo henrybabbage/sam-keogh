@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client'
 
 import { client } from '@/sanity/lib/sanity.client'
 import { FigureProps } from '@/types'
+import { useMediaQuery } from '@/utils/useMediaQuery'
 import { useNextSanityImage } from 'next-sanity-image'
 import Image from 'next/image'
 
@@ -29,28 +31,34 @@ export default function AspectImage({
     const imageProps = useNextSanityImage(client, image)
 
     const landscape = image.aspectRatio < 1
-    const landscapeWidth = '66vw'
-    const portraitHeight = '90vh'
-    const calcPortraitWidth = `calc((90vh)*(1/${image.aspectRatio}))`
-    const calcLandscapeHeight = `calc((66vw)*(${image.aspectRatio}))`
+    const desktopLandscapeWidth = '66vw'
+    const desktopPortraitHeight = '90vh'
+    const calcDesktopPortraitWidth = `calc((${desktopPortraitHeight})*(1/${image.aspectRatio}))`
+    const calcDesktopLandscapeHeight = `calc((${desktopLandscapeWidth})*(${image.aspectRatio}))`
 
-    const aspectRatioValues = {
-        width: landscape ? landscapeWidth : calcPortraitWidth,
-        height: landscape ? calcLandscapeHeight : portraitHeight,
-        maxWidth: landscapeWidth,
-        maxHeight: portraitHeight
+    const mobileLandscapeWidth = '100vw'
+    const mobilePortraitHeight = '100vh'
+    const calcMobilePortraitWidth = `calc((${mobilePortraitHeight})*(1/${image.aspectRatio}))`
+    const calcMobileLandscapeHeight = `calc((${mobileLandscapeWidth})*(${image.aspectRatio}))`
+
+    const aspectRatioValuesDesktop = {
+        width: landscape ? desktopLandscapeWidth : calcDesktopPortraitWidth,
+        height: landscape ? calcDesktopLandscapeHeight : desktopPortraitHeight,
+        maxWidth: desktopLandscapeWidth,
+        maxHeight: desktopPortraitHeight
     }
 
+    const aspectRatioValuesMobile = {
+        width: landscape ? mobileLandscapeWidth : calcMobilePortraitWidth,
+        height: landscape ? calcMobileLandscapeHeight : mobilePortraitHeight,
+        maxWidth: mobileLandscapeWidth,
+        maxHeight: mobilePortraitHeight
+    }
+
+    const tabletAndBelow = useMediaQuery('(max-width: 1024px)')
+
     return (
-        <div
-            // className={css({
-            //     width: landscape ? landscapeWidth : calcPortraitWidth,
-            //     height: landscape ? calcLandscapeHeight : portraitHeight,
-            //     maxWidth: landscapeWidth,
-            //     maxHeight: portraitHeight
-            // })}
-            style={aspectRatioValues}
-        >
+        <div style={aspectRatioValuesDesktop}>
             <Image
                 src={imageProps.src}
                 loader={imageProps.loader}
