@@ -1,15 +1,14 @@
-import { css } from '@/styled-system/css'
+import { css, cx } from '@/styled-system/css'
 import { flex } from '@/styled-system/patterns'
 
 import { resolveHref } from '@/sanity/lib/sanity.links'
-import type { ExhibitionProps, ExhibitionsPagePayload, UpcomingProps } from '@/types'
+import type { ExhibitionProps, ExhibitionsPagePayload } from '@/types'
 import Link from 'next/link'
 import ExhibitionListItem from './ExhibitionListItem'
 import ExhibitionPreview from './ExhibitionPreview'
-import UpcomingListItem from './UpcomingListItem'
 
 export default function ExhibitionsPage(props: ExhibitionsPagePayload) {
-    const { exhibitions = [], upcoming = [] } = props || {}
+    const { exhibitions = [] } = props || {}
 
     const sortExhibitionsByYear = (exhibitions: ExhibitionProps[]) => {
         const years = getExhibitionYears(exhibitions)
@@ -37,31 +36,49 @@ export default function ExhibitionsPage(props: ExhibitionsPagePayload) {
         <main className={css({ minHeight: '100vh', height: '100vh', width: '100%', maxWidth: '100vw', p: { base: '16px', lg: '16px 40px' } })}>
             <div className={flex({ w: '100%' })}>
                 <div className={flex({ flexDirection: 'column', w: { base: '100%', md: '2/3', lg: '1/3' } })}>
-                    <div className={flex({ h: { base: '14vh', lg: '14vh' }, w: '100%', alignItems: 'center' })}>
-                        <h1
+                    <header
+                        className={cx(
+                            flex({
+                                flexDirection: 'row',
+                                justifyContent: 'flex-end'
+                            }),
+                            css({ height: { base: 'auto', lg: '14vh' }, zIndex: 10 })
+                        )}
+                    >
+                        <Link
+                            href="/work"
                             className={css({
-                                fontFamily: 'neueMontreal',
-                                textTransform: 'uppercase',
-                                fontSize: { base: 'sm', lg: 'md' },
-                                fontWeight: '700',
-                                color: 'foreground',
+                                zIndex: 10,
                                 position: 'fixed',
-                                opacity: 0
+                                top: '16px',
+                                left: { base: '16px', lg: '40px' }
                             })}
                         >
-                            Work
-                        </h1>
-                    </div>
+                            <h2
+                                className={css({
+                                    fontFamily: 'neueMontreal',
+                                    fontStyle: 'normal',
+                                    fontWeight: '700',
+                                    fontSize: { base: 'md', lg: 'xl' },
+                                    textTransform: 'uppercase',
+                                    _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: 'hover' },
+                                    _active: { color: 'active' }
+                                })}
+                            >
+                                Home
+                            </h2>
+                        </Link>
+                    </header>
                     <div className={flex({ gap: '8', h: 'fit-content', mb: '8vh', pr: '8' })}>
                         <div className={flex({ flexDirection: 'column', gap: '4' })}>
-                            <section className={flex({ flexDirection: 'column', gap: '4' })}>
+                            {/* <section className={flex({ flexDirection: 'column', gap: '4' })}>
                                 <div className={flex({ flexDirection: 'column', gap: { base: '2', lg: '4' } })}>
                                     {upcoming &&
                                         upcoming.map((item: UpcomingProps) => {
                                             return <UpcomingListItem key={item._id} upcoming={item} />
                                         })}
                                 </div>
-                            </section>
+                            </section> */}
                             <section className={flex({ flexDirection: 'column', gap: { base: '2', lg: '4' } })}>
                                 {Object.entries(sortedExhibitions)
                                     .reverse()
