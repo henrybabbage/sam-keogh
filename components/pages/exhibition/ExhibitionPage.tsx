@@ -29,8 +29,6 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
         offset: 12
     })
 
-    // const tabletAndBelow = useMediaQuery('(max-width: 1024px)')
-
     return (
         <main className={flex({ flexWrap: 'wrap', width: '100%', p: { base: '16px', lg: '16px 40px' } })}>
             <header
@@ -209,7 +207,6 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                                         css({
                                             position: 'relative',
                                             w: '100%',
-                                            h: '100%',
                                             mb: 4,
                                             bg: 'background'
                                         })
@@ -270,7 +267,9 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                                     fontFamily: 'simula',
                                     mb: 4,
                                     fontSize: { base: 'sm', lg: 'lg' },
-                                    lineHeight: 'xl'
+                                    lineHeight: 'xl',
+                                    maxWidth: '80ch',
+                                    textAlign: 'justify'
                                 })}
                             />
                         </motion.section>
