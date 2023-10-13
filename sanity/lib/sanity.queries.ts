@@ -34,6 +34,8 @@ export const homePageQuery = groq`
             "width": asset->metadata.dimensions.width,
             "height": asset->metadata.dimensions.height,
             "aspectRatio": asset->metadata.dimensions.aspectRatio,
+            "height": asset->metadata.dimensions.height,
+            "width": asset->metadata.dimensions.width,
             "id": asset._ref,
             "preview": asset->metadata.lqip,
             hotspot { x, y },
@@ -61,6 +63,8 @@ export const exhibitionsPageQuery = groq`
         "id": asset._ref,
         "preview": asset->metadata.lqip,
         "aspectRatio": asset->metadata.dimensions.aspectRatio,
+        "height": asset->metadata.dimensions.height,
+        "width": asset->metadata.dimensions.width,
         asset->{
           ...
         }
@@ -141,6 +145,8 @@ export const exhibitionBySlugQuery = groq`
         "id": asset._ref,
         "preview": asset->metadata.lqip,
         "aspectRatio": asset->metadata.dimensions.aspectRatio,
+        "height": asset->metadata.dimensions.height,
+        "width": asset->metadata.dimensions.width,
         asset->{
           ...
         }

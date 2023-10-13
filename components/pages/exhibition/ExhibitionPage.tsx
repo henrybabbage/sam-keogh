@@ -217,8 +217,6 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                                         alt={image.alt}
                                         priority={false}
                                         fill={true}
-                                        height={image.height}
-                                        width={image.width}
                                         mode="contain"
                                         sizes="100vw"
                                     />
