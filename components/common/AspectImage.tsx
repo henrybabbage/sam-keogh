@@ -2,7 +2,9 @@
 'use client'
 
 import { client } from '@/sanity/lib/sanity.client'
+import { css } from '@/styled-system/css'
 import { FigureProps } from '@/types'
+import { useMediaQuery } from '@/utils/useMediaQuery'
 import { useNextSanityImage } from 'next-sanity-image'
 import Image from 'next/image'
 
@@ -27,7 +29,6 @@ export default function AspectImage({
     fill = false,
     mode = 'contain'
 }: ImageBoxProps) {
-    
     const imageProps = useNextSanityImage(client, image)
 
     const ratioMultiplier = 1 / image.aspectRatio
@@ -38,8 +39,8 @@ export default function AspectImage({
     const calcDesktopPortraitWidth = `calc((${desktopPortraitHeight})*(${1 / ratioMultiplier}))`
     const calcDesktopLandscapeHeight = `calc((${desktopLandscapeWidth})*(${ratioMultiplier}))`
 
-    const mobileLandscapeWidth = '100vw'
-    const mobilePortraitHeight = '100vh'
+    const mobileLandscapeWidth = '90vw'
+    const mobilePortraitHeight = '90vh'
     const calcMobilePortraitWidth = `calc((${mobilePortraitHeight})*(${1 / ratioMultiplier}))`
     const calcMobileLandscapeHeight = `calc((${mobileLandscapeWidth})*(${ratioMultiplier}))`
 
@@ -57,8 +58,10 @@ export default function AspectImage({
         maxHeight: mobilePortraitHeight
     }
 
+    const tabletAndBelow = useMediaQuery('(max-width: 1024px)')
+
     return (
-        <div style={aspectRatioValuesDesktop}>
+        <div style={tabletAndBelow ? aspectRatioValuesMobile : aspectRatioValuesDesktop} className={css({ overflow: 'hidden' })}>
             <Image
                 src={imageProps.src}
                 loader={imageProps.loader}
