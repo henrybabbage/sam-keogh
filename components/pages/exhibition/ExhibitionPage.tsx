@@ -203,23 +203,13 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                                         hidden: { opacity: 0 }
                                     }}
                                     key={key}
-                                    className={cx(
-                                        css({
-                                            position: 'relative',
-                                            w: '100%',
-                                            mb: 4,
-                                            bg: 'background'
-                                        })
-                                    )}
+                                    className={css({
+                                        position: 'relative',
+                                        w: '100%',
+                                        bg: 'background'
+                                    })}
                                 >
-                                    <AspectImage
-                                        image={image}
-                                        alt={image.alt}
-                                        priority={false}
-                                        fill={true}
-                                        mode="contain"
-                                        sizes="100vw"
-                                    />
+                                    <AspectImage image={image} alt={image.alt} priority={false} fill={true} mode="contain" sizes="100vw" />
                                     <figcaption className={css({ my: 4 })}>
                                         <h3 className={css({ fontFamily: 'simula', fontStyle: 'normal' })}>{image?.caption}</h3>
                                     </figcaption>
@@ -228,7 +218,14 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                         </section>
                     )}
                     {vimeo && (
-                        <section ref={videos}>
+                        <section
+                            ref={videos}
+                            className={css({
+                                position: 'relative',
+                                w: '100%',
+                                bg: 'background'
+                            })}
+                        >
                             {vimeo &&
                                 vimeo.map((video) => (
                                     <motion.div
