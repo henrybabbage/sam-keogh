@@ -42,7 +42,7 @@ export default function ExhibitionsPage(props: ExhibitionsPagePayload) {
                                 flexDirection: 'row',
                                 justifyContent: 'flex-end'
                             }),
-                            css({ height: { base: 'auto', lg: '14vh' }, zIndex: 10 })
+                            css({ height: { base: '7vh', lg: '14vh' }, zIndex: 10 })
                         )}
                     >
                         <Link
@@ -69,16 +69,8 @@ export default function ExhibitionsPage(props: ExhibitionsPagePayload) {
                             </h2>
                         </Link>
                     </header>
-                    <div className={flex({ gap: '8', h: 'fit-content', mb: '8vh', pr: '8' })}>
+                    <div className={flex({ gap: '8', h: 'fit-content', mb: '7vh', pr: '8' })}>
                         <div className={flex({ flexDirection: 'column', gap: '4' })}>
-                            {/* <section className={flex({ flexDirection: 'column', gap: '4' })}>
-                                <div className={flex({ flexDirection: 'column', gap: { base: '2', lg: '4' } })}>
-                                    {upcoming &&
-                                        upcoming.map((item: UpcomingProps) => {
-                                            return <UpcomingListItem key={item._id} upcoming={item} />
-                                        })}
-                                </div>
-                            </section> */}
                             <section className={flex({ flexDirection: 'column', gap: { base: '2', lg: '4' } })}>
                                 {Object.entries(sortedExhibitions)
                                     .reverse()

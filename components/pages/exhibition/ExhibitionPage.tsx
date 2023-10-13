@@ -37,7 +37,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                         flexDirection: 'row',
                         justifyContent: 'flex-end'
                     }),
-                    css({ height: { base: 'auto', lg: '14vh' }, zIndex: 10 })
+                    css({ height: { base: '7vh', lg: '14vh' }, zIndex: 10 })
                 )}
             >
                 <Link
@@ -183,7 +183,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                     justifyContent: 'end',
                     flexBasis: '1000px',
                     flexGrow: '1',
-                    mt: '14vh',
+                    mt: { base: '0', lg: '14vh' },
                     h: 'fit-content',
                     mb: { base: '7vh', lg: '14vh' },
                     order: { base: '1', lg: '2' }

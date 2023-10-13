@@ -14,9 +14,10 @@ export type ImageBoxProps = {
     priority?: boolean
     fill?: boolean
     mode?: 'contain' | 'cover'
+    position?: 'top' | 'center' | 'bottom'
 }
 
-export default function NextImage({ image, alt = '', width = 0, height = 0, sizes = '100vw', priority = false, fill = false, mode = 'contain' }: ImageBoxProps) {
+export default function NextImage({ image, alt = '', width = 0, height = 0, sizes = '100vw', priority = false, fill = false, mode = 'contain', position = 'center' }: ImageBoxProps) {
     const imageProps = useNextSanityImage(client, image)
     return (
         imageProps && (
@@ -28,10 +29,10 @@ export default function NextImage({ image, alt = '', width = 0, height = 0, size
                 height={height}
                 sizes={sizes}
                 fill={fill}
-                // Make the image display full width
                 priority={priority}
                 style={{
                     objectFit: `${mode}`,
+                    objectPosition: `${position}`
                 }}
             />
         )

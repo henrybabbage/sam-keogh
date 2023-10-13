@@ -49,7 +49,7 @@ export default function HomePage({ data }: HomePageProps) {
                         overflow: 'hidden'
                     })}
                 >
-                    <NextImage image={desktopHero} priority={true} fill={true} mode='cover' />
+                    <NextImage image={desktopHero} priority={true} fill={true} mode='cover' position='top' />
                 </motion.section>
             )}
             {mobileHero && (
