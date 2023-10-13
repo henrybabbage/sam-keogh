@@ -222,7 +222,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                             ref={videos}
                             className={css({
                                 position: 'relative',
-                                w: '100%',
+                                w: { base: '100%', lg: '66vw' },
                                 bg: 'background'
                             })}
                         >
@@ -232,7 +232,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                                         initial="hidden"
                                         whileInView="visible"
                                         viewport={{ once: true }}
-                                        transition={{ duration: 0.4, ease: 'easeInOut' }}
+                                        transition={{ duration: 1, ease: 'easeInOut' }}
                                         variants={{
                                             visible: { opacity: 1 },
                                             hidden: { opacity: 0 }
@@ -249,7 +249,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true }}
-                            transition={{ duration: 0.4, ease: 'easeInOut' }}
+                            transition={{ duration: 1, ease: 'easeInOut' }}
                             variants={{
                                 visible: { opacity: 1 },
                                 hidden: { opacity: 0 }
