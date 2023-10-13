@@ -51,13 +51,6 @@ export default defineType({
                 }
             ]
         }),
-        defineField({
-            name: 'link',
-            title: 'Link',
-            type: 'reference',
-            to: [{ type: 'exhibition' }],
-            description: 'Link the displayed image to an exhibition page'
-        })
     ],
     preview: {
         select: {
