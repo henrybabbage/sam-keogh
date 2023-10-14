@@ -46,15 +46,17 @@ export default defineConfig({
             aspect: {
                 description: 'An aspect ratio container',
                 properties: {
-                    ratio: { type: 'number' }
+                    ratio: { type: 'number' },
+                    landscapeW: { type: 'string' },
+                    portraitH: { type: 'string' }
                 },
-                transform(props: { ratio: number }) {
-                    const { ratio } = props
+                transform(props: { ratio: number, landscapeW: string, portraitH: string }) {
+                    const { ratio, landscapeW, portraitH } = props
                     const landscape = ratio < 1
-                    const landscapeWidth = '66vw'
-                    const portraitHeight = '90vh'
-                    const calcPortraitWidth = `calc((90vh)*(1/${ratio}))`
-                    const calcLandscapeHeight = `calc((66vw)*(${ratio}))`
+                    const landscapeWidth = landscapeW
+                    const portraitHeight = portraitH
+                    const calcPortraitWidth = `calc((${portraitH})*(${1 / ratio}))`
+                    const calcLandscapeHeight = `calc((${landscapeW})*(${ratio}))`
                     return {
                         width: landscape ? landscapeWidth : calcPortraitWidth,
                         height: landscape ? calcLandscapeHeight : portraitHeight,
