@@ -37,13 +37,12 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                         flexDirection: 'row',
                         justifyContent: 'flex-end'
                     }),
-                    css({ height: { base: '7vh', lg: '14vh' }, zIndex: 10 })
+                    css({ height: { base: '7vh', lg: '14vh' } })
                 )}
             >
                 <Link
                     href="/work"
                     className={css({
-                        zIndex: 10,
                         position: 'fixed',
                         top: '16px',
                         left: { base: '16px', lg: '40px' }
