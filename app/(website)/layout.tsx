@@ -3,6 +3,7 @@ import Nav from '@/components/common/Nav'
 import { getTheme } from '@/sanity/lib/sanity.fetch'
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
+import { create } from 'zustand'
 import './index.css'
 
 const neueMontreal = localFont({
@@ -56,16 +57,23 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
     const data = await getTheme()
+    
     const { backgroundColor, fontColor, typefaceSerif, typefaceSansSerif } = data ?? {}
+
     const fallbackColor = '#000000'
     const color = fontColor?.value ?? fallbackColor
+
+    const useThemeStore = create(() => ({ backgroundColor: backgroundColor }))
+    const bg = useThemeStore.getState().backgroundColor
+
     const backgroundFallback = '#fff1e5'
-    const background = backgroundColor?.value ?? backgroundFallback
+    const background = bg?.value ?? backgroundFallback
+
     return (
-        <html lang="en" className={`${simula.variable} ${neueMontreal.variable}`}>
+        <html suppressHydrationWarning lang="en" className={`${simula.variable} ${neueMontreal.variable}`}>
             <body
                 style={{
-                    backgroundColor: `${backgroundFallback}`,
+                    backgroundColor: `${background}`,
                     color: `${color}`
                 }}
             >

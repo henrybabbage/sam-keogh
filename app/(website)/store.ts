@@ -8,6 +8,12 @@ export type ExhibitionStore = {
 export type ThemeStore = {
     typefaceSerif: string
     typefaceSansSerif: string
+    setTypefaceSerif: (typefaceSerif: string) => void
+    setTypefaceSansSerif: (typefaceSansSerif: string) => void
+    backgroundColor: string
+    foregroundColor: string
+    setBackgroundColor: (backgroundColor: string) => void
+    setForegroundColor: (foregroundColor: string) => void
 }
 
 export const useExhibitionStore = create<ExhibitionStore>((set) => ({
@@ -19,5 +25,9 @@ export const useThemeStore = create<ThemeStore>((set) => ({
     typefaceSerif: 'simula',
     typefaceSansSerif: 'neueMontreal',
     setTypefaceSerif: (typefaceSerif: string) => set({ typefaceSerif }),
-    setTypefaceSansSerif: (typefaceSansSerif: string) => set({ typefaceSansSerif })
+    setTypefaceSansSerif: (typefaceSansSerif: string) => set({ typefaceSansSerif }),
+    backgroundColor: 'background',
+    foregroundColor: 'foreground',
+    setBackgroundColor: (backgroundColor: string) => set({ backgroundColor }),
+    setForegroundColor: (foregroundColor: string) => set({ foregroundColor })
 }))

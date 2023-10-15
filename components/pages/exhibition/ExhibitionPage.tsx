@@ -45,7 +45,8 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                     className={css({
                         position: 'fixed',
                         top: '16px',
-                        left: { base: '16px', lg: '40px' }
+                        left: { base: '16px', lg: '40px' },
+                        zIndex: '100'
                     })}
                 >
                     <h2
@@ -65,7 +66,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
             </header>
             <div
                 className={flex({
-                    flexBasis: '12.5em',
+                    flexBasis: { base: '100%', lg: '12.5em' },
                     // flexGrow: '9999',
                     // maxWidth: '400px',
                     position: 'sticky',
