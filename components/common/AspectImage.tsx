@@ -70,10 +70,27 @@ export default function AspectImage({
 
     const tabletAndBelow = useMediaQuery('(max-width: 1024px)')
 
-    return (
+    return tabletAndBelow ? (
+        <div style={aspectRatioValuesDesktop}>
+            <Image
+                src={imageProps.src}
+                loader={imageProps.loader}
+                alt={alt}
+                width={width}
+                height={height}
+                sizes={sizes}
+                fill={fill}
+                priority={priority}
+                style={{
+                    objectFit: `${mode}`,
+                    objectPosition: 'top'
+                }}
+            />
+        </div>
+    ) : (
         <Modal open={open} onOpenChange={setOpen}>
-            <Modal.Button className={css({ cursor: 'pointer'})}>
-                <div style={tabletAndBelow ? aspectRatioValuesMobile : aspectRatioValuesDesktop} className={css({ overflow: 'hidden' })}>
+            <Modal.Button className={css({ cursor: 'pointer' })}>
+                <div style={aspectRatioValuesDesktop}>
                     <Image
                         src={imageProps.src}
                         loader={imageProps.loader}
@@ -91,7 +108,7 @@ export default function AspectImage({
                 </div>
             </Modal.Button>
             <Modal.Content>
-                <ZoomImage image={image} />
+                <ZoomImage image={image} ratio={ratioMultiplier} open={open} setOpen={setOpen} mode="contain" />
             </Modal.Content>
         </Modal>
     )

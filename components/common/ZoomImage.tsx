@@ -1,13 +1,44 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { client } from '@/sanity/lib/sanity.client'
 import { css } from '@/styled-system/css'
 import { useNextSanityImage } from 'next-sanity-image'
 import Image from 'next/image'
 import { ImageBoxProps } from './NextImage'
 
-export default function ZoomImage({ image, alt = '', sizes = '100vw', priority = true, fill = true, mode = 'cover' }: ImageBoxProps) {
+export type ZoomModalProps = {
+    ratio: number
+    open: boolean
+    setOpen: (open: boolean) => void
+}
+
+export default function ZoomImage({
+    image,
+    alt = '',
+    sizes = '100vw',
+    priority = true,
+    fill = true,
+    mode = 'contain',
+    open,
+    setOpen,
+    ratio
+}: ImageBoxProps & ZoomModalProps) {
     const imageProps = useNextSanityImage(client, image)
     return (
-        <div className={css({ minH: '100vh', w: '100vw', maxW: '100vw', bg: 'background', overflowY: 'auto' })}>
+        <div
+            onClick={() => setOpen(false)}
+            style={{ width: '100vw', height: `calc(100vw * ${ratio})` }}
+            className={css({
+                bg: 'background',
+                position: 'relative',
+                top: '0',
+                left: '0',
+                right: '0',
+                bottom: '0',
+                display: 'grid',
+                placeItems: 'center',
+                overflowY: 'auto'
+            })}
+        >
             <Image
                 src={imageProps.src}
                 loader={imageProps.loader}

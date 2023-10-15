@@ -16,33 +16,33 @@ function ModalContent({ children }: { children: ReactNode }) {
         <Dialog.Portal>
             <Dialog.Overlay
                 className={css({
-                    pos: 'fixed',
-                    inset: '0',
-                    bgColor: 'black/50',
-                    h: '100vh',
-                    w: '100vw'
-                })}
-            />
-            <Dialog.Content
-                className={css({
-                    pos: 'fixed',
-                    inset: '0',
-                    minH: '100vh',
-                    h: '100%',
-                    w: '100vw',
-                    maxW: '100vw',
-                    overflowY: 'auto'
-                    // height: `calc(100vw * ${ratio})`,
+                    background: 'rgba(0 0 0 / 0.5)',
+                    position: 'fixed',
+                    top: '0',
+                    left: '0',
+                    right: '0',
+                    bottom: '0',
+                    display: 'grid',
+                    placeItems: 'center',
+                    overflowY: 'auto',
                 })}
             >
-                <div className={css({ p: '6', cursor: 'pointer', position: 'fixed', top: '0', right: '0', zIndex: 100 })}>
-                    <Dialog.Close className={css({ cursor: 'pointer' })}>
-                        <X size={36} weight="light" fill="foreground" />
-                    </Dialog.Close>
-                </div>
+                <Dialog.Content
+                    className={css({
+                        minH: '100vh',
+                        maxW: '100vw',
+                        pointerEvents: 'auto'
+                    })}
+                >
+                    <div className={css({ p: '6', cursor: 'pointer', position: 'fixed', top: '0', right: '0', zIndex: 100 })}>
+                        <Dialog.Close className={css({ cursor: 'pointer' })}>
+                            <X size={36} weight="light" fill="foreground" />
+                        </Dialog.Close>
+                    </div>
 
-                {children}
-            </Dialog.Content>
+                    {children}
+                </Dialog.Content>
+            </Dialog.Overlay>
         </Dialog.Portal>
     )
 }
