@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { css } from '@/styled-system/css'
 import { flex } from '@/styled-system/patterns'
 import Link from 'next/link'
@@ -11,13 +12,14 @@ export default function Nav(props: NavProps) {
     return (
         <nav
             style={{
-                background: `${background}`
+                background: `linear-gradient(to top, ${background} 0%, ${background} 60%, transparent)`
             }}
             className={css({
                 position: 'fixed',
                 bottom: '0',
                 width: '100vw',
-                py: { base: '12px', lg: '16px' },
+                pb: { base: '12px', lg: '16px' },
+                pt: { base: '12px', lg: '24px' },
                 px: { base: '16px', lg: '40px' }
             })}
         >
