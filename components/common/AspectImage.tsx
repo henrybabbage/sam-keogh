@@ -72,8 +72,8 @@ export default function AspectImage({
 
     return (
         <Modal open={open} onOpenChange={setOpen}>
-            <Modal.Button className={css({ cursor: 'pointer'})}>
-                <div style={tabletAndBelow ? aspectRatioValuesMobile : aspectRatioValuesDesktop} className={css({ overflow: 'hidden' })}>
+            <Modal.Button className={css({ cursor: 'pointer' })}>
+                <div style={tabletAndBelow ? aspectRatioValuesMobile : aspectRatioValuesDesktop}>
                     <Image
                         src={imageProps.src}
                         loader={imageProps.loader}
@@ -91,7 +91,7 @@ export default function AspectImage({
                 </div>
             </Modal.Button>
             <Modal.Content>
-                <ZoomImage image={image} />
+                <ZoomImage image={image} ratio={ratioMultiplier} open={open} setOpen={setOpen} mode="contain" />
             </Modal.Content>
         </Modal>
     )
