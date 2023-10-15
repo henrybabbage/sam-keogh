@@ -1,7 +1,9 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+'use client'
+
 import { css } from '@/styled-system/css'
 import { flex } from '@/styled-system/patterns'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 export type NavProps = {
     background: string
@@ -9,6 +11,7 @@ export type NavProps = {
 
 export default function Nav(props: NavProps) {
     const { background } = props
+    const pathname = usePathname()
     return (
         <nav
             style={{
@@ -33,7 +36,8 @@ export default function Nav(props: NavProps) {
                             fontSize: { base: 'md', lg: 'xl' },
                             textTransform: 'uppercase',
                             _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: 'hover' },
-                            _active: { color: 'active' }
+                            _active: { color: 'active' },
+                            color: pathname === '/work' ? 'hover' : 'foreground'
                         })}
                     >
                         Work
@@ -48,7 +52,8 @@ export default function Nav(props: NavProps) {
                             fontSize: { base: 'md', lg: 'xl' },
                             textTransform: 'uppercase',
                             _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: 'hover' },
-                            _active: { color: 'active' }
+                            _active: { color: 'active' },
+                            color: pathname === '/cv' ? 'hover' : 'foreground'
                         })}
                     >
                         CV
@@ -63,7 +68,8 @@ export default function Nav(props: NavProps) {
                             fontSize: { base: 'md', lg: 'xl' },
                             textTransform: 'uppercase',
                             _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: 'hover' },
-                            _active: { color: 'active' }
+                            _active: { color: 'active' },
+                            color: pathname === '/contact' ? 'hover' : 'foreground'
                         })}
                     >
                         Contact
