@@ -71,18 +71,16 @@ export default function AspectImage({
     const tabletAndBelow = useMediaQuery('(max-width: 1024px)')
 
     return tabletAndBelow ? (
-        <div style={aspectRatioValuesDesktop}>
+        <div style={aspectRatioValuesMobile}>
             <Image
                 src={imageProps.src}
                 loader={imageProps.loader}
                 alt={alt}
-                width={width}
-                height={height}
                 sizes={sizes}
                 fill={fill}
                 priority={priority}
                 style={{
-                    objectFit: `${mode}`,
+                    objectFit: 'cover',
                     objectPosition: 'top'
                 }}
             />
