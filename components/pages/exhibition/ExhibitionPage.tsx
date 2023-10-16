@@ -144,7 +144,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                                         textTransform: 'uppercase'
                                     })}
                                 >
-                                    Videos
+                                    {vimeo.length > 1 ? 'Videos' : 'Video'}
                                 </h3>
                             </button>
                         )}
