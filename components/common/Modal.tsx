@@ -25,6 +25,7 @@ function ModalContent({ children }: { children: ReactNode }) {
                     display: 'grid',
                     placeItems: 'center',
                     overflowY: 'auto',
+                    zIndex: 100
                 })}
             >
                 <Dialog.Content
@@ -34,7 +35,7 @@ function ModalContent({ children }: { children: ReactNode }) {
                         pointerEvents: 'auto'
                     })}
                 >
-                    <div className={css({ p: '6', cursor: 'pointer', position: 'fixed', top: '0', right: '0', zIndex: 100 })}>
+                    <div className={css({ p: '6', cursor: 'pointer', position: 'fixed', top: '0', right: '0', zIndex: 1000 })}>
                         <Dialog.Close className={css({ cursor: 'pointer' })}>
                             <X size={36} weight="light" fill="foreground" />
                         </Dialog.Close>
