@@ -15,14 +15,14 @@ export default function Nav(props: NavProps) {
     return (
         <nav
             style={{
-                background: `linear-gradient(to top, ${background} 0%, ${background} 60%, transparent)`
+                background: `linear-gradient(to top, ${background} 0%, ${background} 70%, transparent)`
             }}
             className={css({
                 position: 'fixed',
                 bottom: '0',
                 width: '100vw',
                 pb: { base: '12px', lg: '16px' },
-                pt: { base: '12px', lg: '24px' },
+                pt: { base: '12px', lg: '40px' },
                 px: { base: '16px', lg: '40px' }
             })}
         >

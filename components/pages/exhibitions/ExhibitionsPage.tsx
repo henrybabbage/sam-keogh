@@ -33,7 +33,7 @@ export default function ExhibitionsPage(props: ExhibitionsPagePayload) {
     const sortedExhibitions = sortExhibitionsByYear(exhibitions)
 
     return (
-        <main className={css({ minHeight: '100vh', height: '100vh', width: '100%', maxWidth: '100vw', p: { base: '16px', lg: '16px 40px' } })}>
+        <main className={css({ minHeight: '100vh', height: '100vh', width: '100%', maxWidth: '100vw', p: { base: '16px', lg: '16px 40px 7vh 40px' } })}>
             <div className={flex({ w: '100%' })}>
                 <div className={flex({ flexDirection: 'column', w: { base: '100%', md: '2/3', lg: '1/3' } })}>
                     <header
@@ -45,29 +45,6 @@ export default function ExhibitionsPage(props: ExhibitionsPagePayload) {
                             css({ height: { base: '7vh', lg: '14vh' }, zIndex: 10 })
                         )}
                     >
-                        <Link
-                            href="/"
-                            className={css({
-                                zIndex: 10,
-                                position: 'fixed',
-                                top: '16px',
-                                left: { base: '16px', lg: '40px' }
-                            })}
-                        >
-                            <h2
-                                className={css({
-                                    fontFamily: 'neueMontreal',
-                                    fontStyle: 'normal',
-                                    fontWeight: '700',
-                                    fontSize: { base: 'md', lg: 'xl' },
-                                    textTransform: 'uppercase',
-                                    _hover: { textDecorationLine: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '2px', color: 'hover' },
-                                    _active: { color: 'active' }
-                                })}
-                            >
-                                Home
-                            </h2>
-                        </Link>
                     </header>
                     <div className={flex({ gap: '8', h: 'fit-content', mb: '7vh', pr: '8' })}>
                         <div className={flex({ flexDirection: 'column', gap: '4' })}>

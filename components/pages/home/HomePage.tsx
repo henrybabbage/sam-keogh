@@ -37,7 +37,7 @@ export default function HomePage({ data }: HomePageProps) {
                     animate={{
                         opacity: isInView ? 1 : 0,
                         transition: {
-                            duration: 0.4,
+                            duration: 1,
                             ease: 'easeInOut'
                         }
                     }}
@@ -58,7 +58,7 @@ export default function HomePage({ data }: HomePageProps) {
                     animate={{
                         opacity: isInView ? 1 : 0,
                         transition: {
-                            duration: 0.4,
+                            duration: 1,
                             ease: 'easeInOut'
                         }
                     }}
