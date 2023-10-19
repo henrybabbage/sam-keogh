@@ -67,9 +67,10 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
             <div
                 className={flex({
                     // gridTemplateColumns: 'repeat(auto-fit, minmax(12.5em, 25em))',
-                    flexBasis: { base: '100%', lg: '12.5em' },
                     // flexGrow: '999',
-                    pt: 'calc(14vh + 16px)',
+                    flexBasis: { base: '100%', lg: '25em', xl: '12.5em' },
+                    position: { base: 'relative', xl: 'sticky' },
+                    top: { base: '7vh', lg: 'calc(14vh + 16px)' },
                     h: 'fit-content',
                     order: { base: '1', lg: '1' },
                     mb: { base: '14vh', lg: '8' }
