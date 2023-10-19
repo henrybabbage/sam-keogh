@@ -66,13 +66,12 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
             </header>
             <div
                 className={flex({
+                    // gridTemplateColumns: 'repeat(auto-fit, minmax(12.5em, 25em))',
                     flexBasis: { base: '100%', lg: '12.5em' },
-                    // flexGrow: '9999',
-                    // maxWidth: '400px',
-                    position: 'sticky',
-                    top: 'calc(14vh + 16px)',
+                    // flexGrow: '999',
+                    pt: 'calc(14vh + 16px)',
                     h: 'fit-content',
-                    order: { base: '2', lg: '1' },
+                    order: { base: '1', lg: '1' },
                     mb: { base: '14vh', lg: '8' }
                 })}
             >
@@ -186,7 +185,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
                     mt: { base: '0', lg: '14vh' },
                     h: 'fit-content',
                     mb: { base: '7vh', lg: '14vh' },
-                    order: { base: '1', lg: '2' }
+                    order: { base: '2', lg: '2' }
                 })}
             >
                 <div className={flex({ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '12', w: '100%', h: '100%' })}>

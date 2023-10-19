@@ -30,7 +30,7 @@ function ModalContent({ children }: { children: ReactNode }) {
             >
                 <Dialog.Content
                     className={css({
-                        minH: '100vh',
+                        // minH: '100vh',
                         maxW: '100vw',
                         pointerEvents: 'auto'
                     })}
