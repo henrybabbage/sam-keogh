@@ -81,7 +81,7 @@ export default function Nav(props: NavProps) {
                 className={css({
                     maskImage: 'linear-gradient(to bottom, transparent 10%, black)',
                     w: '100%',
-                    h: '140px',
+                    h: '100px',
                     position: 'fixed',
                     bottom: '0',
                     zIndex: '0'

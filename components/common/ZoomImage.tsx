@@ -28,14 +28,13 @@ export default function ZoomImage({
             onClick={() => setOpen(false)}
             style={{ width: '100vw', height: `calc(100vw * ${ratio})` }}
             className={css({
-                bg: 'background',
                 position: 'relative',
-                top: '0',
-                left: '0',
-                right: '0',
-                bottom: '0',
-                display: 'grid',
-                placeItems: 'center',
+                // top: '0',
+                // left: '0',
+                // right: '0',
+                // bottom: '0',
+                // display: 'grid',
+                // placeItems: 'center',
                 overflowY: 'auto'
             })}
         >

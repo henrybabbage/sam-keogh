@@ -106,7 +106,7 @@ export default function AspectImage({
                 </div>
             </Modal.Button>
             <Modal.Content>
-                <ZoomImage image={image} ratio={ratioMultiplier} open={open} setOpen={setOpen} mode="contain" />
+                <ZoomImage image={image} ratio={ratioMultiplier} open={open} setOpen={setOpen} />
             </Modal.Content>
         </Modal>
     )
