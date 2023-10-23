@@ -12,7 +12,6 @@ export type NavProps = {
 export default function Nav(props: NavProps) {
     const { background } = props
     const pathname = usePathname()
-    // background: `linear-gradient(to top, ${background} 0%, ${background} 70%, transparent)`
     return (
         <>
             <nav
@@ -21,10 +20,11 @@ export default function Nav(props: NavProps) {
                     bottom: '0',
                     width: '100vw',
                     pb: { base: '12px', lg: '16px' },
-                    pt: { base: '12px', lg: '16px' },
+                    pt: { base: '12px', lg: '28px' },
                     px: { base: '16px', lg: '40px' },
                     zIndex: '100'
                 })}
+                style={{ background: `linear-gradient(to top, ${background} 0%, ${background} 80%, transparent)` }}
             >
                 <div className={flex({ justifyContent: 'space-between' })}>
                     <Link href="/work">
@@ -77,19 +77,6 @@ export default function Nav(props: NavProps) {
                     </Link>
                 </div>
             </nav>
-            <div
-                className={css({
-                    maskImage: 'linear-gradient(to bottom, transparent 10%, black)',
-                    w: '100%',
-                    h: '100px',
-                    position: 'fixed',
-                    bottom: '0',
-                    zIndex: '0'
-                })}
-                style={{
-                    background: background
-                }}
-            ></div>
         </>
     )
 }
