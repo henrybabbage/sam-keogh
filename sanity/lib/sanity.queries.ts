@@ -53,6 +53,7 @@ export const exhibitionsPageQuery = groq`
   *[_type == "exhibition"]| order(endDate desc) {
     _id,
     _type,
+    _updatedAt,
     "slug": slug.current,
     title,
     subtitle,
