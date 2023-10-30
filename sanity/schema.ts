@@ -13,8 +13,7 @@ import contact from './schemas/singletons/contact'
 import home from './schemas/singletons/home'
 import settings from './schemas/singletons/settings'
 import theme from './schemas/singletons/theme'
-import upcoming from './schemas/documents/upcoming'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-    types: [exhibition, upcoming, artist, bio, category, blockContent, home, venue, imageGallery, settings, theme, contact, link, simpleBlockContent]
+    types: [exhibition, artist, bio, category, blockContent, home, venue, imageGallery, settings, theme, contact, link, simpleBlockContent]
 }
