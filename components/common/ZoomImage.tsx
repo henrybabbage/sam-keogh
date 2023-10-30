@@ -29,12 +29,6 @@ export default function ZoomImage({
             style={{ width: '100vw', height: `calc(100vw * ${ratio})` }}
             className={css({
                 position: 'relative',
-                // top: '0',
-                // left: '0',
-                // right: '0',
-                // bottom: '0',
-                // display: 'grid',
-                // placeItems: 'center',
                 overflowY: 'auto'
             })}
         >

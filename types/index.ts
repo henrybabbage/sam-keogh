@@ -62,6 +62,7 @@ export type LinkProps = {
 export type ExhibitionProps = {
     _id: string
     _type: string
+    _updatedAt: string
     title: string
     subtitle?: string
     link?: 'internal' | 'external'
