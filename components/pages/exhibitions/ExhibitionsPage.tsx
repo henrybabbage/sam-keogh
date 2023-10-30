@@ -53,7 +53,7 @@ export default function ExhibitionsPage(props: ExhibitionsPagePayload) {
                             css({ height: { base: '7vh', lg: '14vh' }, zIndex: 10 })
                         )}
                     ></header>
-                    <div className={flex({ gap: '8', h: 'fit-content', mb: '7vh', pr: '8' })}>
+                    <div className={flex({ gap: '8', h: 'fit-content', mb: '7vh', pr: '8', pb: '14vh' })}>
                         <div className={flex({ flexDirection: 'column', gap: '4' })}>
                             <section className={flex({ flexDirection: 'column', gap: { base: '2', lg: '4' } })}>
                                 {Object.entries(sortedExhibitions)
@@ -80,7 +80,7 @@ export default function ExhibitionsPage(props: ExhibitionsPagePayload) {
                         </div>
                     </div>
                 </div>
-                <div className={flex({ hideBelow: 'lg', flexDirection: 'column', w: '2/3', position: 'sticky', top: 'calc(14vh + 12px)', h: '86vh' })}>
+                <div className={flex({ hideBelow: 'lg', flexDirection: 'column', w: '2/3', position: 'sticky', top: '14vh', h: '86vh' })}>
                     {exhibitions &&
                         exhibitions.length > 0 &&
                         exhibitions.map((exhibition: ExhibitionProps) => (
