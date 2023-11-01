@@ -18,10 +18,20 @@ export default defineType({
             title: 'URL',
             type: 'url',
             validation: (rule) =>
-            rule.uri({
-                allowRelative: true,
-                scheme: ["https", "http", "mailto", "tel"],
-            }),
-        }),
+                rule.uri({
+                    allowRelative: true,
+                    scheme: ['https', 'http', 'mailto', 'tel']
+                })
+        })
     ],
+    preview: {
+        select: {
+            title: 'title',
+            url: 'url',
+        },
+        prepare(selection) {
+            const { title, url } = selection
+            return { title: title ? `${title}` : `${url}` }
+        }
+    }
 })
