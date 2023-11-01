@@ -14,7 +14,7 @@ export default function CvPage({ data }: CvPageProps) {
                 <CustomPortableText
                     paragraphClasses={css({
                         maxW: '98vw',
-                        mb: '6'
+                        mb: '2'
                     })}
                     value={cv}
                 />

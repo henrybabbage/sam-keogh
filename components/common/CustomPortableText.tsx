@@ -20,7 +20,7 @@ export function CustomPortableText({ paragraphClasses, value }: { paragraphClass
                         fontSize: { base: 'sm', lg: 'lg' },
                         fontWeight: '700',
                         textTransform: 'uppercase',
-                        mb: '4'
+                        my: '6'
                     })}
                 >
                     {children}

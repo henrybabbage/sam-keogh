@@ -30,6 +30,7 @@ export default defineConfig({
                     active: { value: '#00cc00' },
                     background: { value: '#fff1e5' },
                     foreground: { value: '#222222' },
+                    placeholder: { value: '#000000' },
                     theme: { value: '#fff1e5' },
                     font: { value: '#222222' }
                 },
