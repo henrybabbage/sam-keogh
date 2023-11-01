@@ -5,6 +5,7 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import { create } from 'zustand'
 import './index.css'
+import GoogleAnalytics from '@/components/common/GoogleAnalytics'
 
 const neueMontreal = localFont({
     src: [
@@ -77,6 +78,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                     color: `${color}`
                 }}
             >
+                {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS ? <GoogleAnalytics ga_id={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} /> : null}
                 {children}
                 <Nav background={background} />
             </body>
