@@ -1655,6 +1655,10 @@ const tokens = {
     "value": "#222222",
     "variable": "var(--colors-foreground)"
   },
+  "colors.placeholder": {
+    "value": "#000000",
+    "variable": "var(--colors-placeholder)"
+  },
   "colors.theme": {
     "value": "#fff1e5",
     "variable": "var(--colors-theme)"

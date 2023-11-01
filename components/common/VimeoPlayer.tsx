@@ -8,7 +8,7 @@ const ReactPlayer = dynamic(() => import('react-player/vimeo'), { ssr: false })
 export default function VimeoPlayer(props: VideoProps) {
     const { url, title } = props
     return (
-        <div className={css({ position: 'relative', aspectRatio: 16 / 9, bg: 'gray.200' })}>
+        <div className={css({ position: 'relative', aspectRatio: 16 / 9, bg: 'placeholder' })}>
             <ReactPlayer
                 id="react-player"
                 className={css({ position: 'absolute', top: 0, left: 0 })}
