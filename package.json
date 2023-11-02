@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@mantine/hooks": "^7.0.0",
+    "@next/third-parties": "^14.0.1",
     "@phosphor-icons/react": "^2.0.13",
     "@portabletext/react": "^3.0.4",
     "@portabletext/types": "^2.0.6",
@@ -25,7 +26,7 @@
     "eslint-plugin-react-hooks": "^5.0.0-canary-7118f5dd7-20230705",
     "framer-motion": "^10.16.4",
     "media-icons": "^0.10.0",
-    "next": "^14.0.0",
+    "next": "^14.0.1",
     "next-sanity": "^5.5.4",
     "next-sanity-image": "^6.1.0",
     "react": "^18.2.0",
