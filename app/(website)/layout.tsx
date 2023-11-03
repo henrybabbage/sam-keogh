@@ -1,11 +1,15 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import GoogleAnalytics from '@/components/common/GoogleAnalytics'
 import Nav from '@/components/common/Nav'
 import { getTheme } from '@/sanity/lib/sanity.fetch'
+// @ts-ignore
+// TODO this package is still experimental and is missing type declarations https://github.com/vercel/next.js/discussions/48256#discussioncomment-7439421
+import { GoogleTagManager } from '@next/third-parties/google'
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import { create } from 'zustand'
 import './index.css'
-import GoogleAnalytics from '@/components/common/GoogleAnalytics'
 
 const neueMontreal = localFont({
     src: [
@@ -78,10 +82,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                     color: `${color}`
                 }}
             >
-                {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS ? <GoogleAnalytics ga_id={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} /> : null}
                 {children}
                 <Nav background={background} />
             </body>
+            {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS ? <GoogleAnalytics ga_id={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} /> : null}
+            {process.env.NEXT_PUBLIC_GTM_ID ? <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} /> : null}
         </html>
     )
 }
