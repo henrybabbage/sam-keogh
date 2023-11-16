@@ -22,8 +22,8 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 ### Links
 
-- [Next.js Documentation](https://nextjs.org/docs)
-- [Panda CSS Documentation](https://panda-css.com/)
+- [Next.js](https://nextjs.org/docs)
+- [Panda CSS](https://panda-css.com/)
 - [Vercel](https://vercel.com/)
 - [Sanity](https://www.sanity.io/)
 - [Typescript](https://www.typescriptlang.org/)
