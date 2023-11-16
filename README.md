@@ -28,4 +28,4 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 ### Deployment
 
-This project is deployed on Vercel
+This project is deployed on [Vercel](https://vercel.com/).
