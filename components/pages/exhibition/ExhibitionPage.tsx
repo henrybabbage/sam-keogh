@@ -42,6 +42,7 @@ export default function ExhibitionPage({ data }: ExhibitionPagePayload) {
             >
                 <Link
                     href="/work"
+                    scroll={false}
                     className={css({
                         position: 'fixed',
                         top: '16px',

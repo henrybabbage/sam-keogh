@@ -1,6 +1,6 @@
 import { getExtension } from '@sanity/asset-utils'
 import { ImagesIcon } from '@sanity/icons'
-import { defineField, defineType } from 'sanity'
+import { defineField, defineType, defineArrayMember } from 'sanity'
 
 export default defineType({
     name: 'imageGallery',
@@ -8,7 +8,7 @@ export default defineType({
     type: 'array',
     icon: ImagesIcon,
     of: [
-        defineField({
+        defineArrayMember({
             name: 'image',
             title: 'Image',
             type: 'image',
