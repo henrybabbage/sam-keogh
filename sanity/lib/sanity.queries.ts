@@ -34,8 +34,6 @@ export const homePageQuery = groq`
             "width": asset->metadata.dimensions.width,
             "height": asset->metadata.dimensions.height,
             "aspectRatio": asset->metadata.dimensions.aspectRatio,
-            "height": asset->metadata.dimensions.height,
-            "width": asset->metadata.dimensions.width,
             "id": asset._ref,
             "preview": asset->metadata.lqip,
             hotspot { x, y },
@@ -59,16 +57,22 @@ export const exhibitionsPageQuery = groq`
     subtitle,
     link,
     url,
-    imageGallery[]{
-        ...,
-        "id": asset._ref,
-        "preview": asset->metadata.lqip,
-        "aspectRatio": asset->metadata.dimensions.aspectRatio,
-        "height": asset->metadata.dimensions.height,
-        "width": asset->metadata.dimensions.width,
+    "imageGallery": imageGallery[0..2]{
         asset->{
-          ...
-        }
+            _id,
+            url,
+            metadata {
+                dimensions {
+                    width,
+                    height,
+                    aspectRatio
+                },
+                lqip
+            }
+        },
+        alt,
+        hotspot,
+        crop
     },
     vimeo,
     pressRelease,
@@ -77,7 +81,9 @@ export const exhibitionsPageQuery = groq`
     endDate,
     year,
     venue->{
-        ...
+        name,
+        city,
+        country
     },
     photographerCredit,
   }

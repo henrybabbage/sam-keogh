@@ -3,29 +3,30 @@
 import { css } from '@/styled-system/css'
 import type { ExhibitionProps } from '@/types'
 import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { memo, useCallback, useState } from 'react'
 import { useExhibitionStore } from '../../../app/(website)/store'
 
 export type ListItemProps = {
     exhibition: ExhibitionProps
 }
 
-export default function ExhibitionListItem(props: ListItemProps) {
+function ExhibitionListItem(props: ListItemProps) {
     const { exhibition } = props
 
     const setSelectedExhibition = useExhibitionStore((state) => state.setSelectedExhibition)
 
     const [isHovered, setIsHovered] = useState(false)
 
-    const handleHover = () => {
+    // Memoize handlers to prevent unnecessary re-renders
+    const handleHover = useCallback(() => {
         setIsHovered(true)
         setSelectedExhibition(exhibition._id)
-    }
+    }, [exhibition._id, setSelectedExhibition])
 
-    const handleUnhover = () => {
+    const handleUnhover = useCallback(() => {
         setIsHovered(false)
         setSelectedExhibition(null)
-    }
+    }, [setSelectedExhibition])
 
     return (
         <motion.li
@@ -57,3 +58,6 @@ export default function ExhibitionListItem(props: ListItemProps) {
         </motion.li>
     )
 }
+
+// Export memoized component to prevent unnecessary re-renders
+export default memo(ExhibitionListItem)

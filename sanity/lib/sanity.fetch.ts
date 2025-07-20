@@ -16,6 +16,7 @@ import {
 } from './sanity.queries'
 
 export const token = process.env.SANITY_API_READ_TOKEN
+const revalidateSecret = process.env.SANITY_REVALIDATE_SECRET
 
 const DEFAULT_PARAMS = {} as QueryParams
 const DEFAULT_TAGS = [] as string[]
@@ -23,25 +24,48 @@ const DEFAULT_TAGS = [] as string[]
 export async function sanityFetch<QueryResponse>({
     query,
     params = DEFAULT_PARAMS,
-    tags = DEFAULT_TAGS
+    tags = DEFAULT_TAGS,
+    revalidate = 3600, // 1 hour default
+    realtime = false
 }: {
     query: string
     params?: QueryParams
     tags: string[]
+    revalidate?: number | false
+    realtime?: boolean
 }): Promise<QueryResponse> {
-    return client.fetch<QueryResponse>(query, params, {
-        cache: 'no-store',
-        next: {
-            // revalidate: 30, // for simple, time-based revalidation
-            tags // for tag-based revalidation
+    const start = Date.now()
+    
+    try {
+        const result = await client.fetch<QueryResponse>(query, params, {
+            // Use hybrid caching strategy
+            cache: realtime || revalidateSecret ? 'no-store' : 'force-cache',
+            next: {
+                revalidate: realtime || revalidateSecret ? false : revalidate,
+                tags
+            }
+        })
+        
+        // Log slow queries in development
+        if (process.env.NODE_ENV === 'development') {
+            const duration = Date.now() - start
+            if (duration > 1000) {
+                console.warn(`Slow Sanity query (${duration}ms):`, query.split('\n')[0].trim())
+            }
         }
-    })
+        
+        return result
+    } catch (error) {
+        console.error('Sanity fetch error:', error)
+        throw error
+    }
 }
 
 export function getHomePage() {
     return sanityFetch<HomePagePayload | null>({
         query: homePageQuery,
-        tags: ['home']
+        tags: ['home'],
+        revalidate: 7200 // 2 hours - home page changes infrequently
     })
 }
 
@@ -62,7 +86,8 @@ export function getContactPage() {
 export function getAllExhibitions() {
     return sanityFetch<ExhibitionProps[] | null>({
         query: exhibitionsPageQuery,
-        tags: ['exhibition']
+        tags: ['exhibition'],
+        revalidate: 1800 // 30 minutes - exhibitions update more frequently
     })
 }
 

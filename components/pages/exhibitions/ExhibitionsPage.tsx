@@ -4,33 +4,37 @@ import { flex } from '@/styled-system/patterns'
 import { resolveHref } from '@/sanity/lib/sanity.links'
 import type { ExhibitionProps, ExhibitionsPagePayload } from '@/types'
 import Link from 'next/link'
+import { useMemo } from 'react'
 import ExhibitionListItem from './ExhibitionListItem'
 import ExhibitionPreview from './ExhibitionPreview'
 
 export default function ExhibitionsPage(props: ExhibitionsPagePayload) {
     const { exhibitions = [] } = props || {}
 
-    const sortExhibitionsByYear = (exhibitions: ExhibitionProps[]) => {
-        const years = getExhibitionYears(exhibitions)
-        const exhibitionsByYear: { [key: string]: ExhibitionProps[] } = {}
-        years.forEach((year) => {
-            exhibitionsByYear[year] = exhibitions.filter((exhibition) => exhibition.year === year)
-        })
-        return exhibitionsByYear
-    }
+    // Memoize expensive sorting operations
+    const sortedExhibitions = useMemo(() => {
+        const sortExhibitionsByYear = (exhibitions: ExhibitionProps[]) => {
+            const years = getExhibitionYears(exhibitions)
+            const exhibitionsByYear: { [key: string]: ExhibitionProps[] } = {}
+            years.forEach((year) => {
+                exhibitionsByYear[year] = exhibitions.filter((exhibition) => exhibition.year === year)
+            })
+            return exhibitionsByYear
+        }
 
-    function getExhibitionYears(exhibitions: ExhibitionProps[]) {
-        const years = exhibitions.reduce((acc: string[], exhibition) => {
-            const year = exhibition.year
-            if (!acc.includes(year)) {
-                acc.push(year)
-            }
-            return acc
-        }, [])
-        return years.sort((a, b) => parseInt(b, 10) - parseInt(a, 10))
-    }
+        function getExhibitionYears(exhibitions: ExhibitionProps[]) {
+            const years = exhibitions.reduce((acc: string[], exhibition) => {
+                const year = exhibition.year
+                if (!acc.includes(year)) {
+                    acc.push(year)
+                }
+                return acc
+            }, [])
+            return years.sort((a, b) => parseInt(b, 10) - parseInt(a, 10))
+        }
 
-    const sortedExhibitions = sortExhibitionsByYear(exhibitions)
+        return sortExhibitionsByYear(exhibitions)
+    }, [exhibitions])
 
     return (
         <main
@@ -83,10 +87,14 @@ export default function ExhibitionsPage(props: ExhibitionsPagePayload) {
                 <div className={flex({ hideBelow: 'lg', flexDirection: 'column', w: '2/3', position: 'sticky', top: '14vh', h: '86vh' })}>
                     {exhibitions &&
                         exhibitions.length > 0 &&
-                        exhibitions.map((exhibition: ExhibitionProps) => (
+                        exhibitions.map((exhibition: ExhibitionProps, index: number) => (
                             <div key={exhibition._id} className={css({ position: 'absolute', inset: 0 })}>
                                 {exhibition.imageGallery && exhibition.imageGallery.length > 0 && (
-                                    <ExhibitionPreview image={exhibition.imageGallery[0]} id={exhibition._id} />
+                                    <ExhibitionPreview 
+                                        image={exhibition.imageGallery[0]} 
+                                        id={exhibition._id}
+                                        priority={index < 5} // Prioritize first 5 images
+                                    />
                                 )}
                             </div>
                         ))}
