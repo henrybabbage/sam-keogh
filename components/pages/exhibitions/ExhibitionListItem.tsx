@@ -2,44 +2,47 @@
 
 import { css } from '@/styled-system/css'
 import type { ExhibitionProps } from '@/types'
-import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { useCallback, useRef } from 'react'
 import { useExhibitionStore } from '../../../app/(website)/store'
 
 export type ListItemProps = {
     exhibition: ExhibitionProps
 }
 
+const HOVER_DELAY_MS = 75
+
 export default function ExhibitionListItem(props: ListItemProps) {
     const { exhibition } = props
 
     const setSelectedExhibition = useExhibitionStore((state) => state.setSelectedExhibition)
+    const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
-    const [isHovered, setIsHovered] = useState(false)
+    const handleHover = useCallback(() => {
+        hoverTimeoutRef.current = setTimeout(() => {
+            setSelectedExhibition(exhibition._id)
+        }, HOVER_DELAY_MS)
+    }, [setSelectedExhibition, exhibition._id])
 
-    const handleHover = () => {
-        setIsHovered(true)
-        setSelectedExhibition(exhibition._id)
-    }
-
-    const handleUnhover = () => {
-        setIsHovered(false)
+    const handleUnhover = useCallback(() => {
+        if (hoverTimeoutRef.current) {
+            clearTimeout(hoverTimeoutRef.current)
+            hoverTimeoutRef.current = null
+        }
         setSelectedExhibition(null)
-    }
+    }, [setSelectedExhibition])
 
     return (
-        <motion.li
+        <li
             onMouseEnter={handleHover}
             onMouseLeave={handleUnhover}
-            key={exhibition._id}
-            initial={{ x: 0 }}
-            animate={{
-                x: isHovered ? 20 : 0,
-                transition: {
-                    duration: 0.2,
-                    ease: 'easeInOut'
+            className={css({
+                transform: 'translateX(0)',
+                transition: 'transform 0.15s cubic-bezier(0.33, 1, 0.68, 1)',
+                willChange: 'transform',
+                _hover: {
+                    transform: 'translateX(20px)'
                 }
-            }}
+            })}
         >
             <h2
                 className={css({
@@ -54,6 +57,6 @@ export default function ExhibitionListItem(props: ListItemProps) {
             >
                 {exhibition?.title}
             </h2>
-        </motion.li>
+        </li>
     )
 }

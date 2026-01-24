@@ -15,12 +15,18 @@ export default function ExhibitionPreview(props: ExhibitionPreviewProps) {
 
     const selectedExhibition = useExhibitionStore((state) => state.selectedExhibition)
 
+    const isSelected = selectedExhibition === id
+
     return (
         <div
             className={css({
                 position: 'relative',
-                opacity: selectedExhibition === id ? 1 : 0,
-                transition: 'opacity 0.2s ease-in-out'
+                opacity: isSelected ? 1 : 0,
+                pointerEvents: isSelected ? 'auto' : 'none',
+                transition: isSelected
+                    ? 'opacity 0.1s cubic-bezier(0.33, 1, 0.68, 1)'
+                    : 'opacity 0.2s cubic-bezier(0.33, 1, 0.68, 1)',
+                willChange: 'opacity'
             })}
         >
             <div className={css({ w: '100%', h: '35rem', bg: 'background', position: 'relative', overflow: 'hidden' })}>
