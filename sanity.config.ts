@@ -17,8 +17,6 @@ import home from './sanity/schemas/singletons/home'
 import settings from './sanity/schemas/singletons/settings'
 import theme from './sanity/schemas/singletons/theme'
 
-export const PREVIEWABLE_DOCUMENT_TYPES: string[] = []
-
 const title = process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'Sam Keogh'
 
 // Define the actions that should be available for singleton documents

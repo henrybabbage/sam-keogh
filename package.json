@@ -37,7 +37,6 @@
     "sanity-plugin-simpler-color-input": "^1.1.0",
     "server-only": "^0.0.1",
     "styled-components": "^6.1.15",
-    "suspend-react": "^0.1.3",
     "zustand": "^4.4.1"
   },
   "devDependencies": {
