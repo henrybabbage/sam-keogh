@@ -4,12 +4,42 @@ import type { PortableTextBlock } from '@portabletext/types'
 import type { Image } from 'sanity'
 import ImageBox from './ImageBox'
 
-export function CustomPortableText({ paragraphClasses, value }: { paragraphClasses?: string; value: PortableTextBlock[] }) {
+type CustomPortableTextProps = {
+    paragraphClasses?: string
+    value: PortableTextBlock[]
+    variant?: 'default' | 'contact'
+}
+
+export function CustomPortableText({ paragraphClasses, value, variant = 'default' }: CustomPortableTextProps) {
+    const isContactVariant = variant === 'contact'
+
     const components: PortableTextComponents = {
         block: {
             normal: ({ children }) => {
                 return (
-                    <p className={cx(css({ fontFamily: 'simula', fontStyle: 'normal', fontSize: { base: 'sm', lg: 'lg' } }), paragraphClasses)}>{children}</p>
+                    <p
+                        className={cx(
+                            css(
+                                isContactVariant
+                                    ? {
+                                          fontFamily: 'neueMontreal',
+                                          fontStyle: 'normal',
+                                          fontSize: { base: 'sm', lg: 'lg' },
+                                          fontWeight: '700',
+                                          textTransform: 'uppercase',
+                                          textAlign: 'center'
+                                      }
+                                    : {
+                                          fontFamily: 'simula',
+                                          fontStyle: 'normal',
+                                          fontSize: { base: 'sm', lg: 'lg' }
+                                      }
+                            ),
+                            paragraphClasses
+                        )}
+                    >
+                        {children}
+                    </p>
                 )
             },
             h4: ({ children }) => (
@@ -29,20 +59,58 @@ export function CustomPortableText({ paragraphClasses, value }: { paragraphClass
         },
         marks: {
             em: ({ children }) => (
-                <em className={cx(css({ fontFamily: 'simula', fontStyle: 'italic', fontSize: { base: 'sm', lg: 'lg' } }), paragraphClasses)}>{children}</em>
+                <em
+                    className={cx(
+                        css(
+                            isContactVariant
+                                ? {
+                                      fontFamily: 'neueMontreal',
+                                      fontStyle: 'italic',
+                                      fontSize: { base: 'sm', lg: 'lg' },
+                                      fontWeight: '700',
+                                      textTransform: 'uppercase'
+                                  }
+                                : {
+                                      fontFamily: 'simula',
+                                      fontStyle: 'italic',
+                                      fontSize: { base: 'sm', lg: 'lg' }
+                                  }
+                        ),
+                        paragraphClasses
+                    )}
+                >
+                    {children}
+                </em>
             ),
             link: ({ children, value }) => {
+                const isExternal = typeof value?.href === 'string' && /^https?:\/\//.test(value.href)
+
                 return (
                     <a
-                        className={css({
-                            textDecorationLine: 'underline',
-                            transitionProperty:
-                                'color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter',
-                            transitionTimingFunction: 'transition',
-                            transitionDuration: 'transition',
-                            _hover: { opacity: '0.5' }
-                        })}
+                        className={css(
+                            isContactVariant
+                                ? {
+                                      textDecorationLine: 'underline',
+                                      textUnderlineOffset: '4px',
+                                      textDecorationThickness: '1.5px',
+                                      transitionProperty:
+                                          'color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter',
+                                      transitionTimingFunction: 'transition',
+                                      transitionDuration: 'transition',
+                                      _hover: { color: 'hover' },
+                                      _active: { color: 'active' }
+                                  }
+                                : {
+                                      textDecorationLine: 'underline',
+                                      transitionProperty:
+                                          'color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter',
+                                      transitionTimingFunction: 'transition',
+                                      transitionDuration: 'transition',
+                                      _hover: { opacity: '0.5' }
+                                  }
+                        )}
                         href={value?.href}
+                        target={isExternal ? '_blank' : undefined}
                         rel="noreferrer noopener"
                     >
                         {children}

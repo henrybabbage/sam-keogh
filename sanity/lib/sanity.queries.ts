@@ -99,6 +99,7 @@ export const contactPageQuery = groq`
     email,
     gallery,
     instagram,
+    siteCredit,
   }
 `
 

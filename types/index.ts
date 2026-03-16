@@ -119,6 +119,7 @@ export type ContactPagePayload = {
     email: string
     instagram: LinkProps
     gallery: LinkProps
+    siteCredit?: PortableTextBlock[]
 }
 
 export type ThemeProps = {

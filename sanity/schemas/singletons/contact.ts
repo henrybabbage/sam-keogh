@@ -40,6 +40,11 @@ export default defineType({
             name: 'gallery',
             title: 'Gallery',
             type: 'link'
+        }),
+        defineField({
+            name: 'siteCredit',
+            title: 'Site credit',
+            type: 'simpleBlockContent'
         })
     ]
 })
