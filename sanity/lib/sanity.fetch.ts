@@ -19,6 +19,7 @@ export const token = process.env.SANITY_API_READ_TOKEN
 
 const DEFAULT_PARAMS = {} as QueryParams
 const DEFAULT_TAGS = [] as string[]
+const DEFAULT_REVALIDATE = 300
 
 export async function sanityFetch<QueryResponse>({
     query,
@@ -30,9 +31,8 @@ export async function sanityFetch<QueryResponse>({
     tags: string[]
 }): Promise<QueryResponse> {
     return client.fetch<QueryResponse>(query, params, {
-        cache: 'no-store',
         next: {
-            // revalidate: 30, // for simple, time-based revalidation
+            revalidate: DEFAULT_REVALIDATE,
             tags // for tag-based revalidation
         }
     })

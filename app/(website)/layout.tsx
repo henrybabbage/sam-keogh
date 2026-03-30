@@ -8,7 +8,6 @@ import { getTheme } from '@/sanity/lib/sanity.fetch'
 import { GoogleTagManager } from '@next/third-parties/google'
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
-import { create } from 'zustand'
 import './index.css'
 
 const neueMontreal = localFont({
@@ -35,6 +34,7 @@ const neueMontreal = localFont({
         }
     ],
     display: 'swap',
+    preload: false,
     variable: '--font-neue-montreal'
 })
 
@@ -52,6 +52,7 @@ const simula = localFont({
         }
     ],
     display: 'swap',
+    preload: false,
     variable: '--font-simula'
 })
 
@@ -63,16 +64,13 @@ export const metadata: Metadata = {
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
     const data = await getTheme()
 
-    const { backgroundColor, fontColor, typefaceSerif, typefaceSansSerif } = data ?? {}
+    const { backgroundColor, fontColor } = data ?? {}
 
     const fallbackColor = '#000000'
     const color = fontColor?.value ?? fallbackColor
 
-    const useThemeStore = create(() => ({ backgroundColor: backgroundColor }))
-    const bg = useThemeStore.getState().backgroundColor
-
     const backgroundFallback = '#fff1e5'
-    const background = bg?.value ?? backgroundFallback
+    const background = backgroundColor?.value ?? backgroundFallback
 
     return (
         <html suppressHydrationWarning lang="en" className={`${simula.variable} ${neueMontreal.variable}`}>
